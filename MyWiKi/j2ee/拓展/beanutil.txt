@@ -1,0 +1,33 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-04-17T09:09:32+08:00
+
+====== beanutil ======
+Created 星期二 17 四月 2018
+
+由apache提供的自动化的转bean
+下载jar包 commons-beanutils
+
+首先存在一个map 存放的键值对必须和要封装的bean里的名字一样，
+	调用Beanutils.populate(bean,map);
+
+由于map里的都是键值对，bean里的同名可能是其他类型，如int 但是会自动转为int
+如果是Date 复杂类型，那么不可以自动转换，需要手动指定转换器
+
+例子：ConvertUtils.register(new Converter() {	//注册选择器
+				@Override
+				public Object convert(Class aClass, Object o) {
+					//string to date
+					SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+					Date parse = null;
+					try {
+						parse = format.parse((String) o);
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+					return parse;
+				}
+			}, Date.class);
+
+
+API：BeanUtils.copyProperties（）

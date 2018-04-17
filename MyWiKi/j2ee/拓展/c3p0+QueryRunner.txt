@@ -1,0 +1,144 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-04-16T12:47:37+08:00
+
+====== c3p0+QueryRunner ======
+创建日期 星期一 16 四月 2018
+
+c3p0也是apache提供的，作为数据库连接管理
+
+1：需要在src目录下配置c3p0-config.xml
+	代码内容如下：
+	<?xml version='1.0' encoding='UTF-8'?>
+	
+	<c3p0-config>
+		<default-config>
+			<property name="user">tr</property>
+			<property name="password">0800</property>
+			<property name="driverClass">com.mysql.jdbc.Driver</property>
+			<property name="jdbcUrl">jdbc:mysql://192.168.52.131:3306/javaee</property>
+		</default-config>
+	</c3p0-config>
+2：导入jar包
+3：使用提供的API编写一个工具类方便后期使用
+	package C3p0Learn;
+	import java.sql.Connection;
+	import java.sql.ResultSet;
+	import java.sql.SQLException;
+	import java.sql.Statement;
+	import javax.sql.DataSource;
+	import com.mchange.v2.c3p0.ComboPooledDataSource;
+	
+	public class DataSourceUtil {
+	
+		private static DataSource dataSource = new ComboPooledDataSource();
+	
+		private static ThreadLocal<Connection> tl = new ThreadLocal<Connection>();
+	
+		// 直接可以获取一个连接池
+		public static DataSource getDataSource() {
+			return dataSource;
+		}
+	
+		// 获取连接对象
+		public static Connection getConnection() throws SQLException {
+	
+			Connection con = tl.get();
+			if (con == null) {
+				con = dataSource.getConnection();
+				tl.set(con);
+			}
+			return con;
+		}
+	
+		// 开启事务
+		public static void startTransaction() throws SQLException {
+			Connection con = getConnection();
+			if (con != null) {
+				con.setAutoCommit(false);
+			}
+		}
+	
+		// 事务回滚
+		public static void rollback() throws SQLException {
+			Connection con = getConnection();
+			if (con != null) {
+				con.rollback();
+			}
+		}
+	
+		// 提交并且 关闭资源及从ThreadLocall中释放
+		public static void commitAndRelease() throws SQLException {
+			Connection con = getConnection();
+			if (con != null) {
+				con.commit(); // 事务提交
+				con.close();// 关闭资源
+				tl.remove();// 从线程绑定中移除
+			}
+		}
+	
+		// 关闭资源方法
+		public static void closeConnection() throws SQLException {
+			Connection con = getConnection();
+			if (con != null) {
+				con.close();
+			}
+		}
+	
+		public static void closeStatement(Statement st) throws SQLException {
+			if (st != null) {
+				st.close();
+			}
+		}
+	
+		public static void closeResultSet(ResultSet rs) throws SQLException {
+			if (rs != null) {
+				rs.close();
+			}
+		}
+	
+	}
+
+4:至此可以使用此工具类直接获得数据库连接
+
+QueryRunner配置
+1：导入jar包 自行百度
+2：直接使用就行了，很简单 下面是例子
+	
+	它主要有三个方法
+	　　query() 用于执行select
+	　　update() 用于执行insert/update/delete
+	　　batch() 批处理
+	
+	//查询所有图书
+	public List<Book> selectAllBooks() throws SQLException {
+		QueryRunner qr = new QueryRunner(C3P0Utils.getDataSource());
+		return qr.query("select * from books", new BeanListHandler<Book>(Book.class));
+	}
+	
+	//根据id查询指定的书
+	public Book selectBookById(String id) throws SQLException {
+		QueryRunner qr = new QueryRunner(C3P0Utils.getDataSource());
+		return qr.query("select * from books where id=?", new BeanHandler(Book.class),**id**);
+	}
+	
+	public List<User> **select**(String sql,List<Object> list) {
+		   //创建QueryRunner
+			 QueryRunner qr=BaseUtils.getQueryRunner();
+			 try {
+			//第一个参数是传来的sql，第二个是实现实体类的设置，第三个是集合转化为数组
+			 return qr.query(sql, new BeanListHandler<User>(User.class), list.toArray());
+	        
+		   } catch (Exception e) {
+				e.printStackTrace();
+		   }
+		  return null;
+	 }
+	//使用：	StringBuilder sql=new StringBuilder("select * from user where 1=1 ");
+			List<Object> list=new ArrayList<Object>();
+			sql.append(" and id = ? ");
+			sql.append(" and name like ? ");
+			list.add(user.getId());
+			list.add("%"+user.getName()+"%");
+			dao.**select**(sql.toString(), list);
+

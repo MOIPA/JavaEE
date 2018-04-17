@@ -1,0 +1,15 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-04-17T14:29:34+08:00
+
+====== ArchLinux配置mysql ======
+Created 星期二 17 四月 2018
+
+按照官网
+	1. pacman -S mariadb libmariaclient mariadb-client
+	2. 安装好包后需要初始化mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql  失败：找不到./bin/my_default_print 使用which定位下这个文件是否在/usr/bin下，确定/var/lib/内容归属者是否是mysql,如果不是用chown [[mysql:mysql]] [[/var/lib/mysql]] -R
+	3. 配置远程连接,默认是不让远程主机连接，配置ssh : vim [[/etc/ssh/sshd_config]] 百度下
+	4. 启动数据库，systemctl restart mariadb 
+	5. 启动ssh服务，systemctl restart sshd
+	6. 配置mysql在/etc/mysql/my.cnf
+	7. 配置静态ip：关掉dhcpcd.service，然后用他的/etc/netctl/example里静态ip修改成自己的，复制到/etc/netctl 下,执行netctl enable xxxx xxxx就是你复制过来的配置文件。
