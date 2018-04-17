@@ -1,0 +1,25 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="JavaEE_2:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/JavaEE_2_war_exploded</output-path>
+    <root id="archive" name="JavaEE_2_war exploded.war">
+      <element id="javaee-facet-resources" facet="JavaEE_2/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="JavaEE_2" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="jstl" />
+          <element id="library" level="project" name="standard" />
+          <element id="file-copy" path="$PROJECT_DIR$/Jar/commons-logging-1.1.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/Jar/commons-beanutils-1.8.3.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/Jar/c3p0-0.9.1.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/Jar/mysql-connector-java-5.0.4-bin.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/Jar/commons-dbutils-1.4.jar" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
