@@ -1,0 +1,12 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-04-18T16:41:35+08:00
+
+====== JQValidate插件 ======
+Created 星期三 18 四月 2018
+
+奇怪的是在jsp里面导入的时候，
+<script src=".."></script>可以<script src=".." />不可以
+
+<script src="${pageContext.request.contextPath}/js/..."></script>
+${pageContext.request.contextPath}为部署的目录名字
