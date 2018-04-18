@@ -10,3 +10,34 @@ Created 星期三 18 四月 2018
 
 <script src="${pageContext.request.contextPath}/js/..."></script>
 ${pageContext.request.contextPath}为部署的目录名字
+
+	 $(function(){
+				$("#myform").validate({
+					rules:{
+						"uname":{
+							"required":true
+						}
+					},
+					messages:{
+						"uname":{
+							"required":"请输入名字"
+						}
+					}
+				});
+			});
+	
+	<form id="myform">
+			<input type="text" placeholder="name" name="uname">
+			<br />
+			<input type="submit" value="submit">
+		</form>
+
+控制样式：可以通过chrome调试查看class属性 然后再修改
+例如：.error{
+		[[color:red]];
+	}
+	
+其他rules: reangelength:[6,12] 可以再菜鸟网站获得
+
+自定义表单验证规则
+
