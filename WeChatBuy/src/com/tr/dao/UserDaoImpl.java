@@ -36,4 +36,16 @@ public class UserDaoImpl implements UserDao{
         }
         return false;
     }
+
+    @Override
+    public int signUpAcocunt(User user) {
+        String sql = "insert into account(phone,password,account,email,identity)values(?,?,?,?,?)";
+        try {
+            int update = queryRunner.update(sql, user.getPhone(), user.getPassword(), user.getAccount(), user.getEmail(), user.getIdentity());
+            return update;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
 }

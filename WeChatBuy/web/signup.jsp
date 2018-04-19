@@ -97,15 +97,16 @@
         <div class="container">
             <h1>Welcome</h1>
 
-            <form class="form" id="loginform">
+            <form class="form" id="loginform" action="${pageContext.request.contextPath}/signUp" method="post">
                 <input type="text" placeholder="账号" name="account" id="account">
                 <input type="password" placeholder="密码" name="password" id="password">
                 <input type="password" placeholder="确认密码" name="confirmPassword" id="confirmPassword">
                 <input type="text" placeholder="邮箱" name="email" id="email">
                 <input type="text" placeholder="手机" name="phone" id="phone">
-
+                <input type="radio" name="identity" id="identity1" value="commonuser" >普通用户
+                <input type="radio" name="identity" id="identity2" value="seller" >商家
                 <br/>
-                <button type="submit" id="login-button">登陆</button>
+                <button type="submit" id="login-button">注册</button>
 
             </form>
         </div>

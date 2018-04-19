@@ -7,4 +7,5 @@ import java.util.List;
 public interface UserDao {
     public List<User> getUserList();
     public boolean checkUserAccount(String username);
+    public int signUpAcocunt(User user);
 }
