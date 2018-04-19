@@ -10,6 +10,7 @@
 <head>
     <title>注册</title>
     <link href="${pageContext.request.contextPath}/css/sign.css" rel="stylesheet"/>
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet"/>
     <script src="${pageContext.request.contextPath}/js/jquery-1.9.1.js"></script>
     <script src="${pageContext.request.contextPath}/js/jquery.validate.js"></script>
     <script>
@@ -62,6 +63,9 @@
                    "phone":{
                        "required":true,
                        "rangelength": [11, 11]
+                   },
+                   "identity":{
+                       "required":true
                    }
                },
                messages:{
@@ -86,6 +90,9 @@
                    "phone":{
                        "required":"手机号不能为空",
                        "rangelength": "手机号格式不正确"
+                   },
+                   "identity":{
+                       "required":"请选择身份"
                    }
                }
            });
@@ -103,8 +110,15 @@
                 <input type="password" placeholder="确认密码" name="confirmPassword" id="confirmPassword">
                 <input type="text" placeholder="邮箱" name="email" id="email">
                 <input type="text" placeholder="手机" name="phone" id="phone">
-                <input type="radio" name="identity" id="identity1" value="commonuser" >普通用户
-                <input type="radio" name="identity" id="identity2" value="seller" >商家
+
+                <label class="radio-inline">
+                    <input type="radio" name="identity" id="identity2" value="seller" style="float: left">商家
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="identity" id="identity1" value="commonuser" checked="checked" style="float: left">普通用户
+                </label>
+                <%--<label class="error" for="identity" style="display:none ">您没有第三种选择</label>--%>
+
                 <br/>
                 <button type="submit" id="login-button">注册</button>
 

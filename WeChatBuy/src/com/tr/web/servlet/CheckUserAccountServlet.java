@@ -1,4 +1,4 @@
-package com.tr.web;
+package com.tr.web.servlet;
 
 import com.tr.service.UserServiceImpl;
 
