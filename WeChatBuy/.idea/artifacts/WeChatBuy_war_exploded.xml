@@ -20,6 +20,7 @@
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/mail.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-5.0.4-bin.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/standard.jar" />
+          <element id="library" level="module" name="JUnit4" module-name="WeChatBuy" />
         </element>
       </element>
     </root>

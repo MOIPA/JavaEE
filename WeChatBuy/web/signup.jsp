@@ -35,13 +35,16 @@
                         flag=data.isAccountExist;
                     }
                 });
+
+                return !flag;
             });
 
            $("#loginform").validate({
                rules:{
                    "account":{
                        "rangelength":[5,11],
-                       "required":true
+                       "required":true,
+                       "CheckUser":true
                    },
                    "password":{
                        "rangelength":[5,10],
@@ -64,7 +67,8 @@
                messages:{
                    "account":{
                        "rangelength": "账号需要在5到11位之间",
-                       "required":"账号不能为空"
+                       "required":"账号不能为空",
+                       "CheckUser":"用户已注册"
                    },
                     "password":{
                         "rangelength":"密码需要在5-10位之间",

@@ -20,11 +20,31 @@
             $('.wrapper').addClass('form-success');
         });
         $(function(){
+
+            $.validator.addMethod(
+                "CheckUser",
+            function(value,element,params){
+                var flag=false;
+                $.ajax({
+                    "url":"${pageContext.request.contextPath}/CheckUserName",
+                    "async":false,
+                    "data":{"username":value},
+                    "dataType":"json",
+                    "type":"POST",
+                    "success":function (data) {
+                        flag=data.isAccountExist;
+                    }
+                });
+
+                return !flag;
+            });
+
            $("#loginform").validate({
                rules:{
                    "account":{
                        "rangelength":[5,11],
-                       "required":true
+                       "required":true,
+                       "CheckUser":true
                    },
                    "password":{
                        "rangelength":[5,10],
@@ -47,7 +67,8 @@
                messages:{
                    "account":{
                        "rangelength": "账号需要在5到11位之间",
-                       "required":"账号不能为空"
+                       "required":"账号不能为空",
+                       "CheckUser":"用户已注册"
                    },
                     "password":{
                         "rangelength":"密码需要在5-10位之间",
