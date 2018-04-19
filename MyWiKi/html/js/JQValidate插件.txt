@@ -34,7 +34,7 @@ ${pageContext.request.contextPath}为部署的目录名字
 
 控制样式：可以通过chrome调试查看class属性 然后再修改
 例如：.error{
-		[[color:red]];
+		color:red;
 	}
 	
 其他rules: reangelength:[6,12] 可以再菜鸟网站获得
