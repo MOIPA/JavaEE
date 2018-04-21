@@ -11,5 +11,5 @@ public interface UserService {
 
     public boolean signUpAcocunt(User user);
 
-    String signInAccount(String account, String password);
+    User signInAccount(String account, String password);
 }

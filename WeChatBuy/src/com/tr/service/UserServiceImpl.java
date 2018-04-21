@@ -28,10 +28,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String signInAccount(String account, String password) {
-        String com = userDao.signInAccount(account, password);
-        if(com!=""&&com!=null){
-            return com;
+    public User signInAccount(String account, String password) {
+        User user = userDao.signInAccount(account, password);
+        if(user!=null){
+            return user;
         }
         return null;
     }

@@ -15,59 +15,60 @@
     <script>
         $("#login-button").click(function(event){
             event.preventDefault();
+
             $('form').fadeOut(500);
             $('.wrapper').addClass('form-success');
         });
         $(function(){
-           $("#loginform").validate({
-               rules:{
-                   "account":{
-                       "required":true
-                   },
-                   "password":{
-                       "required":true
-                   }
-               },
-               messages:{
-                   "account":{
-                       "required":"密码不能为空"
-                   },
+            $("#loginform").validate({
+                rules:{
+                    "account":{
+                        "required":true
+                    },
+                    "password":{
+                        "required":true
+                    }
+                },
+                messages:{
+                    "account":{
+                        "required":"密码不能为空"
+                    },
                     "password":{
                         "required":"账号不能为空"
                     }
-               }
-           });
+                }
+            });
         });
     </script>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="container">
-            <h1>Welcome</h1>
+<div class="wrapper">
+    <div class="container">
+        <h1>Welcome</h1>
 
-            <form class="form" id="loginform">
-                <input type="text" placeholder="account" name="account" id="account">
-                <label id="account-error" class="error" for="account" style="display: none">账号不能为空</label>
-                <input type="password" placeholder="password" name="password" id="password">
-                <label id="password-error" class="error" for="password" style="display: none">密码不能为空</label><br/>
-                <button type="submit" id="login-button">Login</button>
+        <form class="form" id="loginform" method="post" action="${pageContext.request.contextPath}/signIn">
+            <input type="text" placeholder="account" name="account" id="account">
+            <label id="account-error" class="error" for="account" style="display: none">账号不能为空</label>
+            <input type="password" placeholder="password" name="password" id="password">
+            <label id="password-error" class="error" for="password" style="display: none">密码不能为空</label><br/>
+            <button type="submit" id="login-button">Login</button>
 
-            </form>
-        </div>
-
-        <ul class="bg-bubbles">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+        </form>
     </div>
+
+    <ul class="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
 
 </body>
 </html>

@@ -8,6 +8,15 @@ public class User {
     private String identity;
     private String aid;
     private String uiconsrc;
+    private String cname;
+
+    public String getCname() {
+        return cname;
+    }
+
+    public void setCname(String cname) {
+        this.cname = cname;
+    }
 
     public String getAccount() {
         return account;

@@ -3,6 +3,7 @@ package com.tr.dao;
 import com.tr.domin.User;
 import com.tr.utils.BaseDataUtil;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
@@ -50,11 +51,13 @@ public class UserDaoImpl implements UserDao{
     }
 
     @Override
-    public String signInAccount(String account, String password) {
-        String sql = "select cname from account,community,userinfo where account.aid=userinfo.aid and userinfo.com=community.cid and account=? and password=?";
+    public User signInAccount(String account, String password) {
+        String sql = "select account,phone,password,email,identity,account.aid,uiconsrc,cname " +
+                "from account,community,userinfo " +
+                "where account.aid=userinfo.aid and userinfo.com=community.cid and account=? and password=?";
         try {
 //            System.out.println((int)(long)queryRunner.query(sql, new ScalarHandler(),account,password));
-            return (String) queryRunner.query(sql, new ScalarHandler(),account,password);
+            return queryRunner.query(sql, new BeanHandler<User>(User.class),account,password);
 
         } catch (SQLException e) {
             e.printStackTrace();

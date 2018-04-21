@@ -79,10 +79,13 @@ public class UserDaoImplTest {
 
     @Test
     public void testSignInAccount(){
-        String s = userDao.signInAccount("2栋杨阿姨", "123123");
-        String com = userService.signInAccount("2栋杨阿姨", "123123");
-        Assert.assertEquals("测试小区", s);
-        Assert.assertEquals("测试小区", com);
+//        String s = userDao.signInAccount("2栋杨阿姨", "123123");
+//        String com = userService.signInAccount("2栋杨阿姨", "123123");
+        User user = userService.signInAccount("2栋杨阿姨", "1231231");
+        Assert.assertEquals(null, user);
+//        Assert.assertEquals("测试小区", com);
+        user = userService.signInAccount("2栋杨阿姨", "123123");
+        System.out.println(user.getCname()+user.getIdentity());
     }
 
 
