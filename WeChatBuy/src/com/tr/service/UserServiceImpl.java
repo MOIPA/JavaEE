@@ -26,4 +26,13 @@ public class UserServiceImpl implements UserService {
         boolean isSuccess = dataLen>0? true:false;
         return isSuccess;
     }
+
+    @Override
+    public String signInAccount(String account, String password) {
+        String com = userDao.signInAccount(account, password);
+        if(com!=""&&com!=null){
+            return com;
+        }
+        return null;
+    }
 }

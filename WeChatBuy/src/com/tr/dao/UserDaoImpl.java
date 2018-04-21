@@ -48,4 +48,17 @@ public class UserDaoImpl implements UserDao{
         }
         return -1;
     }
+
+    @Override
+    public String signInAccount(String account, String password) {
+        String sql = "select cname from account,community,userinfo where account.aid=userinfo.aid and userinfo.com=community.cid and account=? and password=?";
+        try {
+//            System.out.println((int)(long)queryRunner.query(sql, new ScalarHandler(),account,password));
+            return (String) queryRunner.query(sql, new ScalarHandler(),account,password);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

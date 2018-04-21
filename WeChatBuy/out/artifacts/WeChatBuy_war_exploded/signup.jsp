@@ -10,7 +10,7 @@
 <head>
     <title>注册</title>
     <link href="${pageContext.request.contextPath}/css/sign.css" rel="stylesheet"/>
-    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet"/>
     <script src="${pageContext.request.contextPath}/js/jquery-1.9.1.js"></script>
     <script src="${pageContext.request.contextPath}/js/jquery.validate.js"></script>
     <script>
