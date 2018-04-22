@@ -1,5 +1,6 @@
 package test.com.tr.dao; 
 
+import com.google.gson.Gson;
 import com.tr.dao.OrderDao;
 import com.tr.dao.UserDaoImpl;
 import com.tr.domin.Order;
@@ -13,6 +14,7 @@ import org.junit.Before;
 import org.junit.After;
 
 import java.util.List;
+import java.util.Map;
 
 /** 
 * UserDaoImpl Tester. 
@@ -86,6 +88,16 @@ public class UserDaoImplTest {
 //        Assert.assertEquals("测试小区", com);
         user = userService.signInAccount("2栋杨阿姨", "123123");
         System.out.println(user.getCname()+user.getIdentity());
+    }
+    @Test
+    public void testGetAllCommunity(){
+        List<Map<String, Object>> allCommunity = userDao.getAllCommunity();
+        Gson gson = new Gson();
+        String s = gson.toJson(allCommunity);
+        System.out.println(s);
+        String allCommunity1 = userService.getAllCommunity();
+        System.out.println(allCommunity1);
+
     }
 
 

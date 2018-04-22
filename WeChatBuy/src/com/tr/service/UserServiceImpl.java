@@ -1,5 +1,6 @@
 package com.tr.service;
 
+import com.google.gson.Gson;
 import com.tr.dao.UserDao;
 import com.tr.dao.UserDaoImpl;
 import com.tr.domin.User;
@@ -34,5 +35,11 @@ public class UserServiceImpl implements UserService {
             return user;
         }
         return null;
+    }
+
+    @Override
+    public String getAllCommunity() {
+        Gson gson = new Gson();
+        return gson.toJson(userDao.getAllCommunity());
     }
 }

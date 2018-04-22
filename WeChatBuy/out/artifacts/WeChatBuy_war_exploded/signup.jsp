@@ -34,12 +34,27 @@
     <script>
         $("#login-button").click(function(event){
             event.preventDefault();
-
             $('form').fadeOut(500);
             $('.wrapper').addClass('form-success');
         });
 
-
+        $(function(){
+            // alert(document.getElementById("community").innerHTML);
+            $.ajax({
+                "url":"${pageContext.request.contextPath}/GetCommunity",
+                "dataType":"json",
+                "type":"POST",
+                "success":function(data){
+                    for(var i=0;i<data.length;i++) {
+                        $("#community").append("<option value=\""+data[i].cid+"\">"+data[i].cname+"</option>");
+                    }
+                    // alert(content);
+                    $('#community').selectpicker('refresh');
+                    $('#community').selectpicker('render');
+                    // alert(document.getElementById("community").innerHTML);
+                }
+            });
+        });
 
         $(function(){
 
@@ -152,11 +167,11 @@
                     </select>
                 <label id="identity-error" class="error error_label_selector" for="identity">请选择身份</label>
                     <div style="height: 10px;width: 100%"></div>
-                    <select name="community" class="selectpicker" title="社区选择"  data-style="btn-info" style="color: #ffffff;">
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="fiat">Fiat</option>
-                        <option value="audi">Audi</option>
+                    <select name="community" id="community" class="selectpicker" title="社区选择"  data-style="btn-info" style="color: #ffffff;">
+                        <%--<option value="volvo">Volvo</option>--%>
+                        <%--<option value="saab">Saab</option>--%>
+                        <%--<option value="fiat">Fiat</option>--%>
+                        <%--<option value="audi">Audi</option>--%>
                     </select>
                 <label id="community-error" class="error error_label_selector" for="community">请选择社区</label>
                 <%--</div>--%>

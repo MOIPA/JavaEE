@@ -12,4 +12,6 @@ public interface UserService {
     public boolean signUpAcocunt(User user);
 
     User signInAccount(String account, String password);
+
+    String getAllCommunity();
 }

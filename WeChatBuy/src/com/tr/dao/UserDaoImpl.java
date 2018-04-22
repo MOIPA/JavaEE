@@ -5,11 +5,12 @@ import com.tr.utils.BaseDataUtil;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.MapListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class UserDaoImpl implements UserDao{
 
@@ -59,6 +60,17 @@ public class UserDaoImpl implements UserDao{
 //            System.out.println((int)(long)queryRunner.query(sql, new ScalarHandler(),account,password));
             return queryRunner.query(sql, new BeanHandler<User>(User.class),account,password);
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Map<String, Object>> getAllCommunity() {
+        String sql = "select * from community";
+        try {
+            return queryRunner.query(sql, new MapListHandler());
         } catch (SQLException e) {
             e.printStackTrace();
         }
