@@ -42,9 +42,15 @@ public class UserDaoImpl implements UserDao{
     @Override
     public int signUpAcocunt(User user) {
         String sql = "insert into account(phone,password,account,email,identity)values(?,?,?,?,?)";
+        String getAidSql = "select aid from account where account=?";
+        String updateCommunitySql = "insert into userinfo(aid,com)values(?,?)";
         try {
             int update = queryRunner.update(sql, user.getPhone(), user.getPassword(), user.getAccount(), user.getEmail(), user.getIdentity());
-            return update;
+            int aid = (int)queryRunner.query(getAidSql, new ScalarHandler(),user.getAccount());
+            int updateCommunity = queryRunner.update(updateCommunitySql, aid, user.getCname());
+            if (update > 0 && updateCommunity> 0) {
+                return 1;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

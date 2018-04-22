@@ -103,7 +103,7 @@
                    "identity":{
                        "required":true
                    },
-                   "community":{
+                   "cname":{
                        "required":true
                    }
                },
@@ -133,7 +133,7 @@
                    "identity":{
                        "required":"请选择身份"
                    },
-                   "community":{
+                   "cname":{
                        "required":"请选择社区"
                    }
                }

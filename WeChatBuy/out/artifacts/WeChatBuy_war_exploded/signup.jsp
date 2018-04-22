@@ -103,7 +103,7 @@
                    "identity":{
                        "required":true
                    },
-                   "community":{
+                   "cname":{
                        "required":true
                    }
                },
@@ -133,7 +133,7 @@
                    "identity":{
                        "required":"请选择身份"
                    },
-                   "community":{
+                   "cname":{
                        "required":"请选择社区"
                    }
                }
@@ -167,7 +167,7 @@
                     </select>
                 <label id="identity-error" class="error error_label_selector" for="identity">请选择身份</label>
                     <div style="height: 10px;width: 100%"></div>
-                    <select name="community" id="community" class="selectpicker" title="社区选择"  data-style="btn-info" style="color: #ffffff;">
+                    <select name="cname" id="community" class="selectpicker" title="社区选择"  data-style="btn-info" style="color: #ffffff;">
                         <%--<option value="volvo">Volvo</option>--%>
                         <%--<option value="saab">Saab</option>--%>
                         <%--<option value="fiat">Fiat</option>--%>

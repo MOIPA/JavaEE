@@ -34,9 +34,9 @@ public class SignUpServlet extends HttpServlet {
 
         resp.setCharacterEncoding("utf-8");
         //成功回到首页
-        if(isSign){ resp.sendRedirect(req.getContextPath() + "/index.jsp");}
+        if(isSign){ resp.sendRedirect(req.getContextPath() + "/signin.jsp");}
         //失败返回注册
-        else { resp.sendRedirect(req.getContextPath() + "/signup.jsp");}
+        else { resp.sendRedirect(req.getContextPath() + "/signin.jsp");}
 
     }
 }
