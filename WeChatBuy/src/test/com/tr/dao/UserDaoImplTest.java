@@ -1,12 +1,11 @@
 package test.com.tr.dao; 
 
 import com.google.gson.Gson;
-import com.tr.dao.OrderDao;
+import com.tr.dao.OrderDaoImpl;
 import com.tr.dao.UserDaoImpl;
 import com.tr.domin.Order;
 import com.tr.domin.User;
 import com.tr.service.OrderService;
-import com.tr.service.UserService;
 import com.tr.service.UserServiceImpl;
 import org.junit.Assert;
 import org.junit.Test;
@@ -28,14 +27,14 @@ public class UserDaoImplTest {
     private UserDaoImpl userDao = null;
     private UserServiceImpl userService = null;
 
-    private OrderDao orderDao = null;
+    private OrderDaoImpl orderDao = null;
     private OrderService orderService = null;
 
     @Before
     public void before() throws Exception {
         userDao = new UserDaoImpl();
         userService = new UserServiceImpl();
-        orderDao = new OrderDao();
+        orderDao = new OrderDaoImpl();
         orderService = new OrderService();
     }
 
