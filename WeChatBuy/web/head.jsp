@@ -31,17 +31,24 @@
         <ul>
             <li><a href="${pageContext.request.contextPath}/index">主页</a></li>
             <li><a href="#">关于</a></li>
-            <li><a href="#">发布订单</a>
+            <li><a href="#">发布</a>
                 <ul id="submenu">
-                    <li><a href="#">个人订单</a></li>
-                    <li><a href="#">商家订单</a></li>
+                    <li><a href="${pageContext.request.contextPath}/postorder">订单</a></li>
+                    <li><a href="${pageContext.request.contextPath}/postactivity">活动</a></li>
                 </ul>
             </li>
             <li><a href="#">新闻</a></li>
             <li><a href="#">联系我们</a></li>
         </ul>
     </nav>
+    <button id="btn_signoff" class="btn-block btn-danger" style="float: right;margin-right: 30px;width: 60px;height: 38px;border-radius: 5px;margin-top: 10px;">注销</button>
     <%--</div>--%>
 </div>
 </body>
+<script>
+    var signOffBtn = document.getElementById("btn_signoff");
+    signOffBtn.onclick = function(){
+        window.location.replace("${pageContext.request.contextPath}/signoff");
+    };
+</script>
 </html>

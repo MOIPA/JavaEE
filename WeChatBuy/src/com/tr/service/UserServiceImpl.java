@@ -42,4 +42,9 @@ public class UserServiceImpl implements UserService {
         Gson gson = new Gson();
         return gson.toJson(userDao.getAllCommunity());
     }
+
+    @Override
+    public boolean signoff() {
+        return false;
+    }
 }

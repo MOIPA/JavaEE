@@ -14,4 +14,6 @@ public interface UserService {
     User signInAccount(String account, String password);
 
     String getAllCommunity();
+
+    boolean signoff();
 }
