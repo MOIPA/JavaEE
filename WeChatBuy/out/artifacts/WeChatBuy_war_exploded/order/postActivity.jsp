@@ -18,6 +18,7 @@
     <title></title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css" />
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.validate.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
     <script src="${pageContext.request.contextPath}/js/ssi-uploaderV1.5.js"></script>
     <script src="${pageContext.request.contextPath}/js/ssi-modal.js"></script>
@@ -29,30 +30,68 @@
 <div class="container">
     <div class="jumbotron">
         <h2>发布活动</h2>
-        <form role="form" enctype="multipart/form-data" action="${pageContext.request.contextPath}/postactivity" method="post">
+        <form role="form" id="postActivityForm" action="${pageContext.request.contextPath}/postactivity" method="post">
             <div class="form-group">
                 <label for="theme">主题</label>
-                <input type="text" class="form-control" id="theme" placeholder="请输入主题">
+                <input type="text" class="form-control" name="theme" id="theme" placeholder="请输入主题">
             </div>
             <div class="form-group">
                 <label for="endtime">截至日期</label>
-                <input type="text" class="form-control" id="endtime" placeholder="请输入日期">
+                <input type="text" class="form-control" name="endtime" id="endtime" placeholder="请输入日期">
             </div>
             <div class="form-group">
                 <label for="desc">描述</label>
-                <input type="text" class="form-control" id="desc" placeholder="请输入描述">
+                <input type="text" class="form-control" name="desc" id="desc" placeholder="请输入描述">
             </div>
             <div class="form-group">
                 <label for="ssi-upload">上传图片</label>
                 <%--<input type="file" id="inputfile">--%>
                 <input type="file" name="ssi-upload" multiple id="ssi-upload"/>
-                <p class="help-block" >这里是块级帮助文本的实例。</p>
-                <input type="text" id="savedPicSrc" value="PicUrls:" style="display: none;">
+                <p class="help-block" >请选择产品描述图片</p>
+                <input type="text" name="savedPicSrc" id="savedPicSrc" value="PicUrls:" style="display: none;">
             </div>
 
             <input type="button" id="fake_submit" class="btn btn-primary btn-lg" value="提交">
             <button type="submit" id="true_submit" class="btn btn-primary btn-lg" style="display: none">提交</button>
         </form>
+
+        <script>
+            $(function () {
+                $("#postActivityForm").validate({
+                    rules:{
+                        "theme":{
+                            "required":true
+                        },
+                        "endtime":{
+                            "required":true
+                        },
+                        "desc":{
+                            "required":true
+                        },
+                        "savedPicSrc":{
+                            "required":true,
+                            "minlength":9
+                        }
+                    },
+                    messages:{
+                        "theme":{
+                            "required":"请输入主题"
+                        },
+                        "endtime":{
+                            "required":"请输入截至时间"
+                        },
+                        "desc":{
+                            "required":"请输入描述"
+                        },
+                        "savedPicSrc":{
+                            "required":"请上传图片",
+                            "minlength":"请上传图片"
+                        }
+                    }
+                });
+            });
+        </script>
+
         <script>
             var options;
             var currentStep=0;
@@ -110,9 +149,7 @@
                         modal.options.onShow();
                     }
                 };
-
                 ssi_modal.createObject(options).setPluginName('slideShow').init().show();
-
             };
 
             <%--$('#ssi-upload').ssi_uploader({--%>
@@ -120,8 +157,8 @@
             <%--});--%>
 
             var submitAllInfo = function () {
-                //回调成功点击提交按钮  500ms后提交 优化用户体验
-                setTimeout($("#true_submit").click(),2500);
+                //回调成功点击提交按钮  1500ms后提交 优化用户体验
+                setTimeout($("#true_submit").click(),1500);
                 // alert($("#savedPicSrc").val());
 
             };
@@ -135,7 +172,6 @@
                 onUpload: function () {
                     // submitAllInfo();
                     // alert("succeed");
-
                 }
                 // ,
                 // onEachUpload: function (fileInfo) {
@@ -173,6 +209,9 @@
 
             $("#ssi-uploadBtn").hide();
             $("#fake_submit").click(function () {
+                if(!$("#postActivityForm").valid()){
+                    return;
+                }
                $("#ssi-uploadBtn").click();
             });
         </script>

@@ -11,8 +11,11 @@ import java.io.IOException;
 public class PostActivityServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
-        String name = request.getParameter("name");
-        System.out.println("do post name is : " + name);
+        String theme = request.getParameter("theme");
+        String endtime = request.getParameter("endtime");
+        String desc = request.getParameter("desc");
+        String savedPicSrc = request.getParameter("savedPicSrc");
+        System.out.println( " : " + theme+" : " + endtime+" : " + desc+" : " + savedPicSrc);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

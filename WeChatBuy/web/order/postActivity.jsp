@@ -30,18 +30,18 @@
 <div class="container">
     <div class="jumbotron">
         <h2>发布活动</h2>
-        <form role="form" id="postActivityForm" enctype="multipart/form-data" action="${pageContext.request.contextPath}/postactivity" method="post">
+        <form role="form" id="postActivityForm" action="${pageContext.request.contextPath}/postactivity" method="post">
             <div class="form-group">
                 <label for="theme">主题</label>
-                <input type="text" class="form-control" id="theme" placeholder="请输入主题">
+                <input type="text" class="form-control" name="theme" id="theme" placeholder="请输入主题">
             </div>
             <div class="form-group">
                 <label for="endtime">截至日期</label>
-                <input type="text" class="form-control" id="endtime" placeholder="请输入日期">
+                <input type="text" class="form-control" name="endtime" id="endtime" placeholder="请输入日期">
             </div>
             <div class="form-group">
                 <label for="desc">描述</label>
-                <input type="text" class="form-control" id="desc" placeholder="请输入描述">
+                <input type="text" class="form-control" name="desc" id="desc" placeholder="请输入描述">
             </div>
             <div class="form-group">
                 <label for="ssi-upload">上传图片</label>
@@ -58,7 +58,36 @@
         <script>
             $(function () {
                 $("#postActivityForm").validate({
-                    
+                    rules:{
+                        "theme":{
+                            "required":true
+                        },
+                        "endtime":{
+                            "required":true
+                        },
+                        "desc":{
+                            "required":true
+                        },
+                        "savedPicSrc":{
+                            "required":true,
+                            "minlength":9
+                        }
+                    },
+                    messages:{
+                        "theme":{
+                            "required":"请输入主题"
+                        },
+                        "endtime":{
+                            "required":"请输入截至时间"
+                        },
+                        "desc":{
+                            "required":"请输入描述"
+                        },
+                        "savedPicSrc":{
+                            "required":"请上传图片",
+                            "minlength":"请上传图片"
+                        }
+                    }
                 });
             });
         </script>
@@ -120,9 +149,7 @@
                         modal.options.onShow();
                     }
                 };
-
                 ssi_modal.createObject(options).setPluginName('slideShow').init().show();
-
             };
 
             <%--$('#ssi-upload').ssi_uploader({--%>
@@ -145,7 +172,6 @@
                 onUpload: function () {
                     // submitAllInfo();
                     // alert("succeed");
-
                 }
                 // ,
                 // onEachUpload: function (fileInfo) {
@@ -183,6 +209,9 @@
 
             $("#ssi-uploadBtn").hide();
             $("#fake_submit").click(function () {
+                if(!$("#postActivityForm").valid()){
+                    return;
+                }
                $("#ssi-uploadBtn").click();
             });
         </script>
