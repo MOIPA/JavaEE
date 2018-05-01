@@ -583,12 +583,11 @@
 
                 var msg, title = '', dataType = 'error', spanClass = 'exclamation', data;
                 try {
-                    alert("data");
-                    alert("data"+$.parseJSON(responseData));
+                    // alert("data");
+                    // alert("data"+$.parseJSON(responseData));
                     data = $.parseJSON(responseData);
-                    alert("data is"+data);
-                    $("#savedPicSrc").val(data.data);
-                    $("#savedPicSrcROW").val(responseData);
+                    // alert("data is"+data);
+                    $("#savedPicSrc").val($("#savedPicSrc").val()+'||'+data);
                 } catch (err) {
                     data = responseData;
                 }
@@ -738,6 +737,7 @@
     };
 
     var finishUpload = function (thisS) {//when every uplaod ends
+
         thisS.$element.find('#ssi-abortBtn').addClass('ssi-hidden');
         if (!thisS.options.preview) {//display tha main message in the name preview
             var type = 'error', title = '', msg = '';
@@ -787,6 +787,8 @@
         thisS.totalProgress = [];
         thisS.currentListLength = getCurrentListLength(thisS);
         thisS.inProgress = 0;
+
+        submitAllInfo();
     };
 
     $.fn.ssi_uploader = function (opts) {

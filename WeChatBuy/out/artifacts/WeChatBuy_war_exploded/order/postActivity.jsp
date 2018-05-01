@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css" />
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
-    <script src="${pageContext.request.contextPath}/js/ssi-uploaderV1.3.js"></script>
+    <script src="${pageContext.request.contextPath}/js/ssi-uploaderV1.5.js"></script>
     <script src="${pageContext.request.contextPath}/js/ssi-modal.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/ssi-modal.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/ssi-uploader.css"/>
@@ -47,10 +47,8 @@
                 <%--<input type="file" id="inputfile">--%>
                 <input type="file" name="ssi-upload" multiple id="ssi-upload"/>
                 <p class="help-block" >这里是块级帮助文本的实例。</p>
-                <input type="text" id="savedPicSrc" value="returned data json">
-                <input type="text" id="savedPicSrcROW" value="returned data row">
+                <input type="text" id="savedPicSrc" value="PicUrls:" style="display: none;">
             </div>
-
 
             <input type="button" id="fake_submit" class="btn btn-primary btn-lg" value="提交">
             <button type="submit" id="true_submit" class="btn btn-primary btn-lg" style="display: none">提交</button>
@@ -121,10 +119,12 @@
             <%--url: 'http://localhost:8080/${pageContext.request.contextPath}/postorder'--%>
             <%--});--%>
 
-            var submitAllInfo = function(){
-                //回调成功点击提交按钮
-                // $("#true_submit").click();
-            }
+            var submitAllInfo = function () {
+                //回调成功点击提交按钮  500ms后提交 优化用户体验
+                setTimeout($("#true_submit").click(),2500);
+                // alert($("#savedPicSrc").val());
+
+            };
 
             $('#ssi-upload').ssi_uploader({
                 url: 'http://localhost:8080/${pageContext.request.contextPath}/savepic',locale: "zh_CN",
@@ -133,8 +133,8 @@
                 }
                 ,
                 onUpload: function () {
-                    submitAllInfo();
-                    // alert("succedd");
+                    // submitAllInfo();
+                    // alert("succeed");
 
                 }
                 // ,
