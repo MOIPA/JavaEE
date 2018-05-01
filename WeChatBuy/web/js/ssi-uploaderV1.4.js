@@ -464,6 +464,7 @@
 
         //--------------start of ajax request-----------------------
         function ajaxLoopRequest(formData, ii) {
+            // alert("get data");
             var selector = 'table.ssi-imgToUploadTable';
             if (!thisS.options.preview) {
                 selector = 'tr.ssi-toUploadTr'
@@ -577,10 +578,17 @@
                     }
                 }
             }, thisS.options.ajaxOptions);
+
             $.ajax(ajaxOptions).done(function (responseData, textStatus, jqXHR) {
+
                 var msg, title = '', dataType = 'error', spanClass = 'exclamation', data;
                 try {
+                    alert("data");
+                    alert("data"+$.parseJSON(responseData));
                     data = $.parseJSON(responseData);
+                    alert("data is"+data);
+                    $("#savedPicSrc").val(data.data);
+                    $("#savedPicSrcROW").val(responseData);
                 } catch (err) {
                     data = responseData;
                 }
@@ -615,7 +623,7 @@
                     } else {
                         uploadBar.addClass('ssi-canceledProgressBar');
                         if (thisS.options.preview) {
-                            msg = thisS.language.error;
+                            msg = thisS.language.error+"12311111111111111111111111111111111";
                         }
                         thisS.abortedWithError++;
                     }
@@ -909,7 +917,7 @@
             sucUpload: 'Envoi réussi',
             chooseFiles: 'Choisissez fichiers',
             uploadFailed: 'Envoi échoué',
-            serverError: 'Erreur interne du serveur',
+            serverError: '123123123',
             error: 'Erreur',
             abort: 'Annuler',
             aborted: 'Annulé',
