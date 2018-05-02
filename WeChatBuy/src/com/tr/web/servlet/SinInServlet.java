@@ -11,21 +11,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @WebServlet(name = "SignInServlet",urlPatterns = "/signIn")
 public class SinInServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Logger logger = Logger.getLogger("signIn");
+        logger.setLevel(Level.ALL);
         request.setCharacterEncoding("utf-8");
         String account = request.getParameter("account");
         String password = request.getParameter("password");
         UserService userService = new UserServiceImpl();
         User userInfo = userService.signInAccount(account, password);
-        if(userInfo!=null){
+        if (userInfo != null) {
             //得到用户的信息
             HttpSession session = request.getSession();
+            logger.info("sign in com : "+userInfo.getCname());
             session.setAttribute("userInfo", userInfo);
-            response.sendRedirect(request.getContextPath()+"/index");
-        }else{
+            response.sendRedirect(request.getContextPath() + "/index");
+        } else {
             response.sendRedirect(request.getContextPath() + "/signin.jsp");
         }
 //        if (isSign) response.sendRedirect(request.getContextPath() + "/index.jsp");

@@ -3,6 +3,7 @@ package com.tr.dao;
 import com.google.gson.Gson;
 import com.sun.deploy.net.HttpRequest;
 import com.tr.domin.Order;
+import com.tr.domin.PostOrderInfo;
 import com.tr.utils.BaseDataUtil;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
@@ -77,6 +78,7 @@ public class OrderDaoImpl {
 //            }
 //            List<FileItem> list = upload.parseRequest(request);
             urlLists = new ArrayList<String>();
+            urlLists.clear();
             for (FileItem item : list) {
                 if (item.isFormField()) {
                     //普通输入项
@@ -118,5 +120,13 @@ public class OrderDaoImpl {
 
         }
         return null;
+    }
+
+    public boolean uploadOrderInfo(PostOrderInfo postOrderInfo) {
+
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        String basicOrderSql = "insert into theorder(promulgatorid,com,ordercontent,posttime,ordertime,ordertheme)values(?,?,?,?,?,?)";
+
+        return false;
     }
 }

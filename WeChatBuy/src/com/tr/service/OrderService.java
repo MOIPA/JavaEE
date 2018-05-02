@@ -3,6 +3,7 @@ package com.tr.service;
 import com.google.gson.Gson;
 import com.tr.dao.OrderDaoImpl;
 import com.tr.domin.Order;
+import com.tr.domin.PostOrderInfo;
 import org.apache.commons.fileupload.FileItem;
 
 import javax.servlet.http.HttpServletRequest;
@@ -44,5 +45,14 @@ public class OrderService {
         String urlJson = gson.toJson(urls);
         logger.info("url Json:\n"+urlJson);
         return urlJson;
+    }
+
+    public void uploadOrderInfo(PostOrderInfo postOrderInfo) {
+
+        System.out.println(postOrderInfo.getSavedPicSrc()+"\n"+postOrderInfo.getCom()+"\n"+postOrderInfo.getEndtime()+"\n"+postOrderInfo.getDesc()+"\n"+
+        postOrderInfo.getPromulgatorid()+"\n"+postOrderInfo.getTheme()+"\n"+postOrderInfo.getPostTime());
+
+//        OrderDaoImpl orderDao = new OrderDaoImpl();
+//        orderDao.uploadOrderInfo(postOrderInfo);
     }
 }

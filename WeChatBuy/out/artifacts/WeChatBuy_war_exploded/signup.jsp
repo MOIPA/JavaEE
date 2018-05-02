@@ -46,6 +46,7 @@
                 "type":"POST",
                 "success":function(data){
                     for(var i=0;i<data.length;i++) {
+                        // alert(data[i].cname);
                         $("#community").append("<option value=\""+data[i].cid+"\">"+data[i].cname+"</option>");
                     }
                     // alert(content);
