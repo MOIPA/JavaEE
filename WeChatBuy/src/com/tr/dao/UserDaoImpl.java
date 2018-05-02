@@ -65,13 +65,7 @@ public class UserDaoImpl implements UserDao{
                 "where account.aid=userinfo.aid and userinfo.com=community.cid and account=? and password=?";
         try {
 //            System.out.println((int)(long)queryRunner.query(sql, new ScalarHandler(),account,password));
-            User user = queryRunner.query(sql, new BeanHandler<User>(User.class), account, password);
-            try {
-                System.out.println("user dao"+new String(user.getCname().getBytes(),"utf8")+"中文||"+user.getCname());
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-            return user;
+            return queryRunner.query(sql, new BeanHandler<User>(User.class), account, password);
         } catch (SQLException e) {
             e.printStackTrace();
         }

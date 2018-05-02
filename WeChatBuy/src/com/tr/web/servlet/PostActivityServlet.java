@@ -3,6 +3,7 @@ package com.tr.web.servlet;
 import com.tr.domin.PostOrderInfo;
 import com.tr.domin.User;
 import com.tr.service.OrderService;
+import com.tr.service.OrderServiceImpl;
 import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.ServletException;
@@ -48,8 +49,8 @@ public class PostActivityServlet extends HttpServlet {
         }
 //        System.out.println(postOrderInfo.getSavedPicSrc());
 
-        OrderService orderService = new OrderService();
-        orderService.uploadOrderInfo(postOrderInfo);
+        OrderService orderServiceImpl = new OrderServiceImpl();
+        orderServiceImpl.uploadOrderInfo(postOrderInfo);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

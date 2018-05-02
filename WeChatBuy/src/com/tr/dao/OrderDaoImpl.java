@@ -5,8 +5,11 @@ import com.sun.deploy.net.HttpRequest;
 import com.tr.domin.Order;
 import com.tr.domin.PostOrderInfo;
 import com.tr.utils.BaseDataUtil;
+import com.tr.utils.CommonUtil;
+import com.tr.utils.LogUtil;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -21,7 +24,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class OrderDaoImpl {
+public class OrderDaoImpl implements OrderDao{
     private List<Order> hotOrderList;
     private List<Order> newOrderList;
 
@@ -122,10 +125,35 @@ public class OrderDaoImpl {
         return null;
     }
 
-    public boolean uploadOrderInfo(PostOrderInfo postOrderInfo) {
+    public boolean uploadActivityInfo(PostOrderInfo postOrderInfo) {
 
+        List<String> urlList = CommonUtil.splitUrl(postOrderInfo.getSavedPicSrc());
         QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
         String basicOrderSql = "insert into theorder(promulgatorid,com,ordercontent,posttime,ordertime,ordertheme)values(?,?,?,?,?,?)";
+        String getOrderIdSql = "select orderid from theorder where promulgatorid=? and com=? and posttime=?";
+        String setStatusSql = "insert into orderstatus(orderid,orderstatus)values(?,?)";
+        try {
+            int update = queryRunner.update(basicOrderSql, postOrderInfo.getPromulgatorid(), postOrderInfo.getCom(), postOrderInfo.getDesc(), postOrderInfo.getPostTime()
+                    , postOrderInfo.getEndtime(), postOrderInfo.getTheme());
+            if (update > 0) {
+                //basic info insert succeed
+                LogUtil.initLog("order").info("insert basic order info succeed");
+                //next
+                int orderid = (int) (long) queryRunner.query(getOrderIdSql, new ScalarHandler(), postOrderInfo.getPromulgatorid(), postOrderInfo.getCom(), postOrderInfo.getPostTime());
+                LogUtil.initLog("order").info("order id goted : "+orderid);
+                //next
+                int orderStatus = queryRunner.update(setStatusSql, orderid, "活动");
+                if(orderStatus>0)LogUtil.initLog("order").info("order status setted");
+
+                for(int i=0;i<urlList.size();i++) {
+
+                }
+            }else{
+                LogUtil.initLog("order").info("insert basic order info error");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         return false;
     }

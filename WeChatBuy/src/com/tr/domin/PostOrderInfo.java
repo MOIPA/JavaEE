@@ -9,6 +9,7 @@ public class PostOrderInfo {
     private String com;
     private String postTime;
 
+
     public String getPostTime() {
         return postTime;
     }

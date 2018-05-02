@@ -2,7 +2,7 @@ package com.tr.web.servlet;
 
 import com.tr.domin.Order;
 import com.tr.domin.User;
-import com.tr.service.OrderService;
+import com.tr.service.OrderServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,7 +23,7 @@ public class indexServlet extends HttpServlet {
         User userInfo = (User) session.getAttribute("userInfo");
 //        String com = req.getParameter("com");
         String com = userInfo.getCname();
-        OrderService service = new OrderService();
+        OrderServiceImpl service = new OrderServiceImpl();
         //最热订单
         List<Order>hotList =  service.getHotOrderList(com);
         //最新订单

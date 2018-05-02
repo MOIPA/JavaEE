@@ -5,7 +5,7 @@ import com.tr.dao.OrderDaoImpl;
 import com.tr.dao.UserDaoImpl;
 import com.tr.domin.Order;
 import com.tr.domin.User;
-import com.tr.service.OrderService;
+import com.tr.service.OrderServiceImpl;
 import com.tr.service.UserServiceImpl;
 import org.junit.Assert;
 import org.junit.Test;
@@ -28,14 +28,14 @@ public class UserDaoImplTest {
     private UserServiceImpl userService = null;
 
     private OrderDaoImpl orderDao = null;
-    private OrderService orderService = null;
+    private OrderServiceImpl orderServiceImpl = null;
 
     @Before
     public void before() throws Exception {
         userDao = new UserDaoImpl();
         userService = new UserServiceImpl();
         orderDao = new OrderDaoImpl();
-        orderService = new OrderService();
+        orderServiceImpl = new OrderServiceImpl();
     }
 
     @After
@@ -65,14 +65,14 @@ public class UserDaoImplTest {
     }
     @Test
     public void testGetHotOrderList(){
-        List<Order> results = orderService.getHotOrderList("测试小区");
+        List<Order> results = orderServiceImpl.getHotOrderList("测试小区");
         for (Order order : results) {
             System.out.println(order.getOrdercontent()+order.getAccount()+order.getCom()+order.getFollowers()+order.getPosttime()+order.getUiconsrc());
         }
     }
     @Test
     public void testGetNewOrderList(){
-        List<Order> results = orderService.getNewOrderList("测试小区");
+        List<Order> results = orderServiceImpl.getNewOrderList("测试小区");
         for (Order order : results) {
             System.out.println(order.getAccount()+order.getCom()+order.getFollowers()+order.getPosttime()+order.getUiconsrc());
         }

@@ -1,6 +1,6 @@
 package com.tr.web.servlet;
 
-import com.tr.service.OrderService;
+import com.tr.service.OrderServiceImpl;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -21,7 +21,7 @@ public class SavePicServlet extends HttpServlet {
      * 此servlet用于接收用户上传的图片，返回存储地址的json串
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        OrderService orderService = new OrderService();
+        OrderServiceImpl orderServiceImpl = new OrderServiceImpl();
         PrintWriter writer = response.getWriter();
         String savePath = this.getServletContext().getRealPath("/postedPic");
         String picUrlList = "";
@@ -36,7 +36,7 @@ public class SavePicServlet extends HttpServlet {
             }
             List<FileItem> list = upload.parseRequest(request);
 
-            picUrlList = orderService.savePic(savePath, list);
+            picUrlList = orderServiceImpl.savePic(savePath, list);
         } catch (Exception e) {
         }
         writer.print(picUrlList);
