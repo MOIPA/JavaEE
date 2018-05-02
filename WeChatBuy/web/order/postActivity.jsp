@@ -40,6 +40,10 @@
                 <input type="text" class="form-control" name="endtime" id="endtime" placeholder="请输入日期">
             </div>
             <div class="form-group">
+                <label for="endtime">人数上限</label>
+                <input type="text" class="form-control" name="peoplelimit" id="peoplelimit" placeholder="请输入人数上限">
+            </div>
+            <div class="form-group">
                 <label for="desc">描述</label>
                 <input type="text" class="form-control" name="desc" id="desc" placeholder="请输入描述">
             </div>
@@ -71,6 +75,9 @@
                         "savedPicSrc":{
                             "required":true,
                             "minlength":9
+                        },
+                        "peoplelimit":{
+                            "required":true
                         }
                     },
                     messages:{
@@ -86,6 +93,9 @@
                         "savedPicSrc":{
                             "required":"请上传图片",
                             "minlength":"请上传图片"
+                        },
+                        "peoplelimit":{
+                            "required":"请输入人数限制"
                         }
                     }
                 });

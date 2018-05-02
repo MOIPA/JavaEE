@@ -131,25 +131,27 @@ public class OrderDaoImpl implements OrderDao{
         QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
         String basicOrderSql = "insert into theorder(promulgatorid,com,ordercontent,posttime,ordertime,ordertheme)values(?,?,?,?,?,?)";
         String getOrderIdSql = "select orderid from theorder where promulgatorid=? and com=? and posttime=?";
-        String setStatusSql = "insert into orderstatus(orderid,orderstatus)values(?,?)";
+        String setStatusSql = "insert into orderstatus(orderid,orderstatus,peoplelimit,currentpeople)values(?,?,?,?)";
+        String insertPicSql = "insert into orderpic(orderid,orderpicsrc)values(?,?)";
         try {
             int update = queryRunner.update(basicOrderSql, postOrderInfo.getPromulgatorid(), postOrderInfo.getCom(), postOrderInfo.getDesc(), postOrderInfo.getPostTime()
                     , postOrderInfo.getEndtime(), postOrderInfo.getTheme());
             if (update > 0) {
                 //basic info insert succeed
-                LogUtil.initLog("order").info("insert basic order info succeed");
+                LogUtil.initLog("activity").info("insert basic order info succeed");
                 //next
-                int orderid = (int) (long) queryRunner.query(getOrderIdSql, new ScalarHandler(), postOrderInfo.getPromulgatorid(), postOrderInfo.getCom(), postOrderInfo.getPostTime());
-                LogUtil.initLog("order").info("order id goted : "+orderid);
+                int orderId = (int) queryRunner.query(getOrderIdSql, new ScalarHandler(), postOrderInfo.getPromulgatorid(), postOrderInfo.getCom(), postOrderInfo.getPostTime());
+                LogUtil.initLog("activity").info("activity id goted : "+orderId);
                 //next
-                int orderStatus = queryRunner.update(setStatusSql, orderid, "活动");
-                if(orderStatus>0)LogUtil.initLog("order").info("order status setted");
+                int orderStatus = queryRunner.update(setStatusSql, orderId, "活动",postOrderInfo.getPeoplelimit(),0);
+                if(orderStatus>0)LogUtil.initLog("activity").info("activity status setted");
 
                 for(int i=0;i<urlList.size();i++) {
-
+                    int insertPic = queryRunner.update(insertPicSql, orderId, urlList.get(i));
+                    if(insertPic>0)LogUtil.initLog("activity").info(urlList.get(i)+" inserted");
                 }
             }else{
-                LogUtil.initLog("order").info("insert basic order info error");
+                LogUtil.initLog("activity").info("insert basic activity info error");
             }
         } catch (SQLException e) {
             e.printStackTrace();

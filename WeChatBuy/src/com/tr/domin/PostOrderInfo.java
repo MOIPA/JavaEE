@@ -8,7 +8,15 @@ public class PostOrderInfo {
     private String promulgatorid;
     private String com;
     private String postTime;
+    private String peoplelimit;
 
+    public String getPeoplelimit() {
+        return peoplelimit;
+    }
+
+    public void setPeoplelimit(String peoplelimit) {
+        this.peoplelimit = peoplelimit;
+    }
 
     public String getPostTime() {
         return postTime;
