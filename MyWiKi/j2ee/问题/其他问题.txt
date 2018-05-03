@@ -1,0 +1,12 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-05-03T23:58:05+08:00
+
+====== 其他问题 ======
+创建日期 星期四 03 五月 2018
+
+1：sql语句在mysql中执行顺利，在java中抛出异常：Not unique table/alias:
+
+	忘记+space 妈的智障
+	
+	

@@ -30,12 +30,12 @@ public class OrderDaoImpl implements OrderDao{
 
     public List<Order> getHotOrderList(String com) {
         QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
-        String sql = "select count(follower.aid) as followers,ruserorderinfo3.* " +
-                "from ruserorderinfo3,orderstatus,follower " +
-                "where ruserorderinfo3.com=? and orderstatus!='待审核' " +
-                "and ruserorderinfo3.orderid=follower.orderid " +
-                "and ruserorderinfo3.orderid=orderstatus.orderid " +
-                "group by ruserorderinfo3.orderid order by followers desc limit 9";
+        String sql = "select orderstatus.peoplelimit,orderstatus.currentpeople,orderstatus.orderstatus,main.*," +
+                "(select count(*) from follower where orderid=main.orderid) as followers " +
+                " from ruserorderinfo3 main,orderstatus " +
+                " where main.com=? and orderstatus.orderstatus!='待审核' and orderstatus.orderid = main.orderid " +
+                " group by main.orderid,orderstatus.peoplelimit,orderstatus.currentpeople,orderstatus.orderstatus " +
+                " limit 9";
         try {
             hotOrderList = queryRunner.query(sql, new BeanListHandler<Order>(Order.class), com);
         } catch (SQLException e) {

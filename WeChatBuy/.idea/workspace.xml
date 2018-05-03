@@ -20,8 +20,18 @@
       <file leaf-file-name="OrderDaoImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/tr/dao/OrderDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="50" column="19" lean-forward="true" selection-start-line="46" selection-start-column="52" selection-end-line="50" selection-end-column="19" />
+            <state relative-caret-position="288">
+              <caret line="38" column="9" lean-forward="true" selection-start-line="37" selection-start-column="18" selection-end-line="38" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signup.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/signup.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2160">
+              <caret line="168" column="106" lean-forward="true" selection-start-line="168" selection-start-column="106" selection-end-line="168" selection-end-column="106" />
               <folding />
             </state>
           </provider>
@@ -30,8 +40,8 @@
       <file leaf-file-name="PostActivityServlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/tr/web/servlet/PostActivityServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="20" column="32" lean-forward="false" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+            <state relative-caret-position="252">
+              <caret line="30" column="58" lean-forward="true" selection-start-line="30" selection-start-column="58" selection-end-line="30" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -111,7 +121,6 @@
         <option value="$PROJECT_DIR$/src/com/tr/web/servlet/SinInServlet.java" />
         <option value="$PROJECT_DIR$/src/com/tr/service/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/com/tr/web/servlet/GetCommunityServlet.java" />
-        <option value="$PROJECT_DIR$/web/signup.jsp" />
         <option value="$PROJECT_DIR$/src/c3p0-config.xml" />
         <option value="$PROJECT_DIR$/src/com/tr/dao/UserDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/com/tr/dao/OrderDao.java" />
@@ -123,6 +132,7 @@
         <option value="$PROJECT_DIR$/web/order/postActivity.jsp" />
         <option value="$PROJECT_DIR$/src/com/tr/domin/PostOrderInfo.java" />
         <option value="$PROJECT_DIR$/src/com/tr/web/servlet/PostActivityServlet.java" />
+        <option value="$PROJECT_DIR$/web/signup.jsp" />
         <option value="$PROJECT_DIR$/src/com/tr/dao/OrderDaoImpl.java" />
       </list>
     </option>
@@ -161,28 +171,30 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="WeChatBuy" type="58d84e3e:PackageViewProjectNode" />
-              <item name="WeChatBuy" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="WeChatBuy" type="58d84e3e:PackageViewProjectNode" />
-              <item name="WeChatBuy" type="616d4139:PackageViewModuleNode" />
-              <item name="com.tr" type="1f31426a:PackageElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="WeChatBuy" type="b2602c69:ProjectViewProjectNode" />
               <item name="WeChatBuy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WeChatBuy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WeChatBuy" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WeChatBuy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WeChatBuy" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WeChatBuy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WeChatBuy" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="WeChatBuy_war_exploded" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WeChatBuy" type="b2602c69:ProjectViewProjectNode" />
@@ -233,19 +245,6 @@
             <path>
               <item name="WeChatBuy" type="b2602c69:ProjectViewProjectNode" />
               <item name="WeChatBuy" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="tr" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WeChatBuy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WeChatBuy" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="tr" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WeChatBuy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WeChatBuy" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -265,8 +264,24 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
-      <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="WeChatBuy" type="58d84e3e:PackageViewProjectNode" />
+              <item name="WeChatBuy" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="WeChatBuy" type="58d84e3e:PackageViewProjectNode" />
+              <item name="WeChatBuy" type="616d4139:PackageViewModuleNode" />
+              <item name="com.tr" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -621,7 +636,8 @@
       <workItem from="1525242317361" duration="9091000" />
       <workItem from="1525253550379" duration="118000" />
       <workItem from="1525262455985" duration="467000" />
-      <workItem from="1525262948615" duration="5528000" />
+      <workItem from="1525262948615" duration="6957000" />
+      <workItem from="1525358847572" duration="3472000" />
     </task>
     <servers />
   </component>
@@ -658,7 +674,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117290000" />
+    <option name="totallyTimeSpent" value="122191000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -920,25 +936,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/signup.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="49" column="48" lean-forward="false" selection-start-line="49" selection-start-column="48" selection-end-line="49" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/signin.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="15" column="49" lean-forward="false" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/c3p0-config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="120" lean-forward="false" selection-start-line="7" selection-start-column="120" selection-end-line="7" selection-end-column="120" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1003,7 +1004,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
           <caret line="32" column="60" lean-forward="true" selection-start-line="32" selection-start-column="60" selection-end-line="32" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1046,18 +1046,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/signup.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2160">
+          <caret line="168" column="106" lean-forward="true" selection-start-line="168" selection-start-column="106" selection-end-line="168" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/tr/web/servlet/PostActivityServlet.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="30" column="58" lean-forward="true" selection-start-line="30" selection-start-column="58" selection-end-line="30" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/c3p0-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
-          <caret line="20" column="32" lean-forward="false" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+          <caret line="4" column="43" lean-forward="true" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/tr/dao/OrderDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="50" column="19" lean-forward="true" selection-start-line="46" selection-start-column="52" selection-end-line="50" selection-end-column="19" />
+        <state relative-caret-position="288">
+          <caret line="38" column="9" lean-forward="true" selection-start-line="37" selection-start-column="18" selection-end-line="38" selection-end-column="9" />
           <folding />
         </state>
       </provider>
