@@ -51,6 +51,7 @@ public class PostActivityServlet extends HttpServlet {
 
         OrderService orderServiceImpl = new OrderServiceImpl();
         orderServiceImpl.uploadActivityInfo(postOrderInfo);
+        response.sendRedirect(request.getContextPath()+"/order/postSucceed.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
