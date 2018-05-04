@@ -44,13 +44,15 @@ public class OrderDaoImpl implements OrderDao{
         return hotOrderList;
     }
 
+
+
     public List<Order> getNewOrderList(String com) {
-        String sql = "select count(follower.aid) as followers,ruserorderinfo3.*,orderstatus.* " +
-                "from ruserorderinfo3,orderstatus,follower" +
-                "where ruserorderinfo3.com=? " +
-                "and ruserorderinfo3.orderid=follower.orderid " +
-                "and ruserorderinfo3.orderid=orderstatus.orderid " +
-                "group by ruserorderinfo3.orderid,orderstatus.orderstatus,orderstatus.peoplelimit,orderstatus.currentpeople";
+        String sql = "select orderstatus.peoplelimit,orderstatus.currentpeople,orderstatus.orderstatus,main.*," +
+                "(select count(*) from follower where orderid=main.orderid) as followers " +
+                " from ruserorderinfo3 main,orderstatus " +
+                " where main.com=? and orderstatus.orderstatus='活动' and orderstatus.orderid = main.orderid " +
+                " group by main.orderid,orderstatus.peoplelimit,orderstatus.currentpeople,orderstatus.orderstatus " +
+                " limit 9";
         QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
         try {
             newOrderList = queryRunner.query(sql, new BeanListHandler<Order>(Order.class), com);
@@ -144,6 +146,41 @@ public class OrderDaoImpl implements OrderDao{
                 LogUtil.initLog("activity").info("activity id goted : "+orderId);
                 //next
                 int orderStatus = queryRunner.update(setStatusSql, orderId, "活动",postOrderInfo.getPeoplelimit(),0);
+                if(orderStatus>0)LogUtil.initLog("activity").info("activity status setted");
+
+                for(int i=0;i<urlList.size();i++) {
+                    int insertPic = queryRunner.update(insertPicSql, orderId, urlList.get(i));
+                    if(insertPic>0)LogUtil.initLog("activity").info(urlList.get(i)+" inserted");
+                }
+            }else{
+                LogUtil.initLog("activity").info("insert basic activity info error");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean uploadOrderInfo(PostOrderInfo postOrderInfo) {
+        List<String> urlList = CommonUtil.splitUrl(postOrderInfo.getSavedPicSrc());
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        String basicOrderSql = "insert into theorder(promulgatorid,com,ordercontent,posttime,ordertime,ordertheme)values(?,?,?,?,?,?)";
+        String getOrderIdSql = "select orderid from theorder where promulgatorid=? and com=? and posttime=?";
+        String setStatusSql = "insert into orderstatus(orderid,orderstatus)values(?,?)";
+        String insertPicSql = "insert into orderpic(orderid,orderpicsrc)values(?,?)";
+        try {
+            int update = queryRunner.update(basicOrderSql, postOrderInfo.getPromulgatorid(), postOrderInfo.getCom(), postOrderInfo.getDesc(), postOrderInfo.getPostTime()
+                    , postOrderInfo.getEndtime(), postOrderInfo.getTheme());
+            if (update > 0) {
+                //basic info insert succeed
+                LogUtil.initLog("activity").info("insert basic order info succeed");
+                //next
+                int orderId = (int) queryRunner.query(getOrderIdSql, new ScalarHandler(), postOrderInfo.getPromulgatorid(), postOrderInfo.getCom(), postOrderInfo.getPostTime());
+                LogUtil.initLog("activity").info("activity id goted : "+orderId);
+                //next
+                int orderStatus = queryRunner.update(setStatusSql, orderId, "待审核");
                 if(orderStatus>0)LogUtil.initLog("activity").info("activity status setted");
 
                 for(int i=0;i<urlList.size();i++) {

@@ -33,8 +33,8 @@
             <li><a href="#">关于</a></li>
             <li><a href="#">发布</a>
                 <ul id="submenu">
-                    <li><a href="${pageContext.request.contextPath}/postorder">订单</a></li>
-                    <li><a href="${pageContext.request.contextPath}/postactivity">活动</a></li>
+                    <li><a href="${pageContext.request.contextPath}/order/postOrder.jsp">订单</a></li>
+                    <li><a href="${pageContext.request.contextPath}/order/postActivity.jsp">活动</a></li>
                 </ul>
             </li>
             <li><a href="#">新闻</a></li>

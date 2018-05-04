@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface OrderService {
 
-    public void uploadOrderInfo(PostOrderInfo postOrderInfo);
+    public void uploadActivityInfo(PostOrderInfo postOrderInfo);
 
     public String savePic(String savePath, List<FileItem> list);
 
@@ -16,4 +16,5 @@ public interface OrderService {
 
     public List<Order> getHotOrderList(String com);
 
+    public void uploadOrderInfo(PostOrderInfo postOrderInfo);
 }

@@ -146,7 +146,7 @@
                     </a>
                 </div>
 
-                <c:forEach items="${hotOrderList}" var="orderItem">
+                <c:forEach items="${orderList}" var="orderItem">
                     <div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
                         <a href="product_info.htm">
                             <img src="img/x.JPG" alt="${orderItem.rorderpicsrc}" width="130" height="130" style="display: inline-block;">
@@ -181,76 +181,17 @@
                     </a>
                 </div>
 
-                <div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-                    <a href="product_info.htm">
-                        <img src="img/x.JPG" width="130" height="130" style="display: inline-block;">
-                    </a>
-                    <p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-                    <p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-                </div>
+                <c:forEach items="${activityList}" var="activityItem">
+                    <div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
+                        <a href="product_info.htm">
+                            <img src="img/x.JPG" width="130" height="130" style="display: inline-block;">
+                        </a>
+                        <p><a href="product_info.html" style='color:#666'>${activityItem.ordertheme}</a></p>
+                        <p><font color="#E4393C" style="font-size:16px">${activityItem.ordertime}</font></p>
+                    </div>
+                </c:forEach>
 
-                <div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-                    <a href="product_info.htm">
-                        <img src="img/x.JPG" width="130" height="130" style="display: inline-block;">
-                    </a>
-                    <p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-                    <p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-                </div>
 
-                <div class="col-md-2 yes-right-border" style="text-align:center;height:200px;padding:10px 0px;">
-                    <a href="product_info.htm">
-                        <img src="img/x.JPG" width="130" height="130" style="display: inline-block;">
-                    </a>
-                    <p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-                    <p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-                </div>
-
-                <div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-                    <a href="product_info.htm">
-                        <img src="img/x.JPG" width="130" height="130" style="display: inline-block;">
-                    </a>
-                    <p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-                    <p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-                </div>
-
-                <div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-                    <a href="product_info.htm">
-                        <img src="img/x.JPG" width="130" height="130" style="display: inline-block;">
-                    </a>
-                    <p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-                    <p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-                </div>
-
-                <div class="col-md-2 yes-right-border" style="text-align:center;height:200px;padding:10px 0px;">
-                    <a href="product_info.htm">
-                        <img src="img/x.JPG" width="130" height="130" style="display: inline-block;">
-                    </a>
-                    <p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-                    <p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-                </div>
-                <div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-                    <a href="product_info.htm">
-                        <img src="img/x.JPG" width="130" height="130" style="display: inline-block;">
-                    </a>
-                    <p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-                    <p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-                </div>
-
-                <div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-                    <a href="product_info.htm">
-                        <img src="img/x.JPG" width="130" height="130" style="display: inline-block;">
-                    </a>
-                    <p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-                    <p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-                </div>
-
-                <div class="col-md-2 yes-right-border" style="text-align:center;height:200px;padding:10px 0px;">
-                    <a href="product_info.htm">
-                        <img src="img/x.JPG" width="130" height="130" style="display: inline-block;">
-                    </a>
-                    <p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-                    <p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-                </div>
             </div>
         </div>
 

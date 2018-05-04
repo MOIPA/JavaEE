@@ -25,11 +25,11 @@ public class indexServlet extends HttpServlet {
         String com = userInfo.getCname();
         OrderServiceImpl service = new OrderServiceImpl();
         //最热订单
-        List<Order>hotList =  service.getHotOrderList(com);
+        List<Order>orderList =  service.getHotOrderList(com);
         //最新订单
-        List<Order>newList =  service.getNewOrderList(com);
-        req.setAttribute("hotOrderList",hotList);
-        req.setAttribute("newOrderList",newList);
+        List<Order>activityList =  service.getNewOrderList(com);
+        req.setAttribute("orderList",orderList);
+        req.setAttribute("activityList",activityList);
         req.getRequestDispatcher("/index.jsp").forward(req,resp);
     }
 

@@ -50,7 +50,7 @@ public class PostActivityServlet extends HttpServlet {
 //        System.out.println(postOrderInfo.getSavedPicSrc());
 
         OrderService orderServiceImpl = new OrderServiceImpl();
-        orderServiceImpl.uploadOrderInfo(postOrderInfo);
+        orderServiceImpl.uploadActivityInfo(postOrderInfo);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
