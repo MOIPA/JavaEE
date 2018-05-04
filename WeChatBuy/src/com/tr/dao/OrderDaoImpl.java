@@ -115,7 +115,8 @@ public class OrderDaoImpl implements OrderDao{
                     //从最后开始找路径
                     String parentDir = savePath.substring(savePath.lastIndexOf("\\") + 1);
                     logger.info("directory :"+parentDir);
-                    urlLists.add(parentDir + "/" + fileName);
+//                    urlLists.add(parentDir + "/" + fileName);
+                    urlLists.add("/"+fileName);
 
                 }
             }
