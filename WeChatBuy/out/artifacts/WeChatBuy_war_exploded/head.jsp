@@ -37,8 +37,8 @@
                     <li><a href="${pageContext.request.contextPath}/order/postActivity.jsp">活动</a></li>
                 </ul>
             </li>
-            <li><a href="#">新闻</a></li>
-            <li><a href="#">联系我们</a></li>
+            <li><a href="${pageContext.request.contextPath}/me.jsp">我</a></li>
+            <li><a href="${pageContext.request.contextPath}/my-fav.jsp">我的订单</a></li>
         </ul>
     </nav>
     <button id="btn_signoff" class="btn-block btn-danger" style="float: right;margin-right: 30px;width: 60px;height: 38px;border-radius: 5px;margin-top: 10px;">注销</button>

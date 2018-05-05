@@ -17,4 +17,6 @@ public interface OrderService {
     public List<Order> getHotOrderList(String com);
 
     public void uploadOrderInfo(PostOrderInfo postOrderInfo);
+
+    public Order getDetailInfoById(String orderid);
 }

@@ -8,6 +8,7 @@ import com.tr.utils.BaseDataUtil;
 import com.tr.utils.CommonUtil;
 import com.tr.utils.LogUtil;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 import org.apache.commons.fileupload.FileItem;
@@ -197,5 +198,21 @@ public class OrderDaoImpl implements OrderDao{
         }
 
         return false;
+    }
+
+    @Override
+    public Order getDetailInfoById(String orderid) {
+        String sql = "select orderstatus.peoplelimit,orderstatus.currentpeople,orderstatus.orderstatus,main.*," +
+                "(select count(*) from follower where orderid=main.orderid) as followers " +
+                " from ruserorderinfo3 main,orderstatus " +
+                " where main.orderid=? and orderstatus.orderid = main.orderid " +
+                " group by main.orderid,orderstatus.peoplelimit,orderstatus.currentpeople,orderstatus.orderstatus ";
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        try {
+            return queryRunner.query(sql, new BeanHandler<Order>(Order.class), orderid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

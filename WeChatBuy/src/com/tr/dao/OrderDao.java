@@ -17,4 +17,6 @@ public interface OrderDao {
     public List<Order> getHotOrderList(String com);
 
     public boolean uploadOrderInfo(PostOrderInfo postOrderInfo);
+
+    public Order getDetailInfoById(String orderid);
 }

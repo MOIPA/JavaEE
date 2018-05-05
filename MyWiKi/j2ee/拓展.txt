@@ -6,5 +6,5 @@ Creation-Date: 2018-04-16T12:47:16+08:00
 创建日期 星期一 16 四月 2018
 
 都是apache提供的
-c3p0： 数据库连接池管理
-QueryRunner：大大简化查询语言，多种选择器
+[[+c3p0+QueryRunner|c3p0： 数据库连接池管理
+QueryRunner：大大简化查询语言，多种选择器]]

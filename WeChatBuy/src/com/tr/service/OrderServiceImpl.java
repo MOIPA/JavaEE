@@ -1,6 +1,7 @@
 package com.tr.service;
 
 import com.google.gson.Gson;
+import com.tr.dao.OrderDao;
 import com.tr.dao.OrderDaoImpl;
 import com.tr.domin.Order;
 import com.tr.domin.PostOrderInfo;
@@ -70,5 +71,11 @@ public class OrderServiceImpl implements OrderService{
                 postOrderInfo.getPromulgatorid()+"\n"+postOrderInfo.getTheme()+"\n"+postOrderInfo.getPostTime());
         OrderDaoImpl orderDao = new OrderDaoImpl();
         orderDao.uploadOrderInfo(postOrderInfo);
+    }
+
+    @Override
+    public Order getDetailInfoById(String orderid) {
+        OrderDao orderDao = new OrderDaoImpl();
+        return orderDao.getDetailInfoById(orderid);
     }
 }

@@ -105,15 +105,15 @@
             <div class="carousel-inner">
                 <div class="item active">
                     <img src="${pageContext.request.contextPath}/img/c.jpg" alt="First slide">
-                    <div class="carousel-caption">标题 1</div>
+                    <div class="carousel-caption">社区事务1</div>
                 </div>
                 <div class="item">
                     <img src="${pageContext.request.contextPath}/img/c.jpg" alt="Second slide">
-                    <div class="carousel-caption">标题 2</div>
+                    <div class="carousel-caption">社区事务2</div>
                 </div>
                 <div class="item">
                     <img src="${pageContext.request.contextPath}/img/c.jpg" alt="Third slide">
-                    <div class="carousel-caption">标题 3</div>
+                    <div class="carousel-caption">社区事务3</div>
                 </div>
             </div>
             <!-- 轮播（Carousel）导航 -->
@@ -142,20 +142,19 @@
             <div class="col-md-10">
                 <div class="col-md-6" style="text-align:center;height:200px;padding:0px;">
                     <a href="product_info.htm">
-                        <img src="products/hao/middle01.jpg" width="400px" height="200px" style="display: inline-block;">
+                        <img src="products/hao/middle01.jpg" width="516px" height="200px" style="display: inline-block;">
                     </a>
                 </div>
 
                 <c:forEach items="${orderList}" var="orderItem">
                     <div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-                        <a href="product_info.htm">
+                        <a href="${pageContext.request.contextPath}/orderDetail?orderid=${orderItem.orderid}">
                             <img src="postedPic/${orderItem.rorderpicsrc}" alt="postedPic/${orderItem.rorderpicsrc}" width="130" height="130" style="display: inline-block;">
                         </a>
-                        <p><a href="product_info.html" style='color:#666'>${orderItem.ordertheme}</a></p>
+                        <p><a href="${pageContext.request.contextPath}/orderDetail?orderid=${orderItem.orderid}" style='color:#666'>${orderItem.ordertheme}</a></p>
                         <p><font color="#E4393C" style="font-size:16px">${orderItem.ordertime}</font></p>
                     </div>
                 </c:forEach>
-
 
 
             </div>
@@ -177,16 +176,16 @@
             <div class="col-md-10">
                 <div class="col-md-6" style="text-align:center;height:200px;padding:0px;">
                     <a href="product_info.htm">
-                        <img src="products/hao/middle01.jpg" width="400px" height="200px" style="display: inline-block;">
+                        <img src="products/hao/middle01.jpg" width="516px" height="200px" style="display: inline-block;">
                     </a>
                 </div>
 
                 <c:forEach items="${activityList}" var="activityItem">
                     <div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-                        <a href="product_info.htm">
+                        <a href="${pageContext.request.contextPath}/orderDetail?orderid=${activityItem.orderid}">
                             <img src="postedPic${activityItem.rorderpicsrc}" alt="postedPic${orderItem.rorderpicsrc}" width="130" height="130" style="display: inline-block;">
                         </a>
-                        <p><a href="product_info.html" style='color:#666'>${activityItem.ordertheme}</a></p>
+                        <p><a href="${pageContext.request.contextPath}/orderDetail?orderid=${activityItem.orderid}" style='color:#666'>${activityItem.ordertheme}</a></p>
                         <p><font color="#E4393C" style="font-size:16px">${activityItem.ordertime}</font></p>
                     </div>
                 </c:forEach>

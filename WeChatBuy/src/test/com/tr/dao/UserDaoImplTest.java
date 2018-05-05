@@ -99,5 +99,11 @@ public class UserDaoImplTest {
 
     }
 
+    @Test
+    public void testGetDetailInfoById(){
+        Order detailInfoById = orderDao.getDetailInfoById("1");
+        System.out.println(detailInfoById.getOrdertheme());
+    }
+
 
 } 
