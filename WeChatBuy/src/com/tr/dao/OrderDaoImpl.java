@@ -33,7 +33,8 @@ public class OrderDaoImpl implements OrderDao{
         String sql = "select orderstatus.peoplelimit,orderstatus.currentpeople,orderstatus.orderstatus,main.*," +
                 "(select count(*) from follower where orderid=main.orderid) as followers " +
                 " from ruserorderinfo3 main,orderstatus " +
-                " where main.com=? and orderstatus.orderstatus!='待审核' and orderstatus.orderid = main.orderid " +
+                " where main.com=? and orderstatus.orderstatus!='待审核' and orderstatus.orderstatus!='活动'" +
+                " and orderstatus.orderid = main.orderid " +
                 " group by main.orderid,orderstatus.peoplelimit,orderstatus.currentpeople,orderstatus.orderstatus " +
                 " limit 9";
         try {

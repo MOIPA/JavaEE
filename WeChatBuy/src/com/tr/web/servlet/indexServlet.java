@@ -3,6 +3,8 @@ package com.tr.web.servlet;
 import com.tr.domin.Order;
 import com.tr.domin.User;
 import com.tr.service.OrderServiceImpl;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,9 +25,9 @@ public class indexServlet extends HttpServlet {
 //        String com = req.getParameter("com");
         String com = userInfo.getCname();
         OrderServiceImpl service = new OrderServiceImpl();
-        //最热订单
+        //订单
         List<Order>orderList =  service.getHotOrderList(com);
-        //最新订单
+        //活动
         List<Order>activityList =  service.getNewOrderList(com);
         req.setAttribute("orderList",orderList);
         req.setAttribute("activityList",activityList);

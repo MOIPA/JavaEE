@@ -24,7 +24,7 @@
 </style>
 <body>
 <div class="header_logo">
-    <img src="img/logo.png" style="float: left;height: 60px" />
+    <img src="${pageContext.request.contextPath}/img/logo.png" style="float: left;height: 60px" />
     <!--<span class="iconfont icon-back"></span>-->
     <%--<div class="header_navigator">--%>
     <nav class="dropdownmenu" style="margin-left: 25%;margin-top: 0px;">

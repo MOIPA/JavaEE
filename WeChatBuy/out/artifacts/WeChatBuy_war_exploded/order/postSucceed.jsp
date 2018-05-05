@@ -24,7 +24,6 @@
         document.getElementById("show_time").innerHTML ="发布成功"+ t + "秒后跳转到首页......或点击立刻跳转";
         t--;
     }
-
     setInterval("tick()", 1000);
 </script>
 </html>

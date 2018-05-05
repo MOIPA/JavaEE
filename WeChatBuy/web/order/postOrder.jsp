@@ -24,10 +24,13 @@
     <script src="${pageContext.request.contextPath}/js/ssi-modal.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/ssi-modal.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/ssi-uploader.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/navigator.css"/>
+
 </head>
 
 <body>
-<div class="container">
+<jsp:include page="../head.jsp"/>
+<div class="container" style="padding-top: 7%">
     <div class="jumbotron">
         <h2>发布订单</h2>
         <form role="form" id="postOrderForm" action="${pageContext.request.contextPath}/postorder" method="post">
