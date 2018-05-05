@@ -3,11 +3,13 @@ package com.tr.service;
 import com.google.gson.Gson;
 import com.tr.dao.OrderDao;
 import com.tr.dao.OrderDaoImpl;
+import com.tr.domin.Follower;
 import com.tr.domin.Order;
 import com.tr.domin.PostOrderInfo;
 import org.apache.commons.fileupload.FileItem;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -77,5 +79,22 @@ public class OrderServiceImpl implements OrderService{
     public Order getDetailInfoById(String orderid) {
         OrderDao orderDao = new OrderDaoImpl();
         return orderDao.getDetailInfoById(orderid);
+    }
+
+    @Override
+    public List<String> getPicUrls(String orderid) {
+        OrderDao orderDao = new OrderDaoImpl();
+        List<Object> urls = orderDao.getPicUrls(orderid);
+        List<String> sLists = new ArrayList<String>();
+        for (Object url : urls) {
+            sLists.add((String) url);
+        }
+        return sLists;
+    }
+
+    @Override
+    public List<Follower> getFollower(String orderid) {
+        OrderDao orderDao = new OrderDaoImpl();
+        return orderDao.getFollowerList(orderid);
     }
 }

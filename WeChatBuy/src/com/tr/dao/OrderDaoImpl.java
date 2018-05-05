@@ -2,6 +2,7 @@ package com.tr.dao;
 
 import com.google.gson.Gson;
 import com.sun.deploy.net.HttpRequest;
+import com.tr.domin.Follower;
 import com.tr.domin.Order;
 import com.tr.domin.PostOrderInfo;
 import com.tr.utils.BaseDataUtil;
@@ -10,6 +11,7 @@ import com.tr.utils.LogUtil;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ColumnListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -210,6 +212,32 @@ public class OrderDaoImpl implements OrderDao{
         QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
         try {
             return queryRunner.query(sql, new BeanHandler<Order>(Order.class), orderid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Object> getPicUrls(String orderid) {
+
+        String sql = "select * from orderpic where orderid = ?";
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        try {
+            return queryRunner.query(sql, new ColumnListHandler("orderpicsrc"), orderid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Follower> getFollowerList(String orderid) {
+        String sql = "select follower.*,account.uiconsrc,account.account " +
+                "from follower,account where orderid=? and follower.aid=account.aid";
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        try {
+            return queryRunner.query(sql, new BeanListHandler<Follower>(Follower.class), orderid);
         } catch (SQLException e) {
             e.printStackTrace();
         }

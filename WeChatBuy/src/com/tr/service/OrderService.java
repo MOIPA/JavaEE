@@ -1,5 +1,6 @@
 package com.tr.service;
 
+import com.tr.domin.Follower;
 import com.tr.domin.Order;
 import com.tr.domin.PostOrderInfo;
 import org.apache.commons.fileupload.FileItem;
@@ -19,4 +20,8 @@ public interface OrderService {
     public void uploadOrderInfo(PostOrderInfo postOrderInfo);
 
     public Order getDetailInfoById(String orderid);
+
+    public List<String> getPicUrls(String orderid);
+
+    public List<Follower> getFollower(String orderid);
 }
