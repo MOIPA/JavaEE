@@ -24,4 +24,6 @@ public interface OrderDao {
     public List<Object> getPicUrls(String orderid);
 
     public List<Follower> getFollowerList(String orderid);
+
+
 }

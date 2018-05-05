@@ -106,7 +106,7 @@
             <div style="background-color: #d3d3d3; width: 900px;">
                 <table class="table table-bordered">
                     <tbody>
-                    <c:forEach items="followerList" var="follower">
+                    <c:forEach items="${followerList}" var="follower">
                         <tr class="warning">
                             <td width="10%"><img src="${follower.uiconsrc}" style="width: 100%" class="img-circle"/></td>
                             <td><p>${follower.account}</p></td>

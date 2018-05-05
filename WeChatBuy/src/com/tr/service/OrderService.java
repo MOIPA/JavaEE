@@ -24,4 +24,6 @@ public interface OrderService {
     public List<String> getPicUrls(String orderid);
 
     public List<Follower> getFollower(String orderid);
+
+    public boolean saveUserAvatar(String savePath, List<FileItem> list, String aid);
 }

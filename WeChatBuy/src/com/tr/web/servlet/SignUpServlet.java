@@ -33,10 +33,10 @@ public class SignUpServlet extends HttpServlet {
         }
 
         resp.setCharacterEncoding("utf-8");
-        //成功回到首页
-        if(isSign){ resp.sendRedirect(req.getContextPath() + "/signin.jsp");}
+        //成功回到头像上传页面
+        if(isSign){ resp.sendRedirect(req.getContextPath() + "/uploadAvatar.jsp?aid="+user.getAid());}
         //失败返回注册
-        else { resp.sendRedirect(req.getContextPath() + "/signin.jsp");}
+        else { resp.sendRedirect(req.getContextPath() + "/signup.jsp");}
 
     }
 }

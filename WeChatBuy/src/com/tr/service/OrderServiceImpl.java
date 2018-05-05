@@ -3,6 +3,8 @@ package com.tr.service;
 import com.google.gson.Gson;
 import com.tr.dao.OrderDao;
 import com.tr.dao.OrderDaoImpl;
+import com.tr.dao.UserDao;
+import com.tr.dao.UserDaoImpl;
 import com.tr.domin.Follower;
 import com.tr.domin.Order;
 import com.tr.domin.PostOrderInfo;
@@ -96,5 +98,22 @@ public class OrderServiceImpl implements OrderService{
     public List<Follower> getFollower(String orderid) {
         OrderDao orderDao = new OrderDaoImpl();
         return orderDao.getFollowerList(orderid);
+    }
+
+    @Override
+    public boolean saveUserAvatar(String savePath, List<FileItem> list, String aid) {
+        UserDao userDao = new UserDaoImpl();
+        int updates;
+        File file = new File(savePath);
+        if (!file.exists() && !file.isDirectory()) {
+            file.mkdir();
+        }
+        String avatarUrl = userDao.saveUserAvatarPic(savePath, list);
+
+        if(!avatarUrl.equals(""))
+            updates = userDao.saveUserAvatarUrl(avatarUrl, aid);
+        else return false;
+
+        return updates>0?true:false;
     }
 }
