@@ -96,11 +96,13 @@ public class UserDaoImpl implements UserDao {
         try {
             for (FileItem item : list) {
                 if (item.isFormField()) {
+                    logger.info("开始处理普通项目");
                     //普通输入项
                     String name = item.getFieldName();
                     String value = item.getString("utf-8");
                     logger.info(name + "---" + value);
                 } else {
+                    logger.info("开始处理文件项目");
                     //文件
                     String fileName = item.getName();
                     logger.info("文件名字" + fileName);
@@ -136,15 +138,17 @@ public class UserDaoImpl implements UserDao {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        logger.info("上传头像处理完毕");
         return avatarUrl;
     }
 
     @Override
-    public int saveUserAvatarUrl(String avatarUrl, String aid) {
-        String sql = "insert into account(uiconsrc)values(?) where aid=? ";
+    public int saveUserAvatarUrl(String avatarUrl, String account) {
+        String sql = "update account set uiconsrc=? where account = ? ";
+        System.out.println(avatarUrl + ":" + account);
         QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
         try {
-            return queryRunner.update(sql, avatarUrl, aid);
+            return queryRunner.update(sql, avatarUrl, account);
         } catch (SQLException e) {
             e.printStackTrace();
         }

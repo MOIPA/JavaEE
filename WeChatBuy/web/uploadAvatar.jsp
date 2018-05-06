@@ -17,17 +17,17 @@
 </head>
 <body>
 <%
-    Cookie aidCookie = new Cookie("aid", request.getParameter("aid"));
+    Cookie aidCookie = new Cookie("account", request.getParameter("account"));
     response.addCookie(aidCookie);
 %>
-<form enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath}/uplodaAvatar">
     <div class="container">
         <h1>请选择头像
             <small>点击铅笔修改</small>
         </h1>
+        <form enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath}/uplodaAvatar">
         <div class="avatar-upload">
             <div class="avatar-edit">
-                <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                    <input type='file' name="avatar" id="imageUpload" accept=".png, .jpg, .jpeg" />
                 <label for="imageUpload"></label>
             </div>
             <div class="avatar-preview">
@@ -35,9 +35,11 @@
                 </div>
             </div>
         </div>
+
+            <input type="submit" class="btn-block btn-danger" value="上传头像" style="height: 50px;width: 200px;margin: 0px auto;">
+        </form>
     </div>
-    <input type="submit" class="btn-block btn-danger" value="上传头像">
-</form>
+
 
 <script>
     function readURL(input) {

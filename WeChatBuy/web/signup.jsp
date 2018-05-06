@@ -145,7 +145,7 @@
 <body>
     <div class="wrapper">
         <div class="container">
-            <h1>Welcome</h1>
+            <h1 style="color: white;">Welcome</h1>
 
             <form class="form" id="loginform" action="${pageContext.request.contextPath}/signUp" method="post">
                 <input type="text" placeholder="账号" name="account" id="account"><label id="account-error" class="error error_label" for="account">账号不能为空</label>

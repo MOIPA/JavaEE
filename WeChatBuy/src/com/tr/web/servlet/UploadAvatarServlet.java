@@ -19,13 +19,13 @@ import java.util.List;
 public class UploadAvatarServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String aid = "";
+        String account = "";
         Cookie[] cookies = request.getCookies();
         if(cookies!=null&&cookies.length>0)
         for (Cookie c :
                 cookies) {
-            if (c.getName().equals("aid")) {
-                aid = c.getValue();
+            if (c.getName().equals("account")) {
+                account = c.getValue();
             }
         }
 
@@ -42,7 +42,12 @@ public class UploadAvatarServlet extends HttpServlet {
             }
             List<FileItem> list = upload.parseRequest(request);
 
-            boolean isSucceed = orderServiceImpl.saveUserAvatar(savePath, list, aid);
+            boolean isSucceed = orderServiceImpl.saveUserAvatar(savePath, list, account);
+            if (isSucceed) {
+                response.sendRedirect(request.getContextPath()+"/signin.jsp");
+            }else{
+                response.sendRedirect(request.getContextPath()+"/signin.jsp");
+            }
         } catch (Exception e) {
         }
     }

@@ -52,6 +52,9 @@
             <input type="password" placeholder="password" name="password" id="password">
             <label id="password-error" class="error" for="password" style="display: none">密码不能为空</label><br/>
             <button type="submit" id="login-button">Login</button>
+            <br />
+            <br />
+            <a href="${pageContext.request.contextPath}/signup.jsp" style="font-size: 12px;margin-left: -180px;">没有账户？</a>
 
         </form>
     </div>

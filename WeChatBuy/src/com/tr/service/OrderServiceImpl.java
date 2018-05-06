@@ -101,7 +101,7 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
-    public boolean saveUserAvatar(String savePath, List<FileItem> list, String aid) {
+    public boolean saveUserAvatar(String savePath, List<FileItem> list, String account) {
         UserDao userDao = new UserDaoImpl();
         int updates;
         File file = new File(savePath);
@@ -109,11 +109,12 @@ public class OrderServiceImpl implements OrderService{
             file.mkdir();
         }
         String avatarUrl = userDao.saveUserAvatarPic(savePath, list);
-
-        if(!avatarUrl.equals(""))
-            updates = userDao.saveUserAvatarUrl(avatarUrl, aid);
+//        System.out.println(avatarUrl+"=======》avatar url");
+        if(!avatarUrl.equals("")) {
+            updates = userDao.saveUserAvatarUrl(avatarUrl, account);
+            return updates > 0 ? true : false;
+        }
         else return false;
 
-        return updates>0?true:false;
     }
 }
