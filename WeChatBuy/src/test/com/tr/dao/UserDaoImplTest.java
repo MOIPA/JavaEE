@@ -86,7 +86,7 @@ public class UserDaoImplTest {
         Assert.assertEquals(null, user);
 //        Assert.assertEquals("测试小区", com);
         user = userService.signInAccount("2栋杨阿姨", "123123");
-        System.out.println(user.getCname()+user.getIdentity());
+        System.out.println(user.getCname()+user.getIdentity()+user.getAid());
     }
     @Test
     public void testGetAllCommunity(){

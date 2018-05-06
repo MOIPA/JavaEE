@@ -26,4 +26,6 @@ public interface OrderService {
     public List<Follower> getFollower(String orderid);
 
     public boolean saveUserAvatar(String savePath, List<FileItem> list, String aid);
+
+    public String followBehaviour(String remark, String aid, String orderid);
 }

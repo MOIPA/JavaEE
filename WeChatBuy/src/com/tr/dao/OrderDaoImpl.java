@@ -243,4 +243,59 @@ public class OrderDaoImpl implements OrderDao{
         }
         return null;
     }
+
+    @Override
+    public int getUserAddressId(String aid) {
+//        System.out.println(aid);
+        String sql = "select addressid from useraddress where aid=?";
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        try {
+            Object result = queryRunner.query(sql, new ScalarHandler(), aid);
+            if (result== null) {
+                return -1;
+            } else {
+//                System.out.println((int)result+"************");
+                return (int)result;
+            }
+
+        } catch (SQLException e) {
+        }
+
+        return -1;
+    }
+
+    @Override
+    public int followBehaviour(String remark, String aid, String orderid, int addressId) {
+
+        String sql = "insert into follower(orderid,aid,remark,urstatus,addressid)values(?,?,?,?,?)";
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        try {
+            return queryRunner.update(sql, orderid, aid, remark, "未付款", addressId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    @Override
+    public boolean checkIsFollowed(String aid, String orderid) {
+        return false;
+    }
+
+    @Override
+    public int getPeopleLimit(String orderid) {
+        return 0;
+    }
+
+    @Override
+    public int followOrderBehaviour(String remark, String aid, String orderid, int addressId) {
+        return 0;
+    }
+
+    @Override
+    public int followActivityBehaviour(String remark, String aid, String orderid, int addressId, int peopleLimit) {
+        return 0;
+    }
+
+
 }

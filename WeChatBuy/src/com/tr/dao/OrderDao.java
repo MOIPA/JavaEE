@@ -25,5 +25,15 @@ public interface OrderDao {
 
     public List<Follower> getFollowerList(String orderid);
 
+    public int getUserAddressId(String aid);
 
+    public int followBehaviour(String remark, String aid, String orderid, int addressId);
+
+    public boolean checkIsFollowed(String aid, String orderid);
+
+    public int getPeopleLimit(String orderid);
+
+    public int followOrderBehaviour(String remark, String aid, String orderid, int addressId);
+
+    public int followActivityBehaviour(String remark, String aid, String orderid, int addressId, int peopleLimit);
 }

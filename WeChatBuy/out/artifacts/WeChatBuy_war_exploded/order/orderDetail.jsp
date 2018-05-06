@@ -32,6 +32,11 @@
     <%--Order order = (Order) request.getAttribute("detailInfo");--%>
     <%--System.out.println(order.getPosttime());--%>
 <%--%>--%>
+<%
+    String orderid = request.getParameter("orderid");
+    Cookie cookie = new Cookie("orderid", orderid);
+    response.addCookie(cookie);
+%>
 <div class="container" style="padding-top:6%">
     <div class="row">
         <div style="border: 1px solid #e4e4e4; width: 930px; margin-bottom: 10px; margin: 0 auto; padding: 10px; margin-bottom: 10px;">
@@ -50,8 +55,7 @@
                 <div>
                     <strong>${detailInfo.ordertheme}</strong>
                 </div>
-                <div
-                        style="border-bottom: 1px dotted #dddddd; width: 350px; margin: 10px 0 10px 0;">
+                <div style="border-bottom: 1px dotted #dddddd; width: 350px; margin: 10px 0 10px 0;">
                     <div>参与者：${detailInfo.followers}</div>
                 </div>
 
@@ -61,10 +65,10 @@
                 </div>
 
                 <div style="padding: 10px; border: 1px solid #e7dbb1; width: 330px; margin: 15px 0 10px 0;; background-color: #fffee6;">
-                    <form class="bs-example bs-example-form" role="form">
+                    <form class="bs-example bs-example-form" role="form" method="post" action="${pageContext.request.contextPath}/follow">
                         留言<div class="input-group">
                                 <span class="input-group-addon">@</span>
-                                <input type="text" class="form-control" placeholder="您的留言">
+                                <input type="text" class="form-control" name="remark" placeholder="您的留言">
                             </div>
                         <br>
                         <div class="input-group">
