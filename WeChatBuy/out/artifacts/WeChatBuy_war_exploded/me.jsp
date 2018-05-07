@@ -11,31 +11,34 @@
     <title>我</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
     <script src="${pageContext.request.contextPath}/js/jquery-1.9.1.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/uploadAvatar.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font/pen.css">
 </head>
 <body>
+<jsp:include page="head.jsp"/>
 
-<div class="container">
+<div class="container" style="padding-top: 6%">
     <div class="row clearfix">
         <div class="col-md-4 column">
             <img alt="140x140" src="v3/default3.jpg" />
             <div class="list-group">
                 <a href="#" class="list-group-item active">我的设置</a>
                 <div class="list-group-item">
-                    <a>修改头像</a>
+                    <button class="btn btn-primary" id="changeAvatar">修改头像</button>
                 </div>
                 <div class="list-group-item">
-                    <a>修改个人信息</a>
+                    <button class="btn btn-primary" id="changeInfo">修改个人信息</button>
                 </div>
                 <div class="list-group-item">
-                    <a>我参与的</a>
+                    <button class="btn btn-primary" id="myFollow">我参与的</button>
                 </div>
                 <div class="list-group-item">
-                    <a>我发布的</a>
+                    <button class="btn btn-primary" id="myPost">我发布的</button>
                 </div>
             </div>
         </div>
-        <div class="col-md-8 column">
-        </div>
+        <iframe class="col-md-8 column" id="iframe_show" src="http://localhost:8080/${pageContext.request.contextPath}/uploadAvatar.jsp">
+        </iframe>
     </div>
 </div>
 

@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class OrderDaoImpl implements OrderDao{
+public class OrderDaoImpl implements OrderDao {
     private List<Order> hotOrderList;
     private List<Order> newOrderList;
 
@@ -41,7 +41,6 @@ public class OrderDaoImpl implements OrderDao{
         }
         return hotOrderList;
     }
-
 
 
     public List<Order> getNewOrderList(String com) {
@@ -109,12 +108,12 @@ public class OrderDaoImpl implements OrderDao{
                     outputStream.close();
                     //删除缓存文件
                     item.delete();
-                    logger.info("save path :"+savePath);
+                    logger.info("save path :" + savePath);
                     //从最后开始找路径
                     String parentDir = savePath.substring(savePath.lastIndexOf("\\") + 1);
-                    logger.info("directory :"+parentDir);
+                    logger.info("directory :" + parentDir);
 //                    urlLists.add(parentDir + "/" + fileName);
-                    urlLists.add("/"+fileName);
+                    urlLists.add("/" + fileName);
 
                 }
             }
@@ -142,16 +141,16 @@ public class OrderDaoImpl implements OrderDao{
                 LogUtil.initLog("activity").info("insert basic order info succeed");
                 //next
                 int orderId = (int) queryRunner.query(getOrderIdSql, new ScalarHandler(), postOrderInfo.getPromulgatorid(), postOrderInfo.getCom(), postOrderInfo.getPostTime());
-                LogUtil.initLog("activity").info("activity id goted : "+orderId);
+                LogUtil.initLog("activity").info("activity id goted : " + orderId);
                 //next
-                int orderStatus = queryRunner.update(setStatusSql, orderId, "活动",postOrderInfo.getPeoplelimit(),0);
-                if(orderStatus>0)LogUtil.initLog("activity").info("activity status setted");
+                int orderStatus = queryRunner.update(setStatusSql, orderId, "活动", postOrderInfo.getPeoplelimit(), 0);
+                if (orderStatus > 0) LogUtil.initLog("activity").info("activity status setted");
 
-                for(int i=0;i<urlList.size();i++) {
+                for (int i = 0; i < urlList.size(); i++) {
                     int insertPic = queryRunner.update(insertPicSql, orderId, urlList.get(i));
-                    if(insertPic>0)LogUtil.initLog("activity").info(urlList.get(i)+" inserted");
+                    if (insertPic > 0) LogUtil.initLog("activity").info(urlList.get(i) + " inserted");
                 }
-            }else{
+            } else {
                 LogUtil.initLog("activity").info("insert basic activity info error");
             }
         } catch (SQLException e) {
@@ -177,16 +176,16 @@ public class OrderDaoImpl implements OrderDao{
                 LogUtil.initLog("activity").info("insert basic order info succeed");
                 //next
                 int orderId = (int) queryRunner.query(getOrderIdSql, new ScalarHandler(), postOrderInfo.getPromulgatorid(), postOrderInfo.getCom(), postOrderInfo.getPostTime());
-                LogUtil.initLog("activity").info("activity id goted : "+orderId);
+                LogUtil.initLog("activity").info("activity id goted : " + orderId);
                 //next
                 int orderStatus = queryRunner.update(setStatusSql, orderId, "待审核");
-                if(orderStatus>0)LogUtil.initLog("activity").info("activity status setted");
+                if (orderStatus > 0) LogUtil.initLog("activity").info("activity status setted");
 
-                for(int i=0;i<urlList.size();i++) {
+                for (int i = 0; i < urlList.size(); i++) {
                     int insertPic = queryRunner.update(insertPicSql, orderId, urlList.get(i));
-                    if(insertPic>0)LogUtil.initLog("activity").info(urlList.get(i)+" inserted");
+                    if (insertPic > 0) LogUtil.initLog("activity").info(urlList.get(i) + " inserted");
                 }
-            }else{
+            } else {
                 LogUtil.initLog("activity").info("insert basic activity info error");
             }
         } catch (SQLException e) {
@@ -245,11 +244,11 @@ public class OrderDaoImpl implements OrderDao{
         QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
         try {
             Object result = queryRunner.query(sql, new ScalarHandler(), aid);
-            if (result== null) {
+            if (result == null) {
                 return -1;
             } else {
 //                System.out.println((int)result+"************");
-                return (int)result;
+                return (int) result;
             }
 
         } catch (SQLException e) {
@@ -281,7 +280,7 @@ public class OrderDaoImpl implements OrderDao{
         } catch (SQLException e) {
             e.printStackTrace();
         }//true  已经跟过 false 未跟单
-        return result==null?false:true;
+        return result == null ? false : true;
     }
 
     @Override
@@ -294,8 +293,8 @@ public class OrderDaoImpl implements OrderDao{
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        if(result==null) return -1;
-        else return (int)result;
+        if (result == null) return -1;
+        else return (int) result;
     }
 
     @Override
@@ -336,8 +335,8 @@ public class OrderDaoImpl implements OrderDao{
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        if(result==null) return -1;
-        else return (int)result;
+        if (result == null) return -1;
+        else return (int) result;
     }
 
     @Override
@@ -373,6 +372,36 @@ public class OrderDaoImpl implements OrderDao{
             e.printStackTrace();
         }
         return 0;
+    }
+
+    @Override
+    public List<Order> getMyFollowedOrder(String aid) {
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        String sql = "select * from ruserorderinfo3,orderstatus " +
+                " where ruserorderinfo3.orderid = orderstatus.orderid " +
+                " and orderstatus.orderstatus!='活动已结束' " +
+                " and ruserorderinfo3.orderid in(select orderid from follower where aid=?)";
+        try {
+            return queryRunner.query(sql, new BeanListHandler<Order>(Order.class), aid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Order> getMyPostedOrder(String aid) {
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        String sql = "select * from ruserorderinfo3,orderstatus " +
+                " where promulgatorid=? " +
+                " and orderstatus.orderstatus!='活动已结束' " +
+                " and ruserorderinfo3.orderid = orderstatus.orderid";
+        try {
+            return queryRunner.query(sql, new BeanListHandler<Order>(Order.class), aid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 

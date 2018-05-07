@@ -44,4 +44,8 @@ public interface OrderDao {
     public List<Order> getPassedOrderListByCname(String cname);
 
     public int passBehaviour(String orderid);
+
+    public List<Order> getMyFollowedOrder(String aid);
+
+    public List<Order> getMyPostedOrder(String aid);
 }

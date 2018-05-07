@@ -34,4 +34,8 @@ public interface OrderService {
     public List<Order> getPassedOrderListByCname(String cname);
 
     public boolean passBehaviour(String orderid);
+
+    public List<Order> getMyFollowedOrder(String aid);
+
+    public List<Order> getMyPostedOrder(String aid);
 }

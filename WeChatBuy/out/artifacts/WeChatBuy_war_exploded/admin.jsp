@@ -52,7 +52,7 @@
                     <c:forEach items="${unPassedList}" var="list">
                         <tr class="info">
                             <td>
-                                    ${list.orderid}
+                                <a href="${pageContext.request.contextPath}/orderDetail?orderid=${item.orderid}">${list.orderid}</a>
                             </td>
                             <td>
                                     ${list.ordertheme}

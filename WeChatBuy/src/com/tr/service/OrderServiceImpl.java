@@ -175,4 +175,16 @@ public class OrderServiceImpl implements OrderService{
         int rows = orderDao.passBehaviour(orderid);
         return rows>0?true:false;
     }
+
+    @Override
+    public List<Order> getMyFollowedOrder(String aid) {
+        OrderDaoImpl dao = new OrderDaoImpl();
+        return dao.getMyFollowedOrder(aid);
+    }
+
+    @Override
+    public List<Order> getMyPostedOrder(String aid) {
+        OrderDaoImpl dao = new OrderDaoImpl();
+        return dao.getMyPostedOrder(aid);
+    }
 }
