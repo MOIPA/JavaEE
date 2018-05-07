@@ -112,7 +112,7 @@
                     <tbody>
                     <c:forEach items="${followerList}" var="follower">
                         <tr class="warning">
-                            <td width="10%"><img src="${follower.uiconsrc}" style="width: 100%" class="img-circle"/></td>
+                            <td width="10%"><img src="${pageContext.request.contextPath}/userPic${follower.uiconsrc}" style="width: 100%" class="img-circle"/></td>
                             <td><p>${follower.account}</p></td>
                         </tr>
                     </c:forEach>

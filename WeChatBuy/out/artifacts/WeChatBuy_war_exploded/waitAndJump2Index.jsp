@@ -22,7 +22,7 @@
         if(t==0) {
             location="${pageContext.request.contextPath}/index";
         }
-        document.getElementById("show_time").innerHTML ="${pageContext.request.getParameter("data")}"+ t + "秒后跳转到首页......或点击立刻跳转";
+        document.getElementById("show_time").innerHTML ="${pageContext.request.getParameter("data")}====>"+ t + "秒后跳转到首页......或点击立刻跳转";
         t--;
     }
     setInterval("tick()", 1000);

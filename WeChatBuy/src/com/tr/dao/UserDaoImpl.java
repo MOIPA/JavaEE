@@ -65,8 +65,8 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User signInAccount(String account, String password) {
         String sql = "select account,phone,password,email,identity,account.aid,uiconsrc,cname " +
-                "from account,community,userinfo " +
-                "where account.aid=userinfo.aid and userinfo.com=community.cid and account=? and password=?";
+                " from account,community,userinfo " +
+                " where account.aid=userinfo.aid and userinfo.com=community.cid and account=? and password=?";
         try {
 //            System.out.println((int)(long)queryRunner.query(sql, new ScalarHandler(),account,password));
             return queryRunner.query(sql, new BeanHandler<User>(User.class), account, password);

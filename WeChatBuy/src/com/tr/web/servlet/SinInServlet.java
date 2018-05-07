@@ -24,12 +24,16 @@ public class SinInServlet extends HttpServlet {
         String password = request.getParameter("password");
         UserService userService = new UserServiceImpl();
         User userInfo = userService.signInAccount(account, password);
+
         if (userInfo != null) {
             //得到用户的信息
+            logger.info("登陆者身份："+userInfo.getIdentity());
             HttpSession session = request.getSession();
             logger.info("sign in com : "+userInfo.getCname());
             session.setAttribute("userInfo", userInfo);
-            response.sendRedirect(request.getContextPath() + "/index");
+            if(userInfo.getIdentity().trim().equals("admin")||userInfo.getIdentity().trim().equals("管理员"))
+                response.sendRedirect(request.getContextPath() + "/admin");
+            else response.sendRedirect(request.getContextPath() + "/index");
         } else {
             response.sendRedirect(request.getContextPath() + "/signin.jsp");
         }

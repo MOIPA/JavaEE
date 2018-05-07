@@ -85,7 +85,8 @@ public class UserDaoImplTest {
         User user = userService.signInAccount("2栋杨阿姨", "1231231");
         Assert.assertEquals(null, user);
 //        Assert.assertEquals("测试小区", com);
-        user = userService.signInAccount("2栋杨阿姨", "123123");
+//        user = userService.signInAccount("2栋杨阿姨", "123123");
+        user = userService.signInAccount("webadmin", "123123");
         System.out.println(user.getCname()+user.getIdentity()+user.getAid());
     }
     @Test
