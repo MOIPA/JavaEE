@@ -279,22 +279,71 @@ public class OrderDaoImpl implements OrderDao{
 
     @Override
     public boolean checkIsFollowed(String aid, String orderid) {
-        return false;
+        String sql = "select aid from follower where aid=? and orderid=?";
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        Object result = null;
+        try {
+            result = queryRunner.query(sql, new ScalarHandler(), aid, orderid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }//true  已经跟过 false 未跟单
+        return result==null?false:true;
     }
 
     @Override
     public int getPeopleLimit(String orderid) {
-        return 0;
+        String sql = "select peoplelimit from orderstatus where orderid=?";
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        Object result = null;
+        try {
+            result = queryRunner.query(sql, new ScalarHandler(), orderid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if(result==null) return -1;
+        else return (int)result;
     }
 
     @Override
     public int followOrderBehaviour(String remark, String aid, String orderid, int addressId) {
+        String sql = "insert into follower(orderid,aid,remark,urstatus,addressid)values(?,?,?,?,?)";
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        try {
+            return queryRunner.update(sql, orderid, aid, remark, "参加活动", addressId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return 0;
     }
 
     @Override
     public int followActivityBehaviour(String remark, String aid, String orderid, int addressId, int peopleLimit) {
+
+        String sql = "insert into follower(orderid,aid,remark,urstatus,addressid)values(?,?,?,?,?)";
+        String updatePeopleSql = "update orderstatus set currentpeople=currentpeople+1 where orderid=?";
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        try {
+            queryRunner.update(updatePeopleSql, orderid);
+            return queryRunner.update(sql, orderid, aid, remark, "未付款", addressId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return 0;
+    }
+
+    @Override
+    public int getCurrentPeople(String orderid) {
+        String sql = "select currentPeople from orderstatus where orderid=?";
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        Object result = null;
+        try {
+            result = queryRunner.query(sql, new ScalarHandler(), orderid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if(result==null) return -1;
+        else return (int)result;
     }
 
 

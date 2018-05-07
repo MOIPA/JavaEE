@@ -53,3 +53,7 @@ Creation-Date: 2018-05-05T15:53:03+08:00
 	localStorage.getItem("lastname");
 	或者
 	localStorage.lastname;
+	
+	
+	在response.sendRedirect跳转时中文参数乱码问题：java.net.URLEncoder.encode("跟单成功".toString(),"utf-8"));
+	将参数转码

@@ -11,9 +11,11 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@WebServlet(name = "FollowServlet",urlPatterns = "/follow")
+@WebServlet(name = "FollowServlet", urlPatterns = "/follow")
 public class FollowServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        response.setContentType("text/html;charset=utf-8");
+        response.setCharacterEncoding("utf-8");
         Cookie[] cookies = request.getCookies();
         String orderid = "";
         for (Cookie c :
@@ -31,13 +33,27 @@ public class FollowServlet extends HttpServlet {
         logger.info("跟单逻辑 orderid:" + orderid + " aid:" + aid + " remark:" + remark);
 
         OrderService orderService = new OrderServiceImpl();
-        boolean isSucceed = orderService.followBehaviour(remark, aid, orderid);
-        response.setContentType("text/html;charset=utf-8");
-        if (isSucceed) {
-            response.getWriter().print("跟单成功");
-        }else{
-            response.getWriter().print("请设置您的收货地址");
+        int statuCode = orderService.followBehaviour(remark, aid, orderid);
+        if (0 == statuCode) {
+            response.sendRedirect(request.getContextPath()+"/waitAndJump2Index.jsp?data="+java.net.URLEncoder.encode("跟单成功".toString(),"utf-8"));
+//            response.getWriter().write("跟单成功");
+        } else if (1 == statuCode) {
+            response.sendRedirect(request.getContextPath()+"/waitAndJump2Index.jsp?data="+java.net.URLEncoder.encode("参与活动成功".toString(),"utf-8"));
+//            response.getWriter().write("参与活动成功");
+        } else if (-1 == statuCode) {
+            response.sendRedirect(request.getContextPath()+"/waitAndJump2Index.jsp?data="+java.net.URLEncoder.encode("未设置订单地址".toString(),"utf-8"));
+//            response.getWriter().write("未设置订单地址");
+        } else if (-2 == statuCode) {
+            response.sendRedirect(request.getContextPath()+"/waitAndJump2Index.jsp?data="+java.net.URLEncoder.encode("已经参与过".toString(),"utf-8"));
+//            response.getWriter().write("已经参与过");
+        } else if (-3 == statuCode) {
+            response.sendRedirect(request.getContextPath()+"/waitAndJump2Index.jsp?data="+java.net.URLEncoder.encode("活动人数已满".toString(),"utf-8"));
+//            response.getWriter().write("活动人数已满");
+        } else if (-11 == statuCode) {
+            response.sendRedirect(request.getContextPath()+"/waitAndJump2Index.jsp?data="+java.net.URLEncoder.encode("服务器繁忙".toString(),"utf-8"));
+//            response.getWriter().write("服务器繁忙");
         }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

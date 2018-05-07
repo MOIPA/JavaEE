@@ -27,5 +27,5 @@ public interface OrderService {
 
     public boolean saveUserAvatar(String savePath, List<FileItem> list, String aid);
 
-    public String followBehaviour(String remark, String aid, String orderid);
+    public int followBehaviour(String remark, String aid, String orderid);
 }

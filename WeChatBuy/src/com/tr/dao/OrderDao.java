@@ -36,4 +36,6 @@ public interface OrderDao {
     public int followOrderBehaviour(String remark, String aid, String orderid, int addressId);
 
     public int followActivityBehaviour(String remark, String aid, String orderid, int addressId, int peopleLimit);
+
+    public int getCurrentPeople(String orderid);
 }

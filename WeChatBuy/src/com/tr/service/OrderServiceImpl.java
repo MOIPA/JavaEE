@@ -118,28 +118,42 @@ public class OrderServiceImpl implements OrderService{
 
     }
 
+    /**
+     *  0 表示跟单成功，1表示参与活动成功，-1 表示未设置地址，-2 表示已经参与过跟单，-3表示参与的活动人数已满
+     *  -11表示执行失败
+     * @param remark
+     * @param aid
+     * @param orderid
+     * @return
+     */
     @Override
-    public String followBehaviour(String remark, String aid, String orderid) {
+    public int followBehaviour(String remark, String aid, String orderid) {
         //TODO 检测用户是否已经跟过此单，如果有，返回错误信息数字，如果没有错误，检测跟单的是什么类型，活动还是订单 活动得判断是否超出人数上线
 
         OrderDao orderDao = new OrderDaoImpl();
         int addressId = orderDao.getUserAddressId(aid);
         boolean checkIsFollowed = orderDao.checkIsFollowed(aid, orderid);
         int peopleLimit = orderDao.getPeopleLimit(orderid);
+        Logger logger = Logger.getLogger("follow");
+        logger.info("地址信息："+addressId+" 是否参与："+checkIsFollowed+" 人数限制："+peopleLimit);
+
         if (-1 == addressId) {
             //no addressid error
-            return "未设置订单地址";
+            return -1;
         }else if (checkIsFollowed){
             //跟单过 返回信息
-            return "已经跟过此单";
+            return -2;
         } else if (-1 == peopleLimit) {
             //跟单逻辑
             int rows = orderDao.followOrderBehaviour(remark, aid, orderid, addressId);
-            return rows > 0 ? "跟踪订单成功": "跟踪订单失败";
-        } else {
+            return rows > 0 ? 0: -11;
+        } else if (-1 != peopleLimit){
 //            跟活动逻辑
+            int currentPeople = orderDao.getCurrentPeople(orderid);
+            if(currentPeople>=peopleLimit) return -3;
             int rows = orderDao.followActivityBehaviour(remark, aid, orderid, addressId,peopleLimit);
-            return rows > 0 ? "跟踪活动成功": "跟踪活动失败";
+            return rows > 0 ? 1: -11;
         }
+        return -11;
     }
 }
