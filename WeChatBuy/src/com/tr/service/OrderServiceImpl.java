@@ -156,4 +156,23 @@ public class OrderServiceImpl implements OrderService{
         }
         return -11;
     }
+
+    @Override
+    public List<Order> getUnPassedOrderListByCname(String cname) {
+        OrderDaoImpl dao = new OrderDaoImpl();
+        return dao.getUnPassedOrderListByCname(cname);
+    }
+
+    @Override
+    public List<Order> getPassedOrderListByCname(String cname) {
+        OrderDaoImpl dao = new OrderDaoImpl();
+        return dao.getPassedOrderListByCname(cname);
+    }
+
+    @Override
+    public boolean passBehaviour(String orderid) {
+        OrderDao orderDao = new OrderDaoImpl();
+        int rows = orderDao.passBehaviour(orderid);
+        return rows>0?true:false;
+    }
 }

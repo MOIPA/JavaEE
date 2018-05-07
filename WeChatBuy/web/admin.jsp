@@ -25,101 +25,86 @@
                     审核订单模板
                 </p>
                 <p>
-                    <a class="btn btn-primary btn-large" href="#">退出管理员</a>
+                    <a class="btn btn-primary btn-large" href="${pageContext.request.contextPath}/signoff">退出管理员</a>
                 </p>
             </div>
             <table class="table table-bordered">
                 <thead>
                 <tr>
                     <th>
-                        编号
+                        订单编号
                     </th>
                     <th>
-                        产品
+                        订单主题
                     </th>
                     <th>
-                        交付时间
+                        创建时间
                     </th>
                     <th>
-                        状态
+                        订单状态
+                    </th>
+                    <th>
+                        审核
                     </th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td>
-                        1
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        01/04/2012
-                    </td>
-                    <td>
-                        Default
-                    </td>
-                </tr>
-                <tr class="success">
-                    <td>
-                        1
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        01/04/2012
-                    </td>
-                    <td>
-                        Approved
-                    </td>
-                </tr>
-                <tr class="error">
-                    <td>
-                        2
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        02/04/2012
-                    </td>
-                    <td>
-                        Declined
-                    </td>
-                </tr>
-                <tr class="warning">
-                    <td>
-                        3
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        03/04/2012
-                    </td>
-                    <td>
-                        Pending
-                    </td>
-                </tr>
-                <tr class="info">
-                    <td>
-                        4
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        04/04/2012
-                    </td>
-                    <td>
-                        Call in to confirm
-                    </td>
-                </tr>
+                <tbody class="infoBody">
+                    <c:forEach items="${unPassedList}" var="list">
+                        <tr class="info">
+                            <td>
+                                    ${list.orderid}
+                            </td>
+                            <td>
+                                    ${list.ordertheme}
+                            </td>
+                            <td>
+                                    ${list.posttime}
+                            </td>
+                            <td>
+                                    ${list.orderstatus}
+                            </td>
+                            <td>
+                                    <input type="button" value="通过" src="${list.orderid}" class="btn btn-primary passbtn">
+                            </td>
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+<script>
+    var passBtns = document.getElementsByClassName("passbtn");
+    $(".infoBody").on("click",".passbtn",function(){
+        var orderstatus = this.parentNode.previousSibling.previousSibling;
+        var orderid = orderstatus.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling;
+        var thisEle = this;
+
+        $.ajax({
+            "async":false,
+            "url":"${pageContext.request.contextPath}/pass",
+            "data":{
+                "orderid":orderid.innerText
+            },
+            "dataType":"json",
+            "type":"post",
+            "success":function(data){
+                alert(data.data);
+                thisEle.className = "btn btn-success";
+                thisEle.value = "已通过";
+                orderstatus.innerText = "已通过";
+            },
+            "error":function(){
+                alert("服务器繁忙");
+            }
+        });
+
+
+
+        // alert(this.className+" || "+orderstatus.innerText+" || "+orderid.innerText);
+
+
+    });
+</script>
 </body>
 </html>

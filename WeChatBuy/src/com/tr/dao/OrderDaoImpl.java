@@ -1,7 +1,5 @@
 package com.tr.dao;
 
-import com.google.gson.Gson;
-import com.sun.deploy.net.HttpRequest;
 import com.tr.domin.Follower;
 import com.tr.domin.Order;
 import com.tr.domin.PostOrderInfo;
@@ -14,11 +12,7 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ColumnListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import javax.servlet.http.HttpServletRequest;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.sql.SQLException;
@@ -344,6 +338,41 @@ public class OrderDaoImpl implements OrderDao{
         }
         if(result==null) return -1;
         else return (int)result;
+    }
+
+    @Override
+    public List<Order> getUnPassedOrderListByCname(String cname) {
+        String sql = "select * from ruserorderinfo3,orderstatus where ruserorderinfo3.com=? and orderstatus='待审核' and ruserorderinfo3.orderid=orderstatus.orderid";
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        try {
+            return queryRunner.query(sql, new BeanListHandler<Order>(Order.class), cname);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Order> getPassedOrderListByCname(String cname) {
+        String sql = "select * from ruserorderinfo3,orderstatus where ruserorderinfo3.com=? and orderstatus!='待审核' and ruserorderinfo3.orderid=orderstatus.orderid";
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        try {
+            return queryRunner.query(sql, new BeanListHandler<Order>(Order.class), cname);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public int passBehaviour(String orderid) {
+        String sql = "update orderstatus set orderstatus='进行中' where orderid = ?";
+        try {
+            return BaseDataUtil.getQueryRunner().update(sql, orderid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
 

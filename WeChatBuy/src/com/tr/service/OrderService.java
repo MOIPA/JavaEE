@@ -28,4 +28,10 @@ public interface OrderService {
     public boolean saveUserAvatar(String savePath, List<FileItem> list, String aid);
 
     public int followBehaviour(String remark, String aid, String orderid);
+
+    public List<Order> getUnPassedOrderListByCname(String cname);
+
+    public List<Order> getPassedOrderListByCname(String cname);
+
+    public boolean passBehaviour(String orderid);
 }

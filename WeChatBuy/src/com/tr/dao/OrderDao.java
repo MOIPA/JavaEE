@@ -38,4 +38,10 @@ public interface OrderDao {
     public int followActivityBehaviour(String remark, String aid, String orderid, int addressId, int peopleLimit);
 
     public int getCurrentPeople(String orderid);
+
+    public List<Order> getUnPassedOrderListByCname(String cname);
+
+    public List<Order> getPassedOrderListByCname(String cname);
+
+    public int passBehaviour(String orderid);
 }
