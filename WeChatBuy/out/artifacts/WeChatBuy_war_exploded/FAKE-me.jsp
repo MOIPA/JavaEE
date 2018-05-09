@@ -23,7 +23,6 @@
                 <img alt="140x140" src="postedPic${uiconsrc}" width="200px" height="200px" class="img-circle"/>
                 <br>
                 <br>
-                <br>
                 <a class="btn btn-sm btn-lg" href="${pageContext.request.contextPath}/uploadAvatar.jsp?account=${account}">修改头像</a>
                 <br>
                 <div class="alert alert-success alert-dismissable">

@@ -104,15 +104,15 @@
             <!-- 轮播（Carousel）项目 -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="${pageContext.request.contextPath}/img/510x253-1.png" alt="First slide">
+                    <img src="${pageContext.request.contextPath}/img/c.jpg" alt="First slide">
                     <div class="carousel-caption">社区事务1</div>
                 </div>
                 <div class="item">
-                    <img src="${pageContext.request.contextPath}/img/510x253-2.png" alt="Second slide">
+                    <img src="${pageContext.request.contextPath}/img/c.jpg" alt="Second slide">
                     <div class="carousel-caption">社区事务2</div>
                 </div>
                 <div class="item">
-                    <img src="${pageContext.request.contextPath}/img/510x253-4.png" alt="Third slide">
+                    <img src="${pageContext.request.contextPath}/img/c.jpg" alt="Third slide">
                     <div class="carousel-caption">社区事务3</div>
                 </div>
             </div>
