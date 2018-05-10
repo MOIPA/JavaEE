@@ -5,55 +5,163 @@ Creation-Date: 2018-05-05T15:53:03+08:00
 ====== 界面跳转问题 ======
 创建日期 星期六 05 五月 2018
 
-1：JS跳转，节省服务器负载
-	传值的方法如下：
-	方法一：URL传参（？后面的参数）（去哪儿网笔试题，把URL后面的参数解析为对象）
-	window.location.href = "https://www.google.com/search?q=hello&oq=hello"
+页面数据交换
+
+js技术的页面跳转和传值：
+
+	1：JS跳转
+		传值的方法如下：
+		方法一：URL传参（？后面的参数）
+		
+		
+		window.location.href = "https://www.google.com/search?q=hello&oq=hello"
 	 
-	function parseURL(url){
-		var url = url.split("?")[1];
-		var para = url.split("&");
-		var len = para.length;
-		var res = {};
-		var arr = [];
-		for(var i=0;i<len;i++){
-			arr = para.split("=");
-			res[arr[0]] = arr[1];
-		}
-		return res;
-	}
-	方法二：cookie传参
-	function setCookie(cname,cvalue,exdays){
-		var d = new Date();
-		d.setTime(d.getTime() + (exdays*24*60*60*1000));
-		var expires = "expires=" + d.toUTCString();
-		document.cookie = cname + "=" + cvalue + "; " + expires;
-	}
-	 
-	function getCookie(cname){
-		var name = cname + "=";
-		var ca = document.cookie.split(";");
-		for(var i=0;i<ca.length;i++){
-			var c = ca[i];
-			while(c.charAt(0)==' '){
-				c = c.substring(1); 
+		function parseURL(url){
+			var url = url.split("?")[1];
+			var para = url.split("&");
+			var len = para.length;
+			var res = {};
+			var arr = [];
+			for(var i=0;i<len;i++){
+				arr = para.split("=");
+				res[arr[0]] = arr[1];
 			}
-			if(c.indexof(cname) == 0){
-				return c.substring(name.length,c.length);
-			}
+			return res;
 		}
-		return "";
-	}
-	方法三：H5中Web Storage中的localStorage对象
+		方法二：cookie传参
+		function setCookie(cname,cvalue,exdays){
+			var d = new Date();
+			d.setTime(d.getTime() + (exdays*24*60*60*1000));
+			var expires = "expires=" + d.toUTCString();
+			document.cookie = cname + "=" + cvalue + "; " + expires;
+		}
 	 
-	localStorage.setItem("lastname","lu");
-	或者
-	localStorage.lastname = "lu";
+		function getCookie(cname){
+			var name = cname + "=";
+			var ca = document.cookie.split(";");
+			for(var i=0;i<ca.length;i++){
+				var c = ca[i];
+				while(c.charAt(0)==' '){
+					c = c.substring(1); 
+				}
+				if(c.indexof(cname) == 0){
+					return c.substring(name.length,c.length);
+				}
+			}
+			return "";
+		}
+		方法三：H5中Web Storage中的localStorage对象
 	 
-	localStorage.getItem("lastname");
-	或者
-	localStorage.lastname;
+		localStorage.setItem("lastname","lu");
+		或者
+		localStorage.lastname = "lu";
+	 
+		localStorage.getItem("lastname");
+		或者
+		localStorage.lastname;
 	
 	
-	在response.sendRedirect跳转时中文参数乱码问题：java.net.URLEncoder.encode("跟单成功".toString(),"utf-8"));
-	将参数转码
+		在response.sendRedirect跳转时中文参数乱码问题：java.net.URLEncoder.encode("跟单成功".toString(),"utf-8"));
+		将参数转码
+
+	2 : java代码
+		1：URL	: GET传值==>response.sendRedirect("/receiver?name=?"+你的值);
+		2：cookie: 传递数据的页面：
+						Cookie cookie = new Cookie("number","123");
+						cookie.setMaxAge(600);
+						response.addCookie(cookie);
+
+				接受数据的页面需要遍历cookie找到自己需要的值：
+						String str=null;  
+									Cookie[] cookies=request.getCookies();  
+									for(int i=0;i<cookies.length;i++)  
+									{  
+										if(cookies[i].getName().equals("number"))  
+										{  
+											str=cookies[i].getValue();  
+											break;  
+										}  
+									}  
+									int number=Integer.parseInt(str); 
+		
+		3：Session传值：
+				传递数据的页面：
+							List<String> list=new ArrayList<String>();//创建一个集合  
+									 //向books中添加数据，即向集合中添加信息  
+									 list.add("1");  
+									 list.add("2");  
+									 list.add("3");    
+									 //将list放入session中，即将集合放入到session中，
+									 session.setAttribute("list",list);  
+
+
+				接受数据的页面从session中取值即可：
+						[[HttpSession]] session = request.getSession();
+						List<String> list = (List<String>)session.getAttribute("list");
+						list.get(0);
+		
+		
+		
+		4 : 利用javabean
+			数据发送页面：
+				 a:创建实体类
+				 b:声明 <jsp:useBean id="user" class="User" scope="session" [[/>]]
+				 c:存值 <%
+							user.setUsername("tzq");
+							user.setGender("fm");
+						%>
+			数据接受页面：
+					<jsp:useBean id="user" class="User" scope="session"></jsp:useBean>
+						<p>
+							姓名<jsp:getProperty name="user" property="username" [[/>]]
+						 性别<jsp:getProperty name="user" property="gender" />
+		</p>
+						<p>使用JSP普通方式接收参数</p>
+							性别：<%=user.getUsername()%><br> 密码：<%=user.getGender()%><br>
+			5: application存值
+					application.setAttribute("username", "tzq");
+					application.setAttribute("age", "18");
+						
+					取值：
+					application.getAttribute("username");
+					application.getAttribute("age");
+
+		6: 存放在request中
+				request.setAttribute("test","test");
+				
+				(servlet中：request.getDispathcer("url").forward(req,resp);)
+				
+				接受request数据：
+				request.getAttribute("test");
+
+		7: 使用JSP动作指令传参
+			传参页面:  
+					<jsp:forward page="receive.jsp">
+							<jsp:param name="name" value="tzq"  />
+							<jsp:param name="gender" value="fm" />
+						</jsp:forward>
+			接收参数页面：
+			
+					<%
+						request.setCharacterEncoding("utf-8");
+							String name = request.getParameter("name");
+							out.print("姓名:" + name);
+						%>
+						<br />
+						<%
+							out.print("性别:" + request.getParameter("gender"));
+						%>
+
+			
+			8:form 表单传参
+		
+		8:ajax 传值
+
+
+
+
+
+
+
+
+
