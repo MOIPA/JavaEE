@@ -111,6 +111,9 @@ js技术的页面跳转和传值：
 							user.setGender("fm");
 						%>
 			数据接受页面：
+			
+			**（jsp 使用bean必须import 并且bean必须放在包下，不可直接使用）**
+			
 					<jsp:useBean id="user" class="User" scope="session"></jsp:useBean>
 						<p>
 							姓名<jsp:getProperty name="user" property="username" [[/>]]
@@ -142,7 +145,7 @@ js技术的页面跳转和传值：
 						</jsp:forward>
 			接收参数页面：
 			
-					<%
+						<%
 						request.setCharacterEncoding("utf-8");
 							String name = request.getParameter("name");
 							out.print("姓名:" + name);
