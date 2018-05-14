@@ -52,7 +52,7 @@ public class PostOrderServlet extends HttpServlet {
         OrderService orderServiceImpl = new OrderServiceImpl();
         orderServiceImpl.uploadOrderInfo(postOrderInfo);
 
-        response.sendRedirect(request.getContextPath()+"/order/postSucceed.jsp");
+        response.sendRedirect(request.getContextPath()+"/order/uploadPayCode.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

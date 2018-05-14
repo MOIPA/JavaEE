@@ -187,4 +187,21 @@ public class OrderServiceImpl implements OrderService{
         OrderDaoImpl dao = new OrderDaoImpl();
         return dao.getMyPostedOrder(aid);
     }
+
+    @Override
+    public boolean saveUserPayCode(String savePath, List<FileItem> list, String account) {
+        UserDao userDao = new UserDaoImpl();
+        int updates;
+        File file = new File(savePath);
+        if (!file.exists() && !file.isDirectory()) {
+            file.mkdir();
+        }
+        String payCodeUrl = userDao.saveUserPayCodePic(savePath, list);
+//        System.out.println(avatarUrl+"=======》avatar url");
+        if(!payCodeUrl.equals("")) {
+            updates = userDao.saveUserPayCodeUrl(payCodeUrl, account);
+            return updates > 0 ? true : false;
+        }
+        else return false;
+    }
 }

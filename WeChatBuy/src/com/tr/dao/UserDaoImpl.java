@@ -155,5 +155,73 @@ public class UserDaoImpl implements UserDao {
         return 0;
     }
 
+    @Override
+    public String saveUserPayCodePic(String savePath, List<FileItem> list) {
+        Logger logger = Logger.getLogger("Receiving Pic");
+        logger.setLevel(Level.ALL);
+        logger.info("开始处理上传二维码");
+        String payCodeUrl = "";
+        try {
+            for (FileItem item : list) {
+                if (item.isFormField()) {
+                    logger.info("开始处理普通项目");
+                    //普通输入项
+                    String name = item.getFieldName();
+                    String value = item.getString("utf-8");
+                    logger.info(name + "---" + value);
+                } else {
+                    logger.info("开始处理文件项目");
+                    //文件
+                    String fileName = item.getName();
+                    logger.info("文件名字" + fileName);
+                    if (fileName == null || fileName.trim().equals("")) {
+                        continue;
+                    }
+                    //有的浏览器上传的文件名带路径，有的不带 处理为不带的
+                    fileName = fileName.substring(fileName.indexOf("\\") + 1);
+                    InputStream inputStream = item.getInputStream();
+                    FileOutputStream outputStream = new FileOutputStream(savePath + "\\" + fileName);
+                    //创建缓冲区
+                    byte[] buffer = new byte[1024];
+                    int len = 0;
+                    while ((len = inputStream.read(buffer)) > 0) {
+                        outputStream.write(buffer, 0, len);
+                    }
+                    inputStream.close();
+                    outputStream.close();
+                    //删除缓存文件
+                    item.delete();
+                    logger.info("save path :" + savePath);
+                    //从最后开始找路径
+                    String parentDir = savePath.substring(savePath.lastIndexOf("\\") + 1);
+                    logger.info("directory :" + parentDir);
+//                    urlLists.add(parentDir + "/" + fileName);
+                    payCodeUrl = "/" + fileName;
+                }
+            }
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        logger.info("上传二维码处理完毕");
+        return payCodeUrl;
+    }
+
+    @Override
+    public int saveUserPayCodeUrl(String payCodeUrl, String account) {
+        String sql = "update account set uiconsrc=? where account = ? ";
+        System.out.println(payCodeUrl + ":" + account);
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        try {
+            return queryRunner.update(sql, payCodeUrl, account);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
 
 }

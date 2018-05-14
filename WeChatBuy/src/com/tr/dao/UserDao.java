@@ -20,4 +20,8 @@ public interface UserDao {
     public String saveUserAvatarPic(String savePath, List<FileItem> list);
 
     public int saveUserAvatarUrl(String avatarUrl, String aid);
+
+    public String saveUserPayCodePic(String savePath, List<FileItem> list);
+
+    public int saveUserPayCodeUrl(String avatarUrl, String account);
 }

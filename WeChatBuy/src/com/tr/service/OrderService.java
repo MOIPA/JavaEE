@@ -38,4 +38,6 @@ public interface OrderService {
     public List<Order> getMyFollowedOrder(String aid);
 
     public List<Order> getMyPostedOrder(String aid);
+
+    public boolean saveUserPayCode(String savePath, List<FileItem> list, String account);
 }
