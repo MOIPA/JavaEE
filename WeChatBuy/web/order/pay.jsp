@@ -33,7 +33,7 @@
     <table>
         <tr>
             <td>
-                <img width="100%" src="${pageContext.request.contextPath}/PayCode<%=url%>" alt="${pageContext.request.contextPath}/PayCode<%=url%>" />
+                <img width="100%" src="${pageContext.request.contextPath}/PayCode<%=url%>" />
             </td>
             <td>
                 <form enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath}/uplodaByerPayCode">

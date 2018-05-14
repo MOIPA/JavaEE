@@ -302,9 +302,11 @@ public class OrderDaoImpl implements OrderDao {
     public int followOrderBehaviour(String remark, String aid, String orderid, int addressId, String byerPayUrl) {
         String sql = "insert into follower(orderid,aid,remark,urstatus,addressid)values(?,?,?,?,?)";
         String ByerPayCodeSql = "insert into ByerPayPic(aid,picurl)values(?,?)";
+        String updateOrderStatusSql = "update orderstatus set orderstatus='待确认买家付款信息' where orderid=?";
         QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
         try {
             queryRunner.update(ByerPayCodeSql, aid, byerPayUrl);
+            queryRunner.update(updateOrderStatusSql, orderid);
             return queryRunner.update(sql, orderid, aid, remark, "参加活动", addressId);
         } catch (SQLException e) {
             e.printStackTrace();
