@@ -1,6 +1,7 @@
 package com.tr.dao;
 
 import com.tr.domin.User;
+import com.tr.domin.UserPay;
 import org.apache.commons.fileupload.FileItem;
 
 import java.util.List;
@@ -26,4 +27,5 @@ public interface UserDao {
     public int saveUserPayCodeUrl(String avatarUrl, String account);
 
     public String saveByerPayCodePic(String savePath, List<FileItem> list);
+
 }

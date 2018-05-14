@@ -3,6 +3,7 @@ package test.com.tr.service;
 import com.tr.dao.OrderDaoImpl;
 import com.tr.dao.UserDaoImpl;
 import com.tr.domin.Order;
+import com.tr.domin.UserPay;
 import com.tr.service.OrderServiceImpl;
 import com.tr.service.UserServiceImpl;
 import org.junit.Test;
@@ -111,6 +112,14 @@ public class OrderServiceImplTest {
     public void testGetPayCode() throws Exception {
         String payCode = orderServiceImpl.getPayCode("7");
         System.out.println(payCode);
+    }
+    @Test
+    public void testGetPayedOrder() throws Exception {
+        List<UserPay> lists = orderServiceImpl.getPayedOrder("8");
+        for (UserPay order :
+                lists) {
+            System.out.println(order.getAccount());
+        }
     }
 
 

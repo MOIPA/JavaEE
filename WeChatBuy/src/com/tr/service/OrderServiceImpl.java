@@ -8,6 +8,7 @@ import com.tr.dao.UserDaoImpl;
 import com.tr.domin.Follower;
 import com.tr.domin.Order;
 import com.tr.domin.PostOrderInfo;
+import com.tr.domin.UserPay;
 import org.apache.commons.fileupload.FileItem;
 
 import java.io.File;
@@ -222,5 +223,17 @@ public class OrderServiceImpl implements OrderService{
         }
         return userDao.saveByerPayCodePic(savePath, list);
 
+    }
+
+    @Override
+    public List<UserPay> getPayedOrder(String orderid) {
+        OrderDao orderDao = new OrderDaoImpl();
+        return orderDao.getPayedOrder(orderid);
+    }
+
+    @Override
+    public boolean setOrderStatusToPayed(String orderid) {
+        OrderDao orderDao = new OrderDaoImpl();
+        return orderDao.setOrderStatusToPayed(orderid);
     }
 }

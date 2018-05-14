@@ -3,6 +3,7 @@ package com.tr.dao;
 import com.tr.domin.Follower;
 import com.tr.domin.Order;
 import com.tr.domin.PostOrderInfo;
+import com.tr.domin.UserPay;
 import com.tr.utils.BaseDataUtil;
 import com.tr.utils.CommonUtil;
 import com.tr.utils.LogUtil;
@@ -301,11 +302,11 @@ public class OrderDaoImpl implements OrderDao {
     @Override
     public int followOrderBehaviour(String remark, String aid, String orderid, int addressId, String byerPayUrl) {
         String sql = "insert into follower(orderid,aid,remark,urstatus,addressid)values(?,?,?,?,?)";
-        String ByerPayCodeSql = "insert into ByerPayPic(aid,picurl)values(?,?)";
+        String ByerPayCodeSql = "insert into ByerPayPic(aid,picurl,orderid)values(?,?,?)";
         String updateOrderStatusSql = "update orderstatus set orderstatus='待确认买家付款信息' where orderid=?";
         QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
         try {
-            queryRunner.update(ByerPayCodeSql, aid, byerPayUrl);
+            queryRunner.update(ByerPayCodeSql, aid, byerPayUrl,orderid);
             queryRunner.update(updateOrderStatusSql, orderid);
             return queryRunner.update(sql, orderid, aid, remark, "参加活动", addressId);
         } catch (SQLException e) {
@@ -419,6 +420,35 @@ public class OrderDaoImpl implements OrderDao {
             e.printStackTrace();
         }
         return "";
+    }
+
+    @Override
+    public List<UserPay> getPayedOrder(String orderid) {
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        String sql = "select account.aid,account.uiconsrc,account.account,account.email,ByerPayPic.picurl,theorder.ordertheme,theorder.orderid " +
+                " from account,ByerPayPic,theorder " +
+                " where account.aid = ByerPayPic.aid " +
+                " and ByerPayPic.orderid=theorder.orderid" +
+                " and ByerPayPic.orderid=?";
+        try {
+            return queryRunner.query(sql, new BeanListHandler<UserPay>(UserPay.class), orderid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public boolean setOrderStatusToPayed(String orderid) {
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        String sql = "update orderstatus set orderstatus='买家已付款' where orderid=?";
+        int res = -1;
+        try {
+            res = queryRunner.update(sql, orderid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return res > 0 ? true : false;
     }
 
 

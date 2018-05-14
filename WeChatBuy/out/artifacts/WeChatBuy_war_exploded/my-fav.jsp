@@ -111,7 +111,7 @@
                                                 ${item2.posttime}
                                         </td>
                                         <td>
-                                                ${item2.orderstatus}
+                                            <input type="button" value="${item2.orderstatus}" class="btn btn-primary setStatus">
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -125,5 +125,19 @@
         </div>
     </div>
 </div>
+
+<script>
+    $("#panel-element-136640").on("click",".setStatus",function(){
+        var thisEle = this;
+        // select account.aid,account.uiconsrc,account.account,account.email,ByerPayPic.picurl,theorder.ordertheme from account,ByerPayPic,theorder where account.aid = ByerPayPic.aid and ByerPayPic.orderid=theorder.orderid;
+        if(thisEle.value=="待确认买家付款信息"){
+            this.disabled="true";
+            var orderidT = this.parentNode.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling;
+
+            <%--var orderid = orderidT.innerText;--%>
+            window.location.href = "${pageContext.request.contextPath}/checkbyer?orderid="+orderidT.firstChild.nextSibling.innerText;
+        }
+    });
+</script>
 </body>
 </html>

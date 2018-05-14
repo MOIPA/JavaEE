@@ -3,6 +3,7 @@ package com.tr.service;
 import com.tr.domin.Follower;
 import com.tr.domin.Order;
 import com.tr.domin.PostOrderInfo;
+import com.tr.domin.UserPay;
 import org.apache.commons.fileupload.FileItem;
 
 import java.util.List;
@@ -44,4 +45,8 @@ public interface OrderService {
     public String getPayCode(String orderId);
 
     public String saveByerPayUrl(String savePath, List<FileItem> list, String orderId);
+
+    public List<UserPay> getPayedOrder(String orderid);
+
+    public boolean setOrderStatusToPayed(String orderid);
 }
