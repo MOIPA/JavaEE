@@ -107,5 +107,11 @@ public class OrderServiceImplTest {
         }
     }
 
+    @Test
+    public void testGetPayCode() throws Exception {
+        String payCode = orderServiceImpl.getPayCode("7");
+        System.out.println(payCode);
+    }
+
 
 } 

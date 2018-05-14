@@ -161,9 +161,10 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public boolean uploadOrderInfo(PostOrderInfo postOrderInfo) {
+    public int uploadOrderInfo(PostOrderInfo postOrderInfo) {
         List<String> urlList = CommonUtil.splitUrl(postOrderInfo.getSavedPicSrc());
         QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        int orderId = -1;
         String basicOrderSql = "insert into theorder(promulgatorid,com,ordercontent,posttime,ordertime,ordertheme)values(?,?,?,?,?,?)";
         String getOrderIdSql = "select orderid from theorder where promulgatorid=? and com=? and posttime=?";
         String setStatusSql = "insert into orderstatus(orderid,orderstatus)values(?,?)";
@@ -175,7 +176,7 @@ public class OrderDaoImpl implements OrderDao {
                 //basic info insert succeed
                 LogUtil.initLog("activity").info("insert basic order info succeed");
                 //next
-                int orderId = (int) queryRunner.query(getOrderIdSql, new ScalarHandler(), postOrderInfo.getPromulgatorid(), postOrderInfo.getCom(), postOrderInfo.getPostTime());
+                orderId = (int) queryRunner.query(getOrderIdSql, new ScalarHandler(), postOrderInfo.getPromulgatorid(), postOrderInfo.getCom(), postOrderInfo.getPostTime());
                 LogUtil.initLog("activity").info("activity id goted : " + orderId);
                 //next
                 int orderStatus = queryRunner.update(setStatusSql, orderId, "待审核");
@@ -192,7 +193,7 @@ public class OrderDaoImpl implements OrderDao {
             e.printStackTrace();
         }
 
-        return false;
+        return orderId;
     }
 
     @Override
@@ -298,10 +299,12 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public int followOrderBehaviour(String remark, String aid, String orderid, int addressId) {
+    public int followOrderBehaviour(String remark, String aid, String orderid, int addressId, String byerPayUrl) {
         String sql = "insert into follower(orderid,aid,remark,urstatus,addressid)values(?,?,?,?,?)";
+        String ByerPayCodeSql = "insert into ByerPayPic(aid,picurl)values(?,?)";
         QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
         try {
+            queryRunner.update(ByerPayCodeSql, aid, byerPayUrl);
             return queryRunner.update(sql, orderid, aid, remark, "参加活动", addressId);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -402,6 +405,18 @@ public class OrderDaoImpl implements OrderDao {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public String getPayCode(String orderId) {
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        String sql = "select barcodeurl from orderBarcode where orderid=?";
+        try {
+           return (String) queryRunner.query(sql, new ScalarHandler(), orderId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 
 

@@ -72,12 +72,14 @@
                         </div>
                     </div>
                 </div>
+
+
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <a class="panel-title" data-toggle="collapse" data-parent="#panel-354436"
                            href="#panel-element-136640">我发布的</a>
                     </div>
-                    <div id="panel-element-136640" class="panel-collapse collapse">
+                    <div id="panel-element-136640" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <table class="table table-hover">
                                 <thead>
@@ -97,19 +99,19 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${postedList}" var="item">
+                                <c:forEach items="${postedList}" var="item2">
                                     <tr class="info">
                                         <td>
-                                            <a href="${pageContext.request.contextPath}/orderDetail?orderid=${item.orderid}">${item.orderid}</a>
+                                            <a href="${pageContext.request.contextPath}/orderDetail?orderid=${item2.orderid}">${item2.orderid}</a>
                                         </td>
                                         <td>
-                                                ${item.ordertheme}
+                                                ${item2.ordertheme}
                                         </td>
                                         <td>
-                                                ${item.posttime}
+                                                ${item2.posttime}
                                         </td>
                                         <td>
-                                                ${item.orderstatus}
+                                                ${item2.orderstatus}
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -118,6 +120,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

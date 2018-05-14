@@ -68,13 +68,13 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
-    public void uploadOrderInfo(PostOrderInfo postOrderInfo) {
+    public int uploadOrderInfo(PostOrderInfo postOrderInfo) {
         Logger log = Logger.getLogger("checkPostOrderInfo");
         log.setLevel(Level.ALL);
         log.info(postOrderInfo.getSavedPicSrc()+"\n"+postOrderInfo.getCom()+"\n"+postOrderInfo.getEndtime()+"\n"+postOrderInfo.getDesc()+"\n"+
                 postOrderInfo.getPromulgatorid()+"\n"+postOrderInfo.getTheme()+"\n"+postOrderInfo.getPostTime());
         OrderDaoImpl orderDao = new OrderDaoImpl();
-        orderDao.uploadOrderInfo(postOrderInfo);
+        return orderDao.uploadOrderInfo(postOrderInfo);
     }
 
     @Override
@@ -124,10 +124,11 @@ public class OrderServiceImpl implements OrderService{
      * @param remark
      * @param aid
      * @param orderid
+     * @param byerPayUrl
      * @return
      */
     @Override
-    public int followBehaviour(String remark, String aid, String orderid) {
+    public int followBehaviour(String remark, String aid, String orderid, String byerPayUrl) {
         //TODO 检测用户是否已经跟过此单，如果有，返回错误信息数字，如果没有错误，检测跟单的是什么类型，活动还是订单 活动得判断是否超出人数上线
 
         OrderDao orderDao = new OrderDaoImpl();
@@ -145,7 +146,7 @@ public class OrderServiceImpl implements OrderService{
             return -2;
         } else if (-1 == peopleLimit) {
             //跟单逻辑
-            int rows = orderDao.followOrderBehaviour(remark, aid, orderid, addressId);
+            int rows = orderDao.followOrderBehaviour(remark, aid, orderid, addressId,byerPayUrl);
             return rows > 0 ? 0: -11;
         } else if (-1 != peopleLimit){
 //            跟活动逻辑
@@ -189,7 +190,7 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
-    public boolean saveUserPayCode(String savePath, List<FileItem> list, String account) {
+    public boolean saveUserPayCode(String savePath, List<FileItem> list, String orderId) {
         UserDao userDao = new UserDaoImpl();
         int updates;
         File file = new File(savePath);
@@ -199,9 +200,27 @@ public class OrderServiceImpl implements OrderService{
         String payCodeUrl = userDao.saveUserPayCodePic(savePath, list);
 //        System.out.println(avatarUrl+"=======》avatar url");
         if(!payCodeUrl.equals("")) {
-            updates = userDao.saveUserPayCodeUrl(payCodeUrl, account);
+            updates = userDao.saveUserPayCodeUrl(payCodeUrl, orderId);
             return updates > 0 ? true : false;
         }
         else return false;
+    }
+
+    @Override
+    public String getPayCode(String orderId) {
+        OrderDaoImpl dao = new OrderDaoImpl();
+        return dao.getPayCode(orderId);
+    }
+
+    @Override
+    public String saveByerPayUrl(String savePath, List<FileItem> list, String orderId) {
+        UserDao userDao = new UserDaoImpl();
+        int updates;
+        File file = new File(savePath);
+        if (!file.exists() && !file.isDirectory()) {
+            file.mkdir();
+        }
+        return userDao.saveByerPayCodePic(savePath, list);
+
     }
 }

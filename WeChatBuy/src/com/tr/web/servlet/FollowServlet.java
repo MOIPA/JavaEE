@@ -17,23 +17,31 @@ public class FollowServlet extends HttpServlet {
 //        response.setContentType("text/html;charset=utf-8");
         response.setCharacterEncoding("utf-8");
         Cookie[] cookies = request.getCookies();
+        String ByerPayUrl = "";
         String orderid = "";
+        String remark = "";
         for (Cookie c :
                 cookies) {
             if (c.getName().equals("orderid")) {
                 orderid = c.getValue();
             }
+            if (c.getName().equals("ByerPayUrl")) {
+                ByerPayUrl = c.getValue();
+            }
+            if (c.getName().equals("remark")) {
+                remark = c.getValue();
+            }
         }
-        String remark = request.getParameter("remark");
+
         HttpSession session = request.getSession();
         User userinfo = (User) session.getAttribute("userInfo");
         String aid = userinfo.getAid();
         Logger logger = Logger.getLogger("follow");
         logger.setLevel(Level.ALL);
-        logger.info("跟单逻辑 orderid:" + orderid + " aid:" + aid + " remark:" + remark);
+        logger.info("跟单逻辑 orderid:" + orderid + " aid:" + aid + " remark:" + remark + " byerPayUrl" + ByerPayUrl);
 
         OrderService orderService = new OrderServiceImpl();
-        int statuCode = orderService.followBehaviour(remark, aid, orderid);
+        int statuCode = orderService.followBehaviour(remark, aid, orderid,ByerPayUrl);
         if (0 == statuCode) {
             response.sendRedirect(request.getContextPath()+"/waitAndJump2Index.jsp?data="+java.net.URLEncoder.encode("跟单成功".toString(),"utf-8"));
 //            response.getWriter().write("跟单成功");
@@ -57,6 +65,6 @@ public class FollowServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doPost(request,response);
     }
 }

@@ -26,6 +26,7 @@ public class MyFavServlet extends HttpServlet {
         List<Order> postedList =  orderService.getMyPostedOrder(aid);
         request.setAttribute("followedList", followedList);
         request.setAttribute("postedList", postedList);
+//        System.out.println(postedList.size()+postedList.get(0).getCom()+"***********");
         request.getRequestDispatcher("/my-fav.jsp").forward(request, response);
     }
 

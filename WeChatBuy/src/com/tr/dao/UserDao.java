@@ -24,4 +24,6 @@ public interface UserDao {
     public String saveUserPayCodePic(String savePath, List<FileItem> list);
 
     public int saveUserPayCodeUrl(String avatarUrl, String account);
+
+    public String saveByerPayCodePic(String savePath, List<FileItem> list);
 }

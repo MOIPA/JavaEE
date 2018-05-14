@@ -1,5 +1,8 @@
 package com.tr.utils;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -33,6 +36,27 @@ public class CommonUtil {
 //        checkUrlList.setLevel(Level.ALL);
 //        checkUrlList.info(check);
         return urlList;
+    }
+
+    public static void editCookie(HttpServletRequest request, HttpServletResponse response, String name, String value){
+        Cookie[] cookies = request.getCookies();
+        if (null==cookies) {
+            System.out.println("没有cookie==============");
+        } else {
+            for(Cookie cookie : cookies){
+                if(cookie.getName().equals(name)){
+                    System.out.println("原值为:"+cookie.getValue());
+                    cookie.setValue(value);
+                    cookie.setPath("/");
+                    cookie.setMaxAge(30 * 60);// 设置为30min
+                    System.out.println("被修改的cookie名字为:"+cookie.getName()+",新值为:"+cookie.getValue());
+                    response.addCookie(cookie);
+                    return;
+                }
+            }
+            response.addCookie(new Cookie(name,value));
+        }
+
     }
 
 }

@@ -65,10 +65,11 @@
                 </div>
 
                 <div style="padding: 10px; border: 1px solid #e7dbb1; width: 330px; margin: 15px 0 10px 0;; background-color: #fffee6;">
-                    <form class="bs-example bs-example-form" role="form" method="post" action="${pageContext.request.contextPath}/follow">
+                    <form class="bs-example bs-example-form" role="form" method="post" action="${pageContext.request.contextPath}/order/pay.jsp">
                         留言<div class="input-group">
                                 <span class="input-group-addon">@</span>
                                 <input type="text" class="form-control" name="remark" placeholder="您的留言">
+                                <input type="text" class="form-control" name="orderId" value="${detailInfo.orderid}" style="display: none;">
                             </div>
                         <br>
                         <div class="input-group">

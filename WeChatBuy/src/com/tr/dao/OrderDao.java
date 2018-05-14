@@ -17,7 +17,7 @@ public interface OrderDao {
 
     public List<Order> getHotOrderList(String com);
 
-    public boolean uploadOrderInfo(PostOrderInfo postOrderInfo);
+    public int uploadOrderInfo(PostOrderInfo postOrderInfo);
 
     public Order getDetailInfoById(String orderid);
 
@@ -33,7 +33,7 @@ public interface OrderDao {
 
     public int getPeopleLimit(String orderid);
 
-    public int followOrderBehaviour(String remark, String aid, String orderid, int addressId);
+    public int followOrderBehaviour(String remark, String aid, String orderid, int addressId, String byerPayUrl);
 
     public int followActivityBehaviour(String remark, String aid, String orderid, int addressId, int peopleLimit);
 
@@ -48,4 +48,6 @@ public interface OrderDao {
     public List<Order> getMyFollowedOrder(String aid);
 
     public List<Order> getMyPostedOrder(String aid);
+
+    public String getPayCode(String orderId);
 }

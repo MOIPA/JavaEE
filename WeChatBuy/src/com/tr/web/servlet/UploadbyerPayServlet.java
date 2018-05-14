@@ -1,6 +1,7 @@
 package com.tr.web.servlet;
 
 import com.tr.service.OrderServiceImpl;
+import com.tr.utils.CommonUtil;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -14,10 +15,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "UploadPayCodeServlet",urlPatterns = "/uplodaPayCode")
-public class UploadPayCodeServlet extends HttpServlet {
+@WebServlet(name = "UploadbyerPayServlet",urlPatterns = "/uplodaByerPayCode")
+public class UploadbyerPayServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String remark = "";
         String account = "";
         String orderId = "";
         Cookie[] cookies = request.getCookies();
@@ -30,11 +32,14 @@ public class UploadPayCodeServlet extends HttpServlet {
             if (c.getName().equals("orderId")) {
                 orderId = c.getValue();
             }
+            if (c.getName().equals("remark")) {
+                remark = c.getValue();
+            }
         }
 
 
         OrderServiceImpl orderServiceImpl = new OrderServiceImpl();
-        String savePath = this.getServletContext().getRealPath("/PayCode");
+        String savePath = this.getServletContext().getRealPath("/ByerPayedPic");
         try {
             //处理request里面的文件上传流 封装为List<item>传递给service
             DiskFileItemFactory factory = new DiskFileItemFactory();
@@ -46,12 +51,13 @@ public class UploadPayCodeServlet extends HttpServlet {
             }
             List<FileItem> list = upload.parseRequest(request);
 
-            boolean isSucceed = orderServiceImpl.saveUserPayCode(savePath, list, orderId);
-            if (isSucceed) {
-                response.sendRedirect(request.getContextPath()+"/order/postSucceed.jsp");
+            String ByerPayUrl = orderServiceImpl.saveByerPayUrl(savePath, list, orderId);
+            if (!ByerPayUrl.equals("")) {
+                CommonUtil.editCookie(request,response,"ByerPayUrl",ByerPayUrl);
+                response.sendRedirect(request.getContextPath()+"/follow");
             }else{
                 response.getWriter().write("alert('无法上传，请重试！')");
-                response.sendRedirect(request.getContextPath()+"/order/uploadPayCode.jsp");
+                response.sendRedirect(request.getContextPath()+"/order/pay.jsp");
             }
         } catch (Exception e) {
         }

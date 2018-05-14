@@ -17,7 +17,7 @@ public interface OrderService {
 
     public List<Order> getHotOrderList(String com);
 
-    public void uploadOrderInfo(PostOrderInfo postOrderInfo);
+    public int uploadOrderInfo(PostOrderInfo postOrderInfo);
 
     public Order getDetailInfoById(String orderid);
 
@@ -27,7 +27,7 @@ public interface OrderService {
 
     public boolean saveUserAvatar(String savePath, List<FileItem> list, String aid);
 
-    public int followBehaviour(String remark, String aid, String orderid);
+    public int followBehaviour(String remark, String aid, String orderid, String byerPayUrl);
 
     public List<Order> getUnPassedOrderListByCname(String cname);
 
@@ -40,4 +40,8 @@ public interface OrderService {
     public List<Order> getMyPostedOrder(String aid);
 
     public boolean saveUserPayCode(String savePath, List<FileItem> list, String account);
+
+    public String getPayCode(String orderId);
+
+    public String saveByerPayUrl(String savePath, List<FileItem> list, String orderId);
 }

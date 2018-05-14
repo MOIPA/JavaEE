@@ -16,15 +16,12 @@
 
 </head>
 <body>
-<%
-    Cookie aidCookie = new Cookie("account", request.getParameter("account"));
-    response.addCookie(aidCookie);
-%>
+
 <div class="container">
     <h1>支付宝二维码上传
         <small>点击铅笔修改</small>
     </h1>
-    <form enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath}/uplodaAvatar">
+    <form enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath}/uplodaPayCode">
         <div class="avatar-upload">
             <div class="avatar-edit">
                 <input type='file' name="avatar" id="imageUpload" accept=".png, .jpg, .jpeg" />
