@@ -91,7 +91,7 @@
         var aid = this.id;
         var orderid = this.name;
         var thisEle = this;
-        alert(aid + "==" + orderid);
+        // alert(aid + "==" + orderid);
 
         $.ajax({
             "async":false,

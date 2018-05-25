@@ -5,10 +5,7 @@ import com.tr.dao.OrderDao;
 import com.tr.dao.OrderDaoImpl;
 import com.tr.dao.UserDao;
 import com.tr.dao.UserDaoImpl;
-import com.tr.domin.Follower;
-import com.tr.domin.Order;
-import com.tr.domin.PostOrderInfo;
-import com.tr.domin.UserPay;
+import com.tr.domin.*;
 import org.apache.commons.fileupload.FileItem;
 
 import java.io.File;
@@ -235,5 +232,20 @@ public class OrderServiceImpl implements OrderService{
     public boolean setOrderStatusToPayed(String orderid) {
         OrderDao orderDao = new OrderDaoImpl();
         return orderDao.setOrderStatusToPayed(orderid);
+    }
+
+    @Override
+    public boolean sendGoods(String orderid) {
+        return new OrderDaoImpl().sendGoods(orderid);
+    }
+
+    @Override
+    public boolean receiveGoods(String orderid) {
+        return new OrderDaoImpl().receiveGoods(orderid);
+    }
+
+    @Override
+    public List<SoldGoods> getMySoldOrder(String aid) {
+        return new OrderDaoImpl().getSoldOrder(aid);
     }
 }

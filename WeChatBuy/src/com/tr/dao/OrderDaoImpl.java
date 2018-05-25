@@ -1,9 +1,6 @@
 package com.tr.dao;
 
-import com.tr.domin.Follower;
-import com.tr.domin.Order;
-import com.tr.domin.PostOrderInfo;
-import com.tr.domin.UserPay;
+import com.tr.domin.*;
 import com.tr.utils.BaseDataUtil;
 import com.tr.utils.CommonUtil;
 import com.tr.utils.LogUtil;
@@ -28,12 +25,12 @@ public class OrderDaoImpl implements OrderDao {
 
     public List<Order> getHotOrderList(String com) {
         QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
-        String sql = "select orderstatus.peoplelimit,orderstatus.currentpeople,orderstatus.orderstatus,main.*," +
+        String sql = "select orderstatus.peoplelimit,orderstatus.currentpeople,orderstatus.orderstatus,orderstatus.price,main.*," +
                 "(select count(*) from follower where orderid=main.orderid) as followers " +
                 " from ruserorderinfo3 main,orderstatus " +
                 " where main.com=? and orderstatus.orderstatus!='待审核' and orderstatus.orderstatus!='活动'" +
                 " and orderstatus.orderid = main.orderid " +
-                " group by main.orderid,orderstatus.peoplelimit,orderstatus.currentpeople,orderstatus.orderstatus " +
+                " group by main.orderid,orderstatus.peoplelimit,orderstatus.currentpeople,orderstatus.orderstatus,orderstatus.price " +
                 " limit 9";
         try {
             hotOrderList = queryRunner.query(sql, new BeanListHandler<Order>(Order.class), com);
@@ -449,6 +446,47 @@ public class OrderDaoImpl implements OrderDao {
             e.printStackTrace();
         }
         return res > 0 ? true : false;
+    }
+
+    @Override
+    public boolean sendGoods(String orderid) {
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        String sql = "update orderstatus set orderstatus='发货等待接收' where orderid=?";
+        int res = -1;
+        try {
+            res = queryRunner.update(sql, orderid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return res > 0 ? true : false;
+    }
+
+    @Override
+    public boolean receiveGoods(String orderid) {
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        String sql = "update orderstatus set orderstatus='买家已收货' where orderid=?";
+        int res = -1;
+        try {
+            res = queryRunner.update(sql, orderid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return res > 0 ? true : false;
+    }
+
+    @Override
+    public List<SoldGoods> getSoldOrder(String aid) {
+        QueryRunner queryRunner = BaseDataUtil.getQueryRunner();
+        String sql = "select * from ruserorderinfo3,orderstatus " +
+                " where promulgatorid=? " +
+                " and orderstatus.orderstatus='买家已收货' " +
+                " and ruserorderinfo3.orderid = orderstatus.orderid";
+        try {
+            return queryRunner.query(sql, new BeanListHandler<SoldGoods>(SoldGoods.class), aid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 

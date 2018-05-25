@@ -8,6 +8,7 @@ public class Order {
 // "account":"","ordertheme":"","ordercontent":"","ordertime":"","promulgatorid":"97"
 // ,"com":"","posttime":"2018-04-12 00:47:34","name":null,"age":null,"sex":null,
 // "uiconsrc":"1\u680b\u738b\u963f\u59e8-IMG_0167.JPG","rorderpicsrc":"-IMG_0170.JPG"}
+    private int price;
     private int followers;
     private int orderid;
     private int promulgatorid;
@@ -26,6 +27,14 @@ public class Order {
     private String peoplelimit;
     private String currentpeople;
     private String orderstatus;
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
 
     public String getPeoplelimit() {
         return peoplelimit;

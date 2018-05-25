@@ -67,7 +67,7 @@ public class UserDaoImplTest {
     public void testGetHotOrderList(){
         List<Order> results = orderServiceImpl.getHotOrderList("测试小区");
         for (Order order : results) {
-            System.out.println(order.getOrdercontent()+order.getAccount()+order.getCom()+order.getFollowers()+order.getPosttime()+order.getUiconsrc());
+            System.out.println(order.getPrice()+"  "+order.getAccount()+order.getCom()+order.getFollowers()+order.getPosttime()+order.getUiconsrc());
         }
     }
     @Test

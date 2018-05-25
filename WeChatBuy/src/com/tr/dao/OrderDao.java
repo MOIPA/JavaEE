@@ -1,9 +1,6 @@
 package com.tr.dao;
 
-import com.tr.domin.Follower;
-import com.tr.domin.Order;
-import com.tr.domin.PostOrderInfo;
-import com.tr.domin.UserPay;
+import com.tr.domin.*;
 import org.apache.commons.fileupload.FileItem;
 
 import java.util.List;
@@ -55,4 +52,10 @@ public interface OrderDao {
     public List<UserPay> getPayedOrder(String orderid);
 
     public boolean setOrderStatusToPayed(String orderid);
+
+    public boolean sendGoods(String orderid);
+
+    public boolean receiveGoods(String orderid);
+
+    public List<SoldGoods> getSoldOrder(String aid);
 }

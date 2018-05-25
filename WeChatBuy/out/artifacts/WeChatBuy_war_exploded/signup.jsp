@@ -55,6 +55,7 @@
                     // alert(document.getElementById("community").innerHTML);
                 }
             });
+
         });
 
         $(function(){

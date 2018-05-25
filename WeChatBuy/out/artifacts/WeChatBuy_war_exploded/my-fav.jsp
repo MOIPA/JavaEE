@@ -63,7 +63,7 @@
                                                 ${item.posttime}
                                         </td>
                                         <td>
-                                                ${item.orderstatus}
+                                            <input type="button" value="${item.orderstatus}" class="btn btn-primary setStatus">
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -120,7 +120,50 @@
                         </div>
                     </div>
                 </div>
+                <br>
+                <label class="label label-success" style="font-size: 20px;margin: auto auto">获利总价：<%=request.getAttribute("totalPrice")%></label>
+                <br>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a class="panel-title" data-toggle="collapse" data-parent="#panel-354436"
+                           href="#panel-element-x">我卖出的</a>
+                    </div>
+                    <div id="panel-element-x" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th>
+                                        成交订单编号
+                                    </th>
+                                    <th>
+                                        成交订单主题
+                                    </th>
+                                    <th>
+                                        成交价格
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach items="${soldList}" var="item3">
+                                    <tr class="info">
+                                        <td>
+                                            <a href="${pageContext.request.contextPath}/orderDetail?orderid=${item3.orderid}">${item3.orderid}</a>
+                                        </td>
+                                        <td>
+                                                ${item3.ordertheme}
+                                        </td>
+                                        <td>
+                                                ${item3.price}
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
+                </div>
             </div>
         </div>
     </div>
@@ -130,12 +173,57 @@
     $("#panel-element-136640").on("click",".setStatus",function(){
         var thisEle = this;
         // select account.aid,account.uiconsrc,account.account,account.email,ByerPayPic.picurl,theorder.ordertheme from account,ByerPayPic,theorder where account.aid = ByerPayPic.aid and ByerPayPic.orderid=theorder.orderid;
+        // this.disabled="true";
+        var orderid = this.parentNode.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.firstChild.nextSibling.innerText;
         if(thisEle.value=="待确认买家付款信息"){
-            this.disabled="true";
-            var orderidT = this.parentNode.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling;
+            window.location.href = "${pageContext.request.contextPath}/checkbyer?orderid="+orderid;
+        }else if(thisEle.value=="买家已付款"){
+            $.ajax({
+                "url":"${pageContext.request.contextPath}/sendGoods",
+                "dataType":"json",
+                "type":"post",
+                "success":function(data){
+                    if(data.data=="success") {
+                        thisEle.value = '发货等待接收';
+                        alert("买家发货成功");
+                    }
+                    else{
+                        alert("服务器繁忙");
+                    }
+                },
+                "data":{
+                    "orderid":orderid
+                }
+            });
 
-            <%--var orderid = orderidT.innerText;--%>
-            window.location.href = "${pageContext.request.contextPath}/checkbyer?orderid="+orderidT.firstChild.nextSibling.innerText;
+        }
+    });
+</script>
+<script>
+    $("#panel-element-170998").on("click",".setStatus",function(){
+        var thisEle = this;
+        // select account.aid,account.uiconsrc,account.account,account.email,ByerPayPic.picurl,theorder.ordertheme from account,ByerPayPic,theorder where account.aid = ByerPayPic.aid and ByerPayPic.orderid=theorder.orderid;
+        // this.disabled="true";
+        var orderid = this.parentNode.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.firstChild.nextSibling.innerText;
+        if(thisEle.value=="发货等待接收"){
+            $.ajax({
+                "url":"${pageContext.request.contextPath}/receiveGoods",
+                "dataType":"json",
+                "type":"post",
+                "success":function(data){
+                    if(data.data=="success") {
+                        thisEle.value = '买家已收货';
+                        alert("买家收货成功");
+                    }
+                    else{
+                        alert("服务器繁忙");
+                    }
+                },
+                "data":{
+                    "orderid":orderid
+                }
+            });
+
         }
     });
 </script>

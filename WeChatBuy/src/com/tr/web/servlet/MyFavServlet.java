@@ -1,6 +1,7 @@
 package com.tr.web.servlet;
 
 import com.tr.domin.Order;
+import com.tr.domin.SoldGoods;
 import com.tr.domin.User;
 import com.tr.service.OrderService;
 import com.tr.service.OrderServiceImpl;
@@ -24,8 +25,19 @@ public class MyFavServlet extends HttpServlet {
         OrderService orderService = new OrderServiceImpl();
         List<Order> followedList =  orderService.getMyFollowedOrder(aid);
         List<Order> postedList =  orderService.getMyPostedOrder(aid);
+        List<SoldGoods> soldList =  orderService.getMySoldOrder(aid);
         request.setAttribute("followedList", followedList);
         request.setAttribute("postedList", postedList);
+        request.setAttribute("soldList", soldList);
+
+        //calculate total price
+        int totalPrice = 0;
+        for (SoldGoods soldGoods :
+            soldList) {
+            totalPrice +=Integer.parseInt(soldGoods.getPrice());
+        }
+        request.setAttribute("totalPrice",totalPrice);
+
 //        System.out.println(postedList.size()+postedList.get(0).getCom()+"***********");
         request.getRequestDispatcher("/my-fav.jsp").forward(request, response);
     }

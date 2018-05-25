@@ -152,7 +152,7 @@
                             <img src="postedPic/${orderItem.rorderpicsrc}" alt="postedPic/${orderItem.rorderpicsrc}" width="130" height="130" style="display: inline-block;">
                         </a>
                         <p><a href="${pageContext.request.contextPath}/orderDetail?orderid=${orderItem.orderid}" style='color:#666'>${orderItem.ordertheme}</a></p>
-                        <p><font color="#E4393C" style="font-size:16px">${orderItem.ordertime}</font></p>
+                        <p><font color="#E4393C" style="font-size:16px">价格：${orderItem.price}</font></p>
                     </div>
                 </c:forEach>
 

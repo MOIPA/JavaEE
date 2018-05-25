@@ -3,6 +3,7 @@ package test.com.tr.service;
 import com.tr.dao.OrderDaoImpl;
 import com.tr.dao.UserDaoImpl;
 import com.tr.domin.Order;
+import com.tr.domin.SoldGoods;
 import com.tr.domin.UserPay;
 import com.tr.service.OrderServiceImpl;
 import com.tr.service.UserServiceImpl;
@@ -45,7 +46,12 @@ public class OrderServiceImplTest {
      */
     @Test
     public void testGetHotOrderList() throws Exception {
-//TODO: Test goes here... 
+        List<Order> lists = orderServiceImpl.getHotOrderList("测试小区");
+        for (Order order :
+                lists) {
+            System.out.println(order.getPrice());
+        }
+
     }
 
     /**
@@ -119,6 +125,15 @@ public class OrderServiceImplTest {
         for (UserPay order :
                 lists) {
             System.out.println(order.getAccount());
+        }
+    }
+
+    @Test
+    public void testGetSoldOrder() throws Exception {
+        List<SoldGoods> lists = orderServiceImpl.getMySoldOrder("108");
+        for (SoldGoods order :
+                lists) {
+            System.out.println(order.getPrice()+" | "+order.getPosttime());
         }
     }
 
