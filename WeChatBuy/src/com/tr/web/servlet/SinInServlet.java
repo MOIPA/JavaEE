@@ -20,8 +20,10 @@ public class SinInServlet extends HttpServlet {
         Logger logger = Logger.getLogger("signIn");
         logger.setLevel(Level.ALL);
         request.setCharacterEncoding("utf-8");
+        //1 . 获取数据
         String account = request.getParameter("account");
         String password = request.getParameter("password");
+        //2.封装数据 处理数据
         UserService userService = new UserServiceImpl();
         User userInfo = userService.signInAccount(account, password);
 
@@ -36,12 +38,13 @@ public class SinInServlet extends HttpServlet {
             else response.sendRedirect(request.getContextPath() + "/index");
         } else {
             response.sendRedirect(request.getContextPath() + "/signin.jsp");
+            
         }
 //        if (isSign) response.sendRedirect(request.getContextPath() + "/index.jsp");
 //        else response.sendRedirect(request.getContextPath() + "/signin.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doPost(request,response);
     }
 }

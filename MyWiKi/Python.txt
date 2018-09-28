@@ -1,0 +1,13 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-06-23T23:12:20+08:00
+
+====== Python ======
+创建日期 星期六 23 六月 2018
+
+python 不带自动table补全需要自己手动加
+修改脚本 [[/usr/lib/python2.7/]]dist-packages/tab.py
+
+１.环境配置
+２．[[+变量和命名|变量和命名]]
+3.[[+控制语句|控制语句]]

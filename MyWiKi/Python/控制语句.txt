@@ -1,0 +1,71 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-06-24T00:18:38+08:00
+
+====== 控制语句 ======
+创建日期 星期日 24 六月 2018
+
+if语句
+if name=='tr':
+  print 'hoi'
+elif name=='tzq':
+  print ...
+else:
+  if name='':
+	print
+  else:
+	print
+  print  'error'
+	
+需要注意的时在python里面每一行代码的缩进都是统一的，并且不建议使用table键作为缩进，因为不同系统不同
+	请使用两个空格
+	
+for循环
+for i in range(1,100)：
+  print i    最后输出1-99
+else:
+  print
+
+break/continue: 在需要跳出的地方添加break/continue 可以直接在判断后加入不用关心缩进
+
+直接range(100) 输出0-99
+或者 range(1,100,2) 每隔2个输出 	
+
+while循环：
+while 1:
+	.......
+while true:
+while 2:有效  只要不为0都是真
+while i<199
+	do something
+while ...  :
+else:
+
+占位符输出：
+	name = '123'
+	age = 123
+	print 'hello %s ' % name
+	print 'helo %s ,you age: %s' %(name,age)
+	
+	看对象类型 type varible  
+	对比时类型需要注意是否一致， 转为数字类型：int(内容)
+	可能会出现错误，使用异常处理：
+
+
+API: .strip   name.strip  类似name.trim()
+	len() 获取字符串长度
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

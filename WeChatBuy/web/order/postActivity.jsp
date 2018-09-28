@@ -47,6 +47,10 @@
                 <input type="text" class="form-control" name="peoplelimit" id="peoplelimit" placeholder="请输入人数上限">
             </div>
             <div class="form-group">
+                <label for="endtime">价格</label>
+                <input type="text" class="form-control" name="peoplelimit" id="price" placeholder="请输入商品价格">
+            </div>
+            <div class="form-group">
                 <label for="desc">描述</label>
                 <input type="text" class="form-control" name="desc" id="desc" placeholder="请输入描述">
             </div>

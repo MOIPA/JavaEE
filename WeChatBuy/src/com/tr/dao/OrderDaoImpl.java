@@ -122,7 +122,6 @@ public class OrderDaoImpl implements OrderDao {
         }
         return null;
     }
-
     public boolean uploadActivityInfo(PostOrderInfo postOrderInfo) {
 
         List<String> urlList = CommonUtil.splitUrl(postOrderInfo.getSavedPicSrc());
@@ -157,6 +156,7 @@ public class OrderDaoImpl implements OrderDao {
 
         return false;
     }
+
 
     @Override
     public int uploadOrderInfo(PostOrderInfo postOrderInfo) {

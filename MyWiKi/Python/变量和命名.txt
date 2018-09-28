@@ -1,0 +1,33 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-06-23T23:13:28+08:00
+
+====== 变量和命名 ======
+创建日期 星期六 23 六月 2018
+
+命名：
+	1. _my_name
+	2. myName
+	3. [[MyName]]
+	4. my_name
+
+基本运算：
+	1.加减乘除同其他语言
+	2.平方为：** 例： 2**8 = 256 
+
+多行注释： 
+	1.‘’‘  注释字符串
+	2. “”“ 注释字符
+	3. # 注释字符
+	4. 在字符输出时 单引号和双引号没区别 和js一样
+导入模块
+	1. Import moduleName   使用：moduleName.method('1');
+	2. From module import sayHi  从module中导入sayHi 直接使用方法名
+	3. Import moduleName as newName
+	4. from moduleName import *  不建议使用 可能会使名字覆盖之前的导入模块名
+		a. 导入时python先从当前目录找
+		b. 想要自己写的模块在任何地方被导入可以在sys.path 中添加一个环境变量或者在其中一个目录添加
+		c. 查看sys.path  import sys sys.path
+字符串拼接： ，
+
+输入api ：name = raw_input('adsf");

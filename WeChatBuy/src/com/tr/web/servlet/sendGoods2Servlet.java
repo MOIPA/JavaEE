@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "SendGoodsServlet",urlPatterns = "/sendGoods")
-public class SendGoodsServlet extends HttpServlet {
+@WebServlet(name = "sendGoods2Servlet",urlPatterns = "/test222")
+public class sendGoods2Servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("do post send goods");
         String orderid = request.getParameter("orderid");

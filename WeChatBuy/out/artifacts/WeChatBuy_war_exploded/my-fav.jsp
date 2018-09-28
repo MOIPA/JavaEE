@@ -178,8 +178,9 @@
         if(thisEle.value=="待确认买家付款信息"){
             window.location.href = "${pageContext.request.contextPath}/checkbyer?orderid="+orderid;
         }else if(thisEle.value=="买家已付款"){
+            // alert("tt");
             $.ajax({
-                "url":"${pageContext.request.contextPath}/sendGoods",
+                "url":"${pageContext.request.contextPath}/test222",
                 "dataType":"json",
                 "type":"post",
                 "success":function(data){
@@ -191,10 +192,13 @@
                         alert("服务器繁忙");
                     }
                 },
+                "error":function(data){
+                        alert("fail"+"${pageContext.request.contextPath}/sendGoods"+data+"orderid is "+orderid);
+                },
                 "data":{
                     "orderid":orderid
                 }
-            });
+            });z
 
         }
     });
