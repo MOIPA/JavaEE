@@ -2,9 +2,9 @@
 
 <c3p0-config>
     <default-config>
-        <property name="user">tr</property>
+        <property name="user">root</property>
         <property name="password">0800</property>
         <property name="driverClass">com.mysql.jdbc.Driver</property>
-        <property name="jdbcUrl">jdbc:mysql://192.168.145.128:3306/wechatbuy?useUnicode=true&amp;characterEncoding=UTF-8 </property>
+        <property name="jdbcUrl">jdbc:mysql://39.108.159.175:3306/wechatbuy?useUnicode=true&amp;characterEncoding=UTF-8 </property>
     </default-config>
 </c3p0-config>

@@ -38,7 +38,7 @@ public class SinInServlet extends HttpServlet {
             else response.sendRedirect(request.getContextPath() + "/index");
         } else {
             response.sendRedirect(request.getContextPath() + "/signin.jsp");
-            
+            logger.info("no such user!");
         }
 //        if (isSign) response.sendRedirect(request.getContextPath() + "/index.jsp");
 //        else response.sendRedirect(request.getContextPath() + "/signin.jsp");
