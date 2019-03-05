@@ -23,5 +23,7 @@
     <s:submit value="Submit" />
 </s:form>
 
+<a href="register.jsp">regist a account</a>
+
 </body>
 </html>

@@ -1,2 +1,4 @@
+com/tr/dao/Person.class
 com/tr/dao/MessageStore.class
 com/tr/controller/HelloWorldAction.class
+com/tr/controller/Register.class

@@ -355,3 +355,142 @@ action和class关联 并且确定了对view的提供
 
 需要在控制hello的java类中创建一个userName属性并且实现setter和getter
 
+----
+
+### Processing Forms
+
+
+
+#### Forms and a Java model class
+
+1. create a javabean，在dao层创建Person.java
+
+   ```java
+   package com.tr.dao;
+   
+   /**
+    * @author tr
+    */
+   public class Person {
+       private String firstName;
+       private String lastName;
+       private String email;
+       private int age;
+   
+       public String getFirstName() {
+           return firstName;
+       }
+   
+       public void setFirstName(String firstName) {
+           this.firstName = firstName;
+       }
+   
+       public String getLastName() {
+           return lastName;
+       }
+   
+       public void setLastName(String lastName) {
+           this.lastName = lastName;
+       }
+   
+       public String getEmail() {
+           return email;
+       }
+   
+       public void setEmail(String email) {
+           this.email = email;
+       }
+   
+       public int getAge() {
+           return age;
+       }
+   
+       public void setAge(int age) {
+           this.age = age;
+       }
+       
+       public String toString() {
+           return "First Name: " + getFirstName() + " Last Name:  " + getLastName() +
+                   " Email:      " + getEmail() + " Age:      " + getAge() ;
+       }
+   }
+   ```
+
+2. view层**register.jsp**
+
+```html
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Register</title>
+  </head>
+  <body>
+    <h3>Register for a prize by completing this form.</h3>
+
+    <s:form action="register">
+      <s:textfield name="personBean.firstName" label="First name" />
+      <s:textfield name="personBean.lastName" label="Last name" />
+      <s:textfield name="personBean.email"  label ="Email"/>  
+      <s:textfield name="personBean.age"  label="Age"  />
+      <s:submit/>
+    </s:form>	
+  </body>
+</html>
+```
+
+3. controller层的Register.java
+
+```java
+import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts.register.model.Person;
+
+public class Register extends ActionSupport {
+    
+    private static final long serialVersionUID = 1L;
+    
+    private Person personBean;
+
+
+    public String execute() throws Exception {
+        //call Service class to store personBean's state in database
+        
+        return SUCCESS;
+    }
+    
+    public Person getPersonBean() {
+        return personBean;
+    }
+    
+    public void setPersonBean(Person person) {
+        personBean = person;
+    }
+
+}
+```
+
+4. 注意事项：struts2会首先实例化personBean然后赋值，执行execute的时候已经有personBean这个实例了，不需要手动实例化
+
+5. 添加thankyou.jsp
+
+```html
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Registration Successful</title>
+  </head>
+  <body>
+    <h3>Thank you for registering for a prize.</h3>
+
+    <p>Your registration information: <s:property value="personBean" /> </p>
+
+    <p><a href="<s:url action='index' />" >Return to home page</a>.</p>
+  </body>
+</html>
+```
+
