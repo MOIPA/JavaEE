@@ -323,8 +323,8 @@
 **如果getMessageStore返回的messageStore对象执行他的.method()返回不同结果**
 
    	1. 返回的是string 不做变换
-   	2. 返回的是int 变为string
-   	3. 返回的是对象，自动调用toString
+            	2. 返回的是int 变为string
+         	3. 返回的是对象，自动调用toString
 
 其实最后给人的感觉是可以直接调用java文件里的成员变量
 
@@ -493,4 +493,68 @@ public class Register extends ActionSupport {
   </body>
 </html>
 ```
+
+----
+
+### Form Validation
+
+**总结一下就是写个validate，在struts.xml里添加**
+
+```xml
+<result name="input">/register.jsp</result>
+```
+
+然后会自己自动显示错误信息，以下为官方详细说明：
+
+重写action里的validata方法，这样会自动调用 方法例子：
+
+```java
+    public void validate(){
+        if (personBean.getFirstName().length() == 0) {
+            addFieldError("personBean.firstName", "First name is required.");
+        }
+
+        if (personBean.getEmail().length() == 0) {
+            addFieldError("personBean.email", "Email is required.");
+        }
+
+        if (personBean.getAge() < 18) {
+            addFieldError("personBean.age", "Age is required and must be 18 or older");
+        }
+    }
+```
+
+If any errors have been added then Struts 2 will not proceed to call the execute method. Rather the Struts 2 framework  will return `input` as the result of calling the action.
+
+
+
+#### Handle Input Being Returned
+
+So what should we do if Struts 2 returns `input`  indicating that the user’s input in the form is not valid? In most  cases  we will want to redisplay the web page that has the form and include in  the form error messages to inform the user what is wrong.
+
+To handle the return value of `input` we need to add the following result to our action node in `struts.xml`.
+
+```
+<result name="input">/register.jsp</result>
+```
+
+The above result node goes just after the success result node for the register action and before the closing of the action node.
+
+#### Error Messages
+
+So when validation fails and Struts 2 returns input, the Struts 2 framework will redisplay the `register.jsp`. Since we  used Struts 2 form tags, automatically Struts 2 will add the error messages. These error messages are the ones we specified  in the `addFieldError` method call. The addFieldError method takes two arguments. The first is the form field name to which  the error applies and the second is the error message to display above that form field.
+
+So the following `addFieldError` method call:
+
+```
+addFieldError("personBean.firstName", "First name is required.")
+```
+
+will cause the message *First name is required* to be displayed above the `firstName` field on the form.
+
+#### 如何修改自己form表单错误提示的css
+
+在html的head里添加<s:head />
+
+
 

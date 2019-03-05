@@ -22,8 +22,8 @@
     <s:textfield name="userName" label="Your name" />
     <s:submit value="Submit" />
 </s:form>
-
-<a href="register.jsp">regist a account</a>
+<s:url action="registerInput" var="registerInputLink"/>
+<a href="${registerInputLink}">regist an account</a>
 
 </body>
 </html>

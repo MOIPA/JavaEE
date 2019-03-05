@@ -14,5 +14,6 @@
 <body>
     <p>you registration infomation is <s:property value="personBean"/></p>
     <a href="<s:url action="index" />">back to main page</a>
+    <h3><s:text name="thankyou"></s:text></h3>
 </body>
 </html>
