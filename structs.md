@@ -322,9 +322,11 @@
 
 **如果getMessageStore返回的messageStore对象执行他的.method()返回不同结果**
 
- 	1. 返回的是string 不做变换
- 	2. 返回的是int 变为string
- 	3. 返回的是对象，自动调用toString
+   	1. 返回的是string 不做变换
+   	2. 返回的是int 变为string
+   	3. 返回的是对象，自动调用toString
+
+其实最后给人的感觉是可以直接调用java文件里的成员变量
 
 ----
 
@@ -339,4 +341,17 @@
 ```
 
 action和class关联 并且确定了对view的提供
+
+
+
+#### action接受输入的参数
+
+```xml
+<s:form action="hello">
+    <s:textfield name="userName" label="Your name" />
+    <s:submit value="Submit" />
+</s:form>
+```
+
+需要在控制hello的java类中创建一个userName属性并且实现setter和getter
 

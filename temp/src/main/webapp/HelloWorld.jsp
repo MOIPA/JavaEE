@@ -13,5 +13,6 @@
 </head>
 <body>
     <h2><s:property value="messageStoreSuccess.message" /></h2>
+    <h3><s:property value="userName"/> </h3>
 </body>
 </html>
