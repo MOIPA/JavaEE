@@ -330,3 +330,13 @@
 
 ### Coding actions
 
+#### action mapping in struts.xml
+
+```xml
+<action name="hello" class="com.tr.controller.HelloWorldAction" method="execute">
+    <result name="success">/HelloWorld.jsp</result>
+</action>
+```
+
+action和class关联 并且确定了对view的提供
+
