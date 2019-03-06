@@ -12,6 +12,6 @@
     <title>hello world</title>
 </head>
 <body>
-    <h2><s</h2>
+    <h2></h2>
 </body>
 </html>
