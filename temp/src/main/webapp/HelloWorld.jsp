@@ -12,6 +12,11 @@
     <title>hello world</title>
 </head>
 <body>
+<<<<<<< HEAD
     <h2></h2>
+=======
+    <h2><s:property value="messageStoreSuccess.message" /></h2>
+    <h3><s:property value="userName"/> </h3>
+>>>>>>> 1c9cf8f4165d721693b912588f8f2257df456124
 </body>
 </html>

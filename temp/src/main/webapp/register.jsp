@@ -1,0 +1,36 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Register</title>
+    <s:head/>
+</head>
+<body>
+<h3>Register for a prize by completing this form.</h3>
+
+<%--<s:form action="register">--%>
+    <%--&lt;%&ndash;<s:textfield name="personBean.firstName" label="First name" />&ndash;%&gt;--%>
+    <%--&lt;%&ndash;<s:textfield name="personBean.lastName" label="Last name" />&ndash;%&gt;--%>
+    <%--&lt;%&ndash;<s:textfield name="personBean.email"  label ="Email"/>&ndash;%&gt;--%>
+    <%--&lt;%&ndash;<s:textfield name="personBean.age"  label="Age"  />&ndash;%&gt;--%>
+    <%--<s:textfield key="personBean.firstName"/>--%>
+    <%--<s:textfield key="personBean.lastName"/>--%>
+    <%--<s:textfield key="personBean.email"/>--%>
+    <%--<s:textfield key="personBean.age"/>--%>
+    <%--<s:submit/>--%>
+<%--</s:form>--%>
+
+<s:form action="register">
+
+    <s:textfield key="personBean.firstName"  />
+    <s:textfield  key="personBean.lastName"  />
+    <s:textfield key="personBean.email"  />
+    <s:textfield key="personBean.age"  />
+
+    <s:submit key="submit" />
+
+</s:form>
+</body>
+</html>

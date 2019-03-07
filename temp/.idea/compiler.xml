@@ -7,8 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="structDemo" />
+<<<<<<< HEAD
         <module name="temp" />
+=======
+>>>>>>> 1c9cf8f4165d721693b912588f8f2257df456124
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="structDemo" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -18,7 +18,7 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
 
-    <struts2.version>2.5.14.1</struts2.version>
+    <struts2.version> 2.5.17</struts2.version>
     <log4j2.version>2.10.0</log4j2.version>
 
   </properties>

@@ -1,5 +1,8 @@
 package com.tr.dao;
 
+/**
+ * @author tr
+ */
 public class MessageStore {
     private String message;
 
