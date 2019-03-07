@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding" addBOMForNewFiles="with NO BOM">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/test/com/tr/bean/CustomerTest.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/test/com/tr/dao/CustomerTest.java" charset="GBK" />
   </component>
 </project>

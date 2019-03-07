@@ -1,4 +1,4 @@
-package com.tr.dao;
+package com.tr.bean;
 
 /**
  * @author tr

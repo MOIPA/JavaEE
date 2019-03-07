@@ -11,7 +11,7 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">0800</property>
 
-        <!-- 可以将向数据库发送的SQL语句显示出来 -->
+        <!-- 可以将向数据库发送的SQL语句显示出控制台 -->
         <property name="hibernate.show_sql">true</property>
         <!-- 格式化SQL语句 -->
         <property name="hibernate.format_sql">true</property>
@@ -19,7 +19,15 @@
         <!-- hibernate的方言 因为不同数据库 sql细节不同-->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 
+        <!--
+            自动建表 auto schema export
+            ceate:每次都重新创建表且会覆盖，用于测试
+            create-drpo:自动创建表，每次运行结束 删除表 用于测试
+            update: 自动生成表，有则不生成，表变化可以自动更新表 可以用于生产环境
+            validate  校验，不自动生成表，表和属性是否相符 失败抛异常
+        -->
         <property name="hibernate.hbm2ddl.auto">update</property>
+
 
         <!-- 配置hibernate的映射文件所在的位置 -->
         <mapping resource="Customer.hbm.xml" />

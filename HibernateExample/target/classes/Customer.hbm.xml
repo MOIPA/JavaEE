@@ -4,8 +4,9 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="com.tr.dao.Customer" table="cst_customer">
+    <class name="com.tr.bean.Customer" table="cst_customer">
         <id name="cust_id" column="cust_id">
+            <!--generator 主键生成策略-->
             <generator class="native"></generator>
         </id>
         <property name="cust_name" column="cust_name"></property>
