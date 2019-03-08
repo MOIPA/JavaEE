@@ -1,92 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b9624130-d007-4bb8-b5bc-2badd4f47021" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../HerbinateProjectExample/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HerbinateProjectExample/src/main/java/com/tr/dao/CustomerDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HerbinateProjectExample/src/main/java/com/tr/daoImpl/CustomerDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HerbinateProjectExample/src/main/java/com/tr/service/IAddCustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HerbinateProjectExample/src/main/java/com/tr/serviceImpl/CustomerServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HerbinateProjectExample/src/main/java/com/tr/servlet/AddCustomerServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HerbinateProjectExample/src/main/java/com/tr/utils/HibernateUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBootDemo/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBootDemo/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBootDemo/src/main/java/Hello/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBootDemo/src/main/java/Hello/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringHelloWrold/.idea/artifacts/SpringHelloWrold_Web_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringHelloWrold/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringHelloWrold/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringHelloWrold/src/main/java/com/tr/bean/Car.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringHelloWrold/src/main/java/com/tr/bean/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringHelloWrold/src/main/java/com/tr/test/Demo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringHelloWrold/src/main/resources/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringHelloWrold/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Struts2Demo/structDemo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HerbinateProjectExample/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HerbinateProjectExample/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HerbinateProjectExample/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HerbinateProjectExample/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HerbinateProjectExample/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HerbinateProjectExample/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HerbinateProjectExample/src/main/webapp/jsp/customer/add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../HerbinateProjectExample/src/main/webapp/jsp/customer/add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HerbinateProjectExample/src/main/webapp/menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../HerbinateProjectExample/src/main/webapp/menu.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HerbinateProjectExample/target/HerbinateProjectExample/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HerbinateProjectExample/target/HerbinateProjectExample/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HerbinateProjectExample/target/HerbinateProjectExample/index.htm" beforeDir="false" afterPath="$PROJECT_DIR$/../HerbinateProjectExample/target/HerbinateProjectExample/index.htm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HerbinateProjectExample/target/HerbinateProjectExample/jsp/customer/add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../HerbinateProjectExample/target/HerbinateProjectExample/jsp/customer/add.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HerbinateProjectExample/target/HerbinateProjectExample/menu.htm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../structs.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/artifacts/structDemo_war.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/artifacts/structDemo_war_exploded.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/libraries/Maven__commons_io_commons_io_2_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/libraries/Maven__junit_junit_4_11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/libraries/Maven__ognl_ognl_3_1_15.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_10_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_10_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/libraries/Maven__org_apache_struts_struts2_core_2_5_14_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/libraries/Maven__org_apache_struts_struts2_core_2_5_17.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/libraries/Maven__org_freemarker_freemarker_2_3_26_incubating.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/libraries/Maven__org_javassist_javassist_3_20_0_GA.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/smartfox_info.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/hs_err_pid15757.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/src/main/java/com/tr/controller/HelloWorldAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/src/main/java/com/tr/controller/Register.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/src/main/java/com/tr/dao/MessageStore.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/src/main/java/com/tr/dao/Person.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/src/main/main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/src/main/resources/com.tr.controller/Register.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/src/main/resources/log4j2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/src/main/resources/struts.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/src/main/webapp/HelloWorld.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/src/main/webapp/error.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/src/main/webapp/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/src/main/webapp/register.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/src/main/webapp/thankyou.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/structDemo.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/target/classes/Register.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/target/classes/com.tr.controller/Register.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/target/classes/com.tr.controller/register.action/Register.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/target/classes/com/tr/controller/HelloWorldAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/target/classes/com/tr/controller/Register.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/target/classes/com/tr/dao/MessageStore.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/target/classes/com/tr/dao/Person.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/target/classes/log4j2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/target/classes/struts.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/target/tmp/jsp/org/apache/jsp/register_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/target/tmp/jsp/org/apache/jsp/register_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/temp.iml" beforeDir="false" />
-    </list>
+    <list default="true" id="b9624130-d007-4bb8-b5bc-2badd4f47021" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -484,7 +399,7 @@
       <workItem from="1551926171867" duration="9571000" />
       <workItem from="1551950417265" duration="2162000" />
       <workItem from="1552009888753" duration="284000" />
-      <workItem from="1552031601140" duration="1330000" />
+      <workItem from="1552031601140" duration="1336000" />
     </task>
     <servers />
   </component>
@@ -518,7 +433,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19012000" />
+    <option name="totallyTimeSpent" value="19018000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="783" y="48" width="966" height="1057" extended-state="0" />

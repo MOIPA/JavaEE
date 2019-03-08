@@ -1,7 +1,7 @@
-package com.tr.serviceImpl;
+package com.tr.service.serviceImpl;
 
 import com.tr.dao.CustomerDao;
-import com.tr.daoImpl.CustomerDaoImpl;
+import com.tr.dao.daoImpl.CustomerDaoImpl;
 import com.tr.domain.Customer;
 import com.tr.service.IAddCustomerService;
 

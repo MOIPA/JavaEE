@@ -2,7 +2,7 @@ package com.tr.servlet;
 
 import com.tr.domain.Customer;
 import com.tr.service.IAddCustomerService;
-import com.tr.serviceImpl.CustomerServiceImpl;
+import com.tr.service.serviceImpl.CustomerServiceImpl;
 import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.ServletException;
@@ -16,6 +16,11 @@ public class AddCustomerServlet extends HttpServlet {
     private IAddCustomerService customerService = new CustomerServiceImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req,resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Customer customer = new Customer();
         try {
             //        获得参数封装为Customer
@@ -29,10 +34,5 @@ public class AddCustomerServlet extends HttpServlet {
         customerService.save(customer);
         //重定向到客户列表
         resp.sendRedirect(req.getContextPath()+"/ListCustomerServlet");
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
     }
 }

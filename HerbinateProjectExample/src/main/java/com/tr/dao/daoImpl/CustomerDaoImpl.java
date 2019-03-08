@@ -1,4 +1,4 @@
-package com.tr.daoImpl;
+package com.tr.dao.daoImpl;
 
 import com.tr.dao.CustomerDao;
 import com.tr.domain.Customer;
