@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--配置user对象 交给spring容器
+    Bean元素：使用该元素需要spring管理的对象
+        name：给对象起名用与获得，可以重复
+        class: 被管理对象的完整类名
+        id(早期)：和name一样，名称不可重复
+    -->
+    <!--创建方式1：使用空参构造创建
+                2：静态工厂
+                3：实例工厂
+    -->
+    <!--scope 1:singleton单例对象 被标识为单例对象，这也是默认属性 大部分使用默认
+              2：prototype 每次创建都是新的  如果和struts配合 由于action每次都是新的 要用prototype
+              3：request 和request生命周期一样      （不用
+              4：session对象与session生命周期一致  （不用
+    -->
+    <!--生命周期属性 1. init-method 配置一个方法作为生命周期初始化方法，在对象创建后立即调用
+                    2. destory-mothod 配置。。。销毁。。。               关闭时销毁
+    -->
+    <!--分模块配置 1.import 导入其他配置文件
+    -->
+    <bean name="user" class="com.tr.bean.User" scope="prototype" init-method="init" destroy-method="destory"></bean>
+
+    <!--属性注入-->
+    <bean name="user2" class="com.tr.bean.User">
+        <!--为user对象中名为name的属性注入tom作为值-->
+        <property name="name" value="tom"/>
+        <property name="age" value="18"/>
+        <!--注入对象 得先配置此对象 引用类型用ref-->
+        <property name="car" ref="car"/>
+    </bean>
+    <!--构造用于被引用的对象-->
+    <bean name="car" class="com.tr.bean.Car">
+        <property name="name" value="奔驰"></property>
+        <property name="color" value="white"></property>
+    </bean>
+
+    <!--复杂对象注入-->
+    <!--<bean name="cb" class="com.tr"-->
+<!--================-->
+    <!--构造函数注入-->
+    <!--index:因为两个构造函数由于入参顺序不同变为重载函数，可以指定哪个参数先入
+            0，1，2，3，4
+         type: 指定入参类型 比如 java.lang.Integer
+    -->
+    <bean name="car2" class="com.tr.bean.Car" >
+        <constructor-arg name="color" value="white"/>
+        <constructor-arg name="name" value="benz"/>
+    </bean>
+</beans>

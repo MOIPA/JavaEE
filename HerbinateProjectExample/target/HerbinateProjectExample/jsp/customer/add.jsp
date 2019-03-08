@@ -90,31 +90,6 @@
 														style="WIDTH: 180px" maxLength=50 name="custMobile">
 								</td>
 							</TR>
-							
-							<TR>
-								<td>联系地址 ：</td>
-								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="custAddress">
-								</td>
-								<td>邮政编码 ：</td>
-								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="custZip">
-								</td>
-							</TR>
-							<TR>
-								<td>客户传真 ：</td>
-								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="custFax">
-								</td>
-								<td>客户网址 ：</td>
-								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="custWebsite">
-								</td>
-							</TR>
 							<tr>
 								<td rowspan=2>
 								<INPUT class=button id=sButton2 type=submit
