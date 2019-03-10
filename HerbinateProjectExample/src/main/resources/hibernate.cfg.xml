@@ -32,5 +32,17 @@
         <!-- 配置hibernate的映射文件所在的位置 -->
         <mapping resource="Customer.hbm.xml" />
 
+        <!--指定session与线程绑定-->
+        <property name="hibernate.current_session_context_class">thread</property>
+
+        <!--指定hibernate隔离级别
+            1|2|4|8
+            0001 1 读为提交
+            0010 2  读已提交
+            0100 4 可重复读
+            1000 8 串行化
+        -->
+        <property name="hibernate.connection.isolation">4</property>
+
     </session-factory>
 </hibernate-configuration>

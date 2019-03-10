@@ -6,9 +6,19 @@
 <hibernate-mapping>
     <class name="com.tr.domain.Customer" table="cst_customer">
         <id name="cust_id" column="cust_id">
-            <!--generator 主键生成策略-->
+            <!--generator 主键生成策略
+                identity:自增，由数据库自己维护主键值
+                increment：自增，（不建议使用）由hibernate维护，每次插入前找表中id最大的，+1
+                sequence：oracle中的主键生成策略
+                hilo:高低位算法（不建议使用），自增，hibernate，确保不会重复
+                native：（建议）hilo+sequence+identity 自动三选一
+                uuid：（主键类型必须为String）用来产生永远不重复的随机字符串最为主键
+                assigned：自然属性生成策略，就是没有策略，用户自己指定主键
+            -->
             <generator class="native"></generator>
         </id>
+
+
         <property name="cust_name" column="cust_name"></property>
         <property name="cust_source" column="cust_source"></property>
         <property name="cust_industry" column="cust_industry"></property>
