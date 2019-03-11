@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--使用注解
+        扫描指定包和其子包
+
+        -->
+    <context:component-scan base-package="com.tr.bean"/>
+
+
+
+    <!--==================================================================================================-->
+
 
     <!--配置user对象 交给spring容器
     Bean元素：使用该元素需要spring管理的对象
@@ -22,7 +34,9 @@
                     2. destory-mothod 配置。。。销毁。。。               关闭时销毁
     -->
     <!--分模块配置 1.import 导入其他配置文件
+        <import resource="applicationContext.xml" />
     -->
+
     <bean name="user" class="com.tr.bean.User" scope="prototype" init-method="init" destroy-method="destory"></bean>
 
     <!--属性注入-->
@@ -39,13 +53,43 @@
         <property name="color" value="white"></property>
     </bean>
 
+    <!--复杂对象注入-->
+    <!--<bean name="cb" class="com.tr"-->
+    <bean name="cu" class="com.tr.bean.ComplexUser">
+        <!--<property name="arr" value="tom"></property>  &lt;!&ndash;只注入一个值&ndash;&gt;-->
+        <property name="arr">
+            <array>
+                <value>tom</value>
+                <value>jerry</value>
+            </array>
+        </property>
+        <property name="list">
+            <list>
+                <value>test</value>
+                <value>test</value>
+            </list>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="tr" value="1"/>
+                <entry key="car" value-ref="car2"/>    <!--值 放入对象 -->
+                <entry key-ref="car2" value-ref="car2"/>    <!--键 放入对象 -->
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="tr">111</prop>
+                <prop key="tr">111</prop>
+            </props>
+        </property>
+    </bean>
 <!--================-->
     <!--构造函数注入-->
     <!--index:因为两个构造函数由于入参顺序不同变为重载函数，可以指定哪个参数先入
             0，1，2，3，4
          type: 指定入参类型 比如 java.lang.Integer
     -->
-    <bean name="car2" class="com.tr.bean.Car">
+    <bean name="car2" class="com.tr.bean.Car" >
         <constructor-arg name="color" value="white"/>
         <constructor-arg name="name" value="benz"/>
     </bean>

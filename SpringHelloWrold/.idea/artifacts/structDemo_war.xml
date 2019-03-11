@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="structDemo:war">
+    <output-path>$PROJECT_DIR$/../Struts2Demo/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>structDemo</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="structDemo.war">
+      <element id="artifact" artifact-name="structDemo:war exploded" />
+    </root>
+  </artifact>
+</component>
