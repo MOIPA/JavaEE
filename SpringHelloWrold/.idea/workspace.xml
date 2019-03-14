@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="95e75e77-ab19-4679-8f40-794f190eaac9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../HibernateExample/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HerbinateProjectExample/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HerbinateProjectExample/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HibernateExample/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HibernateExample/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpringHelloWrold/com/tr/bean/Car.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpringHelloWrold/com/tr/bean/ComplexUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpringHelloWrold/com/tr/bean/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpringHelloWrold/com/tr/bean/UserWithAnnocation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpringHelloWrold/com/tr/test/Demo.class" beforeDir="false" />
-    </list>
+    <list default="true" id="95e75e77-ab19-4679-8f40-794f190eaac9" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/../Struts2Demo/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -342,7 +331,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="326" y="46" width="1421" height="958" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17781043" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
