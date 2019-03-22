@@ -1,6 +1,6 @@
 package com.tr.util;
 
-import com.tr.domain.ShoeErrorEnum;
+import com.tr.domain.ShowErrorEnum;
 
 import java.util.Objects;
 
@@ -9,12 +9,12 @@ public class AssertUtil {
     }
 
 
-    public static void AssertTrue(boolean bool, ShoeErrorEnum errorEnum) {
+    public static void AssertTrue(boolean bool, ShowErrorEnum errorEnum) {
         if(!bool)
         throw new ServiceException(errorEnum.getErrorCode(), errorEnum.getErrorMessage());
     }
 
-    public static void AssertNotNull(Object object, ShoeErrorEnum errorEnum) {
+    public static void AssertNotNull(Object object, ShowErrorEnum errorEnum) {
         if(Objects.isNull(object))
             throw new ServiceException(errorEnum.getErrorCode(), errorEnum.getErrorMessage());
     }

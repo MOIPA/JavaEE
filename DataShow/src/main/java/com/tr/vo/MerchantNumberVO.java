@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class MerchantNumberVO {
     private String webSite;
-    private Integer number;
+    private String number;
 }

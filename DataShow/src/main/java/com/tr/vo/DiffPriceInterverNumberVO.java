@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class DiffPriceInterverNumberVO {
     private String priceInterver;
-    private Float number;
+    private String number;
 }

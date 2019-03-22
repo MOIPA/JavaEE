@@ -4,7 +4,40 @@
     <option name="GROUP_BY_SEVERITY" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97ad4306-f667-43ec-87be-551dd3fa1c66" name="Default Changelist" comment="" />
+    <list default="true" id="97ad4306-f667-43ec-87be-551dd3fa1c66" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tr/controller/DressController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tr/dao/DressDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tr/domain/Dress.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tr/service/impl/DressService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tr/vo/DressVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataShow.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DataShow.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tr/controller/ShoesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tr/controller/ShoesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tr/dao/ShoesDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tr/dao/ShoesDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tr/domain/ShoeErrorEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tr/domain/ShowErrorEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tr/service/impl/ShoeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tr/service/impl/ShoeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tr/util/AssertUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tr/util/AssertUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tr/util/ConveterUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tr/util/ConveterUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tr/util/ServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tr/util/ServiceException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tr/vo/BrandAveragePrice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tr/vo/BrandAveragePrice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tr/vo/DiffPriceInterverNumberVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tr/vo/DiffPriceInterverNumberVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tr/vo/MerchantNumberVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tr/vo/MerchantNumberVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tr/vo/SoldBrandNumberVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tr/vo/SoldBrandNumberVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tr/vo/SoldPercentageVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tr/vo/SoldPercentageVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tr/controller/ShoesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tr/controller/ShoesController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tr/dao/ShoesDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tr/dao/ShoesDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tr/domain/ShoeErrorEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tr/service/impl/ShoeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tr/service/impl/ShoeServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tr/util/AssertUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tr/util/AssertUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tr/util/ConveterUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tr/util/ConveterUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tr/util/ServiceException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tr/util/ServiceException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tr/vo/BrandAveragePrice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tr/vo/BrandAveragePrice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tr/vo/DiffPriceInterverNumberVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tr/vo/DiffPriceInterverNumberVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tr/vo/MerchantNumberVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tr/vo/MerchantNumberVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tr/vo/SoldBrandNumberVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tr/vo/SoldBrandNumberVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tr/vo/SoldPercentageVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tr/vo/SoldPercentageVO.class" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,18 +78,32 @@
         <item name="39.108.159.175" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="MyTest: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="DataSet: table" type="285a2a93:MysqlImplModel$Table" />
+        <item name="PythonRepo: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/controller/ShoesController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/controller/DressController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="352">
-              <caret line="40" column="31" lean-forward="true" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#490#491#0" expanded="true" />
+                <element signature="e#512#513#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/service/impl/DressService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="24" column="44" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -65,25 +112,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/service/impl/ShoeServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/dao/DressDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="34" column="53" lean-forward="true" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/dao/ShoesDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="110">
+              <caret line="5" column="61" lean-forward="true" selection-start-line="5" selection-start-column="61" selection-end-line="5" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -91,8 +123,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3021fda9-9a8f-4d49-baa2-4425e0e601dd/console.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state>
+              <caret column="80" selection-end-column="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://3021fda9-9a8f-4d49-baa2-4425e0e601dd/schema/MyTest/table/PythonRepo">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -102,8 +143,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -113,10 +154,14 @@
       <find>jpa</find>
       <find>id</find>
       <find>date_added</find>
+      <find>limit 50</find>
     </findStrings>
     <replaceStrings>
       <replace />
     </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -126,12 +171,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tr/vo/BrandPriceMax.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tr/vo/PageVO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tr/vo/DifferentPriceNumberVO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tr/vo/DiffPriceInterverNumberVO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tr/vo/MerchantNumberVO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tr/vo/SoldPercentage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tr/vo/SoldPercentageVO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tr/vo/BrandAveragePrice.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tr/vo/SoldBrandNumberVO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tr/service/ShoesService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tr/util/Response.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tr/util/ResponseFactory.java" />
@@ -148,17 +188,27 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/src/main/java/com/tr/domain/DataSetEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tr/domain/Shoe.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tr/domain/ShowErrorEnum.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tr/util/ErrorEum.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tr/util/ServiceException.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tr/util/AssertUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tr/dao/ShoesDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tr/util/ConveterUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tr/vo/BrandPriceMaxVO.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/3021fda9-9a8f-4d49-baa2-4425e0e601dd/console.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/tr/service/impl/ShowServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tr/vo/SoldPercentageVO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tr/vo/SoldBrandNumberVO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tr/vo/BrandAveragePrice.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tr/vo/MerchantNumberVO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tr/service/impl/ShoeServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tr/vo/DiffPriceInterverNumberVO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tr/dao/ShoesDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tr/controller/ShoesController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tr/domain/PythonRepoEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tr/vo/DressVO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tr/controller/DressController.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/3021fda9-9a8f-4d49-baa2-4425e0e601dd/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tr/domain/ShowErrorEnum.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tr/util/ConveterUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tr/dao/DressDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tr/service/impl/DressService.java" />
       </list>
     </option>
   </component>
@@ -186,16 +236,20 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="489" />
-    <option name="y" value="42" />
+    <option name="x" value="154" />
+    <option name="y" value="21" />
     <option name="width" value="1421" />
     <option name="height" value="958" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -320,9 +374,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Course" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -334,9 +385,9 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553162790806" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553229214751" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../javaEE/SpringBootDemo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -345,8 +396,9 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Doc--GitRepo\SpringBootDemos\DataShow\src\main\java\com" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.tr.dao" />
+      <recent name="com.tr.util" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -354,9 +406,8 @@
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="com.tr.domain" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.tr.dao" />
-      <recent name="com.tr.util" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Doc--GitRepo\SpringBootDemos\DataShow\src\main\java\com" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -405,11 +456,12 @@
       <option name="presentableId" value="Default" />
       <updated>1553075736066</updated>
       <workItem from="1553075747703" duration="26511000" />
+      <workItem from="1553215991453" duration="10132000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26511000" />
+    <option name="totallyTimeSpent" value="36643000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -424,215 +476,61 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Designer" />
-      <window_info id="Image Layers" />
-      <window_info id="Capture Tool" />
-      <window_info id="UI Designer" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info id="Web" side_tool="true" />
-      <window_info id="Persistence" sideWeight="0.50159746" side_tool="true" weight="0.18123667" />
-      <window_info id="Learn" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4994641" visible="true" weight="0.18123667" />
-      <window_info id="Structure" order="1" sideWeight="0.5005359" side_tool="true" visible="true" weight="0.18123667" />
-      <window_info anchor="bottom" id="Database Console" weight="0.3290461" />
-      <window_info anchor="bottom" id="Spring" weight="0.3290461" />
-      <window_info anchor="bottom" id="Terminal" weight="0.3290461" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Inspection Results" weight="0.32969698" />
-      <window_info anchor="bottom" id="Educational.CheckDetails" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.3290461" />
-      <window_info anchor="bottom" id="Java Enterprise" weight="0.3290461" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49840257" visible="true" weight="0.18283582" />
+      <window_info id="Structure" order="1" sideWeight="0.5017857" side_tool="true" weight="0.18283582" />
+      <window_info id="Persistence" order="2" sideWeight="0.50159746" side_tool="true" weight="0.18283582" />
+      <window_info id="Designer" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Image Layers" order="7" />
+      <window_info id="Learn" order="8" />
+      <window_info id="Web" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3290461" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3290461" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39978564" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32832617" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39914164" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.2915327" />
-      <window_info anchor="right" id="Maven" weight="0.23933902" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Database" visible="true" weight="0.20682302" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Bean Validation" />
+      <window_info anchor="bottom" id="Spring" order="7" weight="0.3290461" />
+      <window_info anchor="bottom" id="Database Console" order="8" weight="0.32832617" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3290461" />
+      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Inspection Results" order="11" weight="0.32969698" />
+      <window_info anchor="bottom" id="Educational.CheckDetails" order="12" />
+      <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
+      <window_info anchor="bottom" id="Java Enterprise" order="14" weight="0.3290461" />
+      <window_info anchor="bottom" id="Database Changes" order="15" weight="0.32939914" />
+      <window_info anchor="bottom" id="Version Control" order="16" />
+      <window_info anchor="bottom" id="Messages" order="17" weight="0.32832617" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Database" order="5" visible="true" weight="0.20682302" />
+      <window_info anchor="right" id="Maven" order="6" weight="0.23933902" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="to" />
+      </configuration>
+    </watches-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/Swagger2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/vo/SoldBrandNumberVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/vo/MerchantNumberVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/vo/DiffPriceInterverNumberVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/util/ResponseFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#175#176#0" expanded="true" />
-            <element signature="e#217#218#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/util/Response.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-          <folding>
-            <element signature="e#274#275#0" expanded="true" />
-            <element signature="e#311#312#0" expanded="true" />
-            <element signature="e#343#344#0" expanded="true" />
-            <element signature="e#369#370#0" expanded="true" />
-            <element signature="e#396#397#0" expanded="true" />
-            <element signature="e#431#432#0" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/vo/SoldPercentageVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/vo/BrandAveragePrice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application-prod.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" selection-start-column="7" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="69" column="27" lean-forward="true" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#395#396#0" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/domain/Shoes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-594">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#10618#10619#0" expanded="true" />
-            <element signature="e#10675#10676#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/dao/CustDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="118" selection-start-line="6" selection-start-column="118" selection-end-line="6" selection-end-column="118" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/domain/CstCustomerEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://3021fda9-9a8f-4d49-baa2-4425e0e601dd/schema/MyTest/table/DataSet">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.34/tomcat-embed-core-8.5.34.jar!/javax/servlet/http/HttpServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="232" selection-start-line="232" selection-end-line="232" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://3021fda9-9a8f-4d49-baa2-4425e0e601dd/schema/MyTest/table/cst_customer">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.9.RELEASE/spring-web-5.0.9.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="129" selection-start-line="129" selection-end-line="129" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.9.RELEASE/spring-webmvc-5.0.9.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="569" selection-start-line="569" selection-end-line="569" />
         </state>
       </provider>
     </entry>
@@ -755,23 +653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/domain/ShoeErrorEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding>
-            <element signature="e#271#272#0" expanded="true" />
-            <element signature="e#299#300#0" expanded="true" />
-            <element signature="e#338#339#0" expanded="true" />
-            <element signature="e#372#373#0" expanded="true" />
-            <element signature="e#403#404#0" expanded="true" />
-            <element signature="e#430#431#0" expanded="true" />
-            <element signature="e#470#471#0" expanded="true" />
-            <element signature="e#502#503#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/util/ServiceException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-572">
@@ -789,48 +670,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/domain/Shoe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="26" column="34" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/util/ConveterUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="26" lean-forward="true" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-          <folding>
-            <element signature="e#789#790#0" expanded="true" />
-            <element signature="e#838#839#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3021fda9-9a8f-4d49-baa2-4425e0e601dd/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/service/ShoesService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/dao/ShoesDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/vo/BrandPriceMaxVO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -838,10 +677,167 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://E:/Tool--jdk/JDK/src.zip!/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="745" column="9" lean-forward="true" selection-start-line="745" selection-start-column="9" selection-end-line="745" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.9.RELEASE/spring-webmvc-5.0.9.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="561" selection-start-line="561" selection-end-line="561" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/Tool--jdk/JDK/src.zip!/java/util/function/Function.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/ma/glasnost/orika/orika-core/1.5.4/orika-core-1.5.4.jar!/ma/glasnost/orika/MappingContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="355" selection-start-line="355" selection-end-line="355" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/ma/glasnost/orika/orika-core/1.5.4/orika-core-1.5.4.jar!/ma/glasnost/orika/metadata/TypeUtil.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="163" selection-start-line="163" selection-end-line="163" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/ma/glasnost/orika/orika-core/1.5.4/orika-core-1.5.4.jar!/ma/glasnost/orika/metadata/TypeKey.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
+          <folding>
+            <element signature="e#2320#2321#0" expanded="true" />
+            <element signature="e#2356#2357#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/ma/glasnost/orika/orika-core/1.5.4/orika-core-1.5.4.jar!/ma/glasnost/orika/metadata/TypeFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/ma/glasnost/orika/orika-core/1.5.4/orika-core-1.5.4.jar!/ma/glasnost/orika/impl/MapperFacadeImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="558" selection-start-line="558" selection-end-line="558" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/vo/SoldPercentageVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/vo/SoldBrandNumberVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/vo/BrandAveragePrice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/vo/MerchantNumberVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/service/ShoesService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/vo/DiffPriceInterverNumberVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/domain/Shoe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="6" column="19" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/vo/DressVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/controller/ShoesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://3021fda9-9a8f-4d49-baa2-4425e0e601dd/schema/MyTest/table/PythonRepo">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3021fda9-9a8f-4d49-baa2-4425e0e601dd/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="80" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/domain/ShowErrorEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/util/ConveterUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/vo/PageVO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+        <state relative-caret-position="199">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
           <folding>
             <element signature="e#316#317#0" expanded="true" />
             <element signature="e#344#345#0" expanded="true" />
@@ -855,22 +851,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/domain/Dress.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="8" selection-start-line="8" selection-end-line="12" selection-end-column="28" />
+          <folding>
+            <element signature="e#353#354#0" expanded="true" />
+            <element signature="e#378#379#0" expanded="true" />
+            <element signature="e#414#415#0" expanded="true" />
+            <element signature="e#442#443#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/dao/ShoesDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-352">
+          <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/service/impl/ShoeServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="34" column="53" lean-forward="true" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
+        <state relative-caret-position="-308">
+          <caret line="10" column="45" lean-forward="true" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/dao/DressDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="61" lean-forward="true" selection-start-line="5" selection-start-column="61" selection-end-line="5" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/service/impl/DressService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="24" column="44" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/controller/ShoesController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/controller/DressController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
-          <caret line="40" column="31" lean-forward="true" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#490#491#0" expanded="true" />
+            <element signature="e#512#513#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -881,10 +923,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>DataShow:war</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -927,7 +971,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Spring|DataShow</last-edited>
+          <last-edited>JPA|DataShow</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module type="JAVA_MODULE" version="4">
+<module version="4">
   <component name="FacetManager">
     <facet type="hibernate" name="Hibernate">
       <configuration>
@@ -12,7 +12,6 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="Entities" value="3021fda9-9a8f-4d49-baa2-4425e0e601dd" />
           <factory-entry name="entityManagerFactory" value="3021fda9-9a8f-4d49-baa2-4425e0e601dd" />
           <factory-entry name="noname-a.xml@0" value="3021fda9-9a8f-4d49-baa2-4425e0e601dd" />
         </datasource-mapping>

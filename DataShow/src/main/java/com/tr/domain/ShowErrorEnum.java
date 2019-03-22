@@ -1,11 +1,12 @@
 package com.tr.domain;
 
-public enum ShoeErrorEnum {
-    EMPTY_SHOE(10001, "No Shoe Data");
+public enum ShowErrorEnum {
+    EMPTY_SHOE(10001, "No Shoe Data"),
+    EMPTY_DRESS(20001, "No Dress Data");
     private int errorCode;
     private String errorMessage;
 
-    ShoeErrorEnum(int errorCode, String errorMessage) {
+    ShowErrorEnum(int errorCode, String errorMessage) {
         this.errorCode = errorCode;
         this.errorMessage = errorMessage;
     }

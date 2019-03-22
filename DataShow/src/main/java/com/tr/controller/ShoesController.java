@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/data")
-@Api(tags="对外接口")
+@RequestMapping("/shoe")
+@Api(tags="女鞋")
 public class ShoesController {
 
     @Autowired
@@ -49,7 +49,7 @@ public class ShoesController {
         return ResponseFactory.OkResponse(this.service.getBrandAvgPrice());
     }
     @GetMapping("/soldbrandnumber")
-    @ApiOperation("卖出鞋子")
+    @ApiOperation("卖出鞋子不同品牌计数")
     public Response<PageVO<SoldPercentageVO>> getSoldBrandNumber() {
         return ResponseFactory.OkResponse(this.service.getSoldBrandNumber());
     }

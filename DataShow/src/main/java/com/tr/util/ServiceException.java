@@ -1,6 +1,6 @@
 package com.tr.util;
 
-import com.tr.domain.ShoeErrorEnum;
+import com.tr.domain.ShowErrorEnum;
 
 public class ServiceException extends RuntimeException {
     private int errCode;
@@ -12,7 +12,7 @@ public class ServiceException extends RuntimeException {
         this.message = message;
     }
 
-    public ServiceException(ShoeErrorEnum err) {
+    public ServiceException(ShowErrorEnum err) {
         super(err.getErrorMessage());
         this.errCode = err.getErrorCode();
         this.message = err.getErrorMessage();

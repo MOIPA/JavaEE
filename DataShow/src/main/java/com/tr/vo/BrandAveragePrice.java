@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class BrandAveragePrice {
     private String brand;
-    private Float avgPrice;
+    private Double avgPrice;
 }
