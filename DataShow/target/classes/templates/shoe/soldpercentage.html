@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>DataShow</title>
+    <meta charset="UTF-8" name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+    <link rel="stylesheet" th:href="@{/global/css/bootstrap.min.css}"/>
+    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <script th:src="@{/global/js/echarts-en.common.js}"></script>
+    <!--<link rel="stylesheet" th:href="@{/table/table.css}">-->
+    <style>
+        .footer {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 1rem;
+            background-color: #efefef;
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="padding-bottom: 250px">
+<div class="container">
+    <div class="jumbotron">
+        <h1 th:text="${name}+的展示层">
+            Hello, world!
+        </h1>
+        <p>
+            从三万多条北美电商数据中提取分析销售成功的占比
+        </p>
+        <p>
+            <a class="btn btn-primary btn-large" th:href="@{~/}">返回首页</a>
+        </p>
+
+        <table style="height: 400px;width: 600px;position: center">
+            <tr>
+                <td>
+                    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                    <div id="chartA" style="width: 450px;height:300px;"></div>
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart = echarts.init(document.getElementById('chartA'),'light');
+                        var respData_0 = parseFloat('[[${resp.get(0).getPercentage()}]]'.slice(0, 4));
+                        var respData_1 = parseFloat('[[${resp.get(1).getPercentage()}]]'.slice(0, 4));
+                        // alert(respData_0);
+                        // 指定图表的配置项和数据
+                        var option = {
+                            title: {
+                                text: '售出率 柱状图'
+                            },
+                            tooltip: {},
+                            legend: {
+                                data: ['销售率']
+                            },
+                            xAxis: {
+                                data: ['未售出', '售出']
+                            },
+                            yAxis: {},
+                            series: [{
+                                name: '销量',
+                                type: 'bar',
+                                data: [respData_0, respData_1]
+                            }]
+                        };
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart.setOption(option);
+                    </script>
+                </td>
+                <td>
+                    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                    <div id="chartB" style="width: 450px;height:300px;"></div>
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart = echarts.init(document.getElementById('chartB'),'light');
+                        var respData_0 = parseFloat('[[${resp.get(0).getPercentage()}]]'.slice(0, 4));
+                        var respData_1 = parseFloat('[[${resp.get(1).getPercentage()}]]'.slice(0, 4));
+                        // alert(respData_0);
+                        // 指定图表的配置项和数据
+                        var option = {
+                            // backgroundColor: '#2c343c',
+                            visualMap: {
+                                show: false,
+                                min: 80,
+                                max: 600,
+                                inRange: {
+                                    colorLightness: [0, 1]
+                                }
+                            },
+                            series: [
+                                {
+                                    name: '南丁格尔图',
+                                    type: 'pie',
+                                    radius: '55%',
+                                    data: [
+                                        {
+                                            name: '未售出', value: respData_0
+                                        },
+                                        {
+                                            name: '售出', value: respData_1
+                                        }
+                                    ],
+                                    roseType: 'angle',
+                                }
+                            ]
+                        };
+                        // var option = {
+                        //     title:{
+                        //       text:"南丁格尔图"
+                        //     },
+                        //     visualMap: {
+                        //         show: false,
+                        //         min: 80,
+                        //         max: 600,
+                        //         inRange: {
+                        //             colorLightness: [0, 1]
+                        //         }
+                        //     },
+                        //     series: {
+                        //         type: 'pie',
+                        //         roseType: 'angle',
+                        //         data: [
+                        //             {name: '未售出', value: respData_0},
+                        //             {name: '售出', value: respData_1}
+                        //         ],
+                        //         label: {
+                        //             normal: {
+                        //                 textStyle: {
+                        //                     color: 'rgba(122, 255, 255, 0.3)'
+                        //                 }
+                        //             }
+                        //         },
+                        //         labelLine: {
+                        //             normal: {
+                        //                 lineStyle: {
+                        //                     color: 'rgba(111, 111, 111, 0.3)'
+                        //                 }
+                        //             }
+                        //         },
+                        //         itemStyle: {
+                        //             normal: {
+                        //                 color: '#5e7ee0',
+                        //                 shadowBlur: 200,
+                        //                 shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        //             }
+                        //         }
+                        //     }
+                        // };
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart.setOption(option);
+                    </script>
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
+</div>
+
+
+<div class="footer">mysql+python</div>
+<script th:src="@{/global/js/jquery-3.3.1.min.js}"></script>
+<script th:src="@{/global/js/bootstrap.min.js}"></script>
+</body>
+</html>

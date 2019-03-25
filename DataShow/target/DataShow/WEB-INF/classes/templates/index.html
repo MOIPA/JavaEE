@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+    <title>DataShow</title>
+    <link href="global/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="table/table.css" rel="stylesheet">
+    <script src="global/js/echarts-en.common.js" th:href="@{/global/js/echarts-en.common.js}"></script>
+    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <style>
+        .footer {
+            position:fixed;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 1rem;
+            background-color: #efefef;
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="padding-bottom: 250px">
+<div class="container">
+    <!--<a href="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts-en.common.js">click</a>-->
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <!--<nav class="navbar navbar-default" role="navigation">-->
+                <!--<div class="navbar-header">-->
+                    <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">Brand</a>-->
+                <!--</div>-->
+
+                <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
+                    <!--<ul class="nav navbar-nav">-->
+                        <!--<li class="active">-->
+                            <!--<a href="#">Link</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#">Link</a>-->
+                        <!--</li>-->
+                        <!--<li class="dropdown">-->
+                            <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>-->
+                            <!--<ul class="dropdown-menu">-->
+                                <!--<li>-->
+                                    <!--<a href="#">Action</a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="#">Another action</a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="#">Something else here</a>-->
+                                <!--</li>-->
+                                <!--<li class="divider">-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="#">Separated link</a>-->
+                                <!--</li>-->
+                                <!--<li class="divider">-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="#">One more separated link</a>-->
+                                <!--</li>-->
+                            <!--</ul>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                    <!--<form class="navbar-form navbar-left" role="search">-->
+                        <!--<div class="form-group">-->
+                            <!--<input type="text" class="form-control" />-->
+                        <!--</div> <button type="submit" class="btn btn-default">Submit</button>-->
+                    <!--</form>-->
+                    <!--<ul class="nav navbar-nav navbar-right">-->
+                        <!--<li>-->
+                            <!--<a href="#">Link</a>-->
+                        <!--</li>-->
+                        <!--<li class="dropdown">-->
+                            <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>-->
+                            <!--<ul class="dropdown-menu">-->
+                                <!--<li>-->
+                                    <!--<a href="#">Action</a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="#">Another action</a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="#">Something else here</a>-->
+                                <!--</li>-->
+                                <!--<li class="divider">-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<a href="#">Separated link</a>-->
+                                <!--</li>-->
+                            <!--</ul>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+
+            <!--</nav>-->
+            <div class="jumbotron">
+                <h1>
+                    15级汤子晴，数据分析展示页面!
+                </h1>
+                <p>
+                    使用python作为数据拉取工具，微信和微博作为数据来源。
+                    使用数据集合：十万级别北美女鞋商品市场数据
+                                  万级国内微博微信女装lolita市场数据
+                    展示工具：springBoot，springDataJPA，Thymeleaf
+                    以下为数据集接口
+                </p>
+                <p>
+                    <a class="btn btn-primary btn-large" href="#">跳转至个人BDP数据分析平台</a>
+                </p>
+            </div>
+            <!--<div class="btn-group">-->
+                <!--<button class="btn btn-default">Action</button> <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>-->
+                <!--<ul class="dropdown-menu">-->
+                    <!--<li>-->
+                        <!--<a href="#">操作</a>-->
+                    <!--</li>-->
+                    <!--<li class="disabled">-->
+                        <!--<a href="#">另一操作</a>-->
+                    <!--</li>-->
+                    <!--<li class="divider">-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="#">其它</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+
+            <div class="table-title">
+                <h3>数据分析展示API</h3>
+            </div>
+            <table class="table-fill">
+                <thead>
+                <tr>
+                    <th class="text-left">数据接口</th>
+                    <th class="text-left">接口展示</th>
+                </tr>
+                </thead>
+                <tbody class="table-hover">
+                <tr>
+                    <td class="text-left">微博点赞最高裙子信息</td>
+                    <td class="text-left"><a th:href="@{/dress/mostlikeddress}">点击查看</a></td>
+                </tr>
+                <tr>
+                    <td class="text-left">全国lolita喜爱人群热力图</td>
+                    <td class="text-left"><a th:href="@{/dress/nationrank}">点击查看</a></td>
+                </tr>
+                <tr>
+                    <td class="text-left">最贵女鞋品牌和价格</td>
+                    <td class="text-left"><a th:href="@{/shoe/expensivebrand}">点击查看</a></td>
+                </tr>
+                <tr>
+                    <td class="text-left">平价女鞋价格分布</td>
+                    <td class="text-left"><a th:href="@{/shoe/soldprice}">点击查看</a></td>
+                </tr>
+                <tr>
+                    <td class="text-left">女鞋热销网站统计</td>
+                    <td class="text-left"><a th:href="@{/shoe/websitesold}">点击查看</a></td>
+                </tr>
+                <tr>
+                    <td class="text-left">女鞋售出率情况</td>
+                    <td class="text-left"><a th:href="@{/shoe/soldpercentage}">点击查看</a></td>
+                </tr>
+
+                <tr>
+                    <td class="text-left">女鞋不同品牌均价</td>
+                    <td class="text-left"><a th:href="@{/shoe/brandaverage}">点击查看</a></td>
+                </tr>
+                <tr>
+                    <td class="text-left">不同品牌女鞋售出数</td>
+                    <td class="text-left"><a th:href="@{/shoe/soldbrandnumber}">点击查看</a></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+</div>
+<div class="footer">mysql+python</div>
+
+<script src="global/js/jquery-3.3.1.min.js"></script>
+<script src="global/js/bootstrap.min.js"></script>
+</body>
+</html>

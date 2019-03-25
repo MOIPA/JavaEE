@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("/shoe")
@@ -24,34 +25,65 @@ public class ShoesController {
 
     @GetMapping("/soldpercentage")
     @ApiOperation("获得售出率")
-    public Response<PageVO<SoldPercentageVO>> getSoldPercentage() {
-        return ResponseFactory.OkResponse(this.service.getSoldPercentage());
+//    public Response<PageVO<SoldPercentageVO>> getSoldPercentage() {
+//        ModelAndView modelAndView = new ModelAndView();
+//        Response<PageVO<SoldPercentageVO>> resp = ResponseFactory.OkResponse(this.service.getSoldPercentage());
+//        modelAndView.addObject("resp",resp);
+//        modelAndView.addObject("name", "获得售出率");
+//        return resp;
+//    }
+        public ModelAndView getSoldPercentage() {
+        ModelAndView modelAndView = new ModelAndView();
+//        Response<PageVO<SoldPercentageVO>> resp = ResponseFactory.OkResponse();
+        modelAndView.addObject("resp",this.service.getSoldPercentage().getData());
+        modelAndView.addObject("name", "获得售出率");
+        return modelAndView;
     }
 
     @GetMapping("/expensivebrand")
     @ApiOperation("哪些品牌的价格最高")
-    public Response<PageVO<BrandPriceMaxVO>> getexpensiveBrand() {
-        return ResponseFactory.OkResponse(this.service.getExpensiveBranAndPrice());
+    public ModelAndView getexpensiveBrand() {
+        ModelAndView modelAndView = new ModelAndView();
+        Response<PageVO<BrandPriceMaxVO>> resp = ResponseFactory.OkResponse(this.service.getExpensiveBranAndPrice());
+        modelAndView.addObject("resp",resp);
+        modelAndView.addObject("name", "哪些品牌的价格最高");
+        return modelAndView;
     }
-    @GetMapping("/soldpercentage/{price}")
+    @GetMapping("/soldprice")
     @ApiOperation("价格分布")
-    public Response<PageVO<SoldPercentageVO>> getInterval(@PathVariable int price) {
-        return ResponseFactory.OkResponse(this.service.getInterverNumberUnderLimit(price));
+    public ModelAndView getInterval() {
+        ModelAndView modelAndView = new ModelAndView();
+        Response<PageVO<SoldPercentageVO>> resp = ResponseFactory.OkResponse(this.service.getInterverNumberUnderLimit(1));
+        modelAndView.addObject("resp",resp);
+        modelAndView.addObject("name", "价格分布");
+        return modelAndView;
     }
     @GetMapping("/websitesold")
     @ApiOperation("各类网站对于女鞋销售占比")
-    public Response<PageVO<SoldPercentageVO>> getWebSiteSold() {
-        return ResponseFactory.OkResponse(this.service.getMerchantNumber());
+    public ModelAndView getWebSiteSold() {
+        ModelAndView modelAndView = new ModelAndView();
+        Response<PageVO<SoldPercentageVO>> resp = ResponseFactory.OkResponse(this.service.getMerchantNumber());
+        modelAndView.addObject("resp",resp);
+        modelAndView.addObject("name", "各类网站对于女鞋销售占比");
+        return modelAndView;
     }
     @GetMapping("/brandaverage")
     @ApiOperation("每个不同品牌的平均价格是多少？")
-    public Response<PageVO<SoldPercentageVO>> getbrandAverage() {
-        return ResponseFactory.OkResponse(this.service.getBrandAvgPrice());
+    public ModelAndView getbrandAverage() {
+        ModelAndView modelAndView = new ModelAndView();
+        Response<PageVO<SoldPercentageVO>> resp = ResponseFactory.OkResponse(this.service.getBrandAvgPrice());
+        modelAndView.addObject("resp",resp);
+        modelAndView.addObject("name", "每个不同品牌的平均价格是多少");
+        return modelAndView;
     }
     @GetMapping("/soldbrandnumber")
     @ApiOperation("卖出鞋子不同品牌计数")
-    public Response<PageVO<SoldPercentageVO>> getSoldBrandNumber() {
-        return ResponseFactory.OkResponse(this.service.getSoldBrandNumber());
+    public ModelAndView getSoldBrandNumber() {
+        ModelAndView modelAndView = new ModelAndView();
+        Response<PageVO<SoldPercentageVO>> resp = ResponseFactory.OkResponse(this.service.getSoldBrandNumber());
+        modelAndView.addObject("resp",resp);
+        modelAndView.addObject("name", "卖出鞋子不同品牌计数");
+        return modelAndView;
     }
 
 

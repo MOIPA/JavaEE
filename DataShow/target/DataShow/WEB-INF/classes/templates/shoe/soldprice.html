@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>DataShow</title>
+    <meta charset="UTF-8" name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+    <link href="global/css/bootstrap.min.css" rel="stylesheet" th:href="@{/global/css/bootstrap.min.css}" />
+    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+
+    <link href="table/table.css" rel="stylesheet">
+    <style>
+        .footer {
+            position:fixed;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 1rem;
+            background-color: #efefef;
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="padding-bottom: 250px">
+<div class="container">
+    <h1 th:text="${name}+的展示层">小咸鱼的数据展示层</h1>
+
+    <div class="jumbotron">
+        <h1>
+            Hello, world!
+        </h1>
+        <p>
+            This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
+        </p>
+        <p>
+            <a class="btn btn-primary btn-large" href="#">Learn more</a>
+        </p>
+    </div>
+
+</div>
+
+
+<div class="footer">mysql+python</div>
+<script src="global/js/jquery-3.3.1.min.js"></script>
+<script src="global/js/bootstrap.min.js"></script>
+</body>
+</html>
