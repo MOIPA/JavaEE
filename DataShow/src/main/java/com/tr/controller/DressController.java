@@ -26,7 +26,7 @@ public class DressController {
     public ModelAndView mostLikedDress() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("name", "tr");
-        modelAndView.addObject(this.service.getMostLikedDress());
+        modelAndView.addObject("dressData",this.service.getMostLikedDress().getData().get(0));
         return modelAndView;
     }
 

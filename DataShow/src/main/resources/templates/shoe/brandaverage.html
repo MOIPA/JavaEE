@@ -4,13 +4,13 @@
 <head>
     <title>DataShow</title>
     <meta charset="UTF-8" name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
-    <link href="global/css/bootstrap.min.css" rel="stylesheet" th:href="@{/global/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/global/css/bootstrap.min.css}"/>
     <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
-
-    <link href="table/table.css" rel="stylesheet">
+    <script th:src="@{/global/js/echarts-en.common.js}"></script>
+    <!--<link rel="stylesheet" th:href="@{/table/table.css}">-->
     <style>
         .footer {
-            position:fixed;
+            position: fixed;
             right: 0;
             bottom: 0;
             left: 0;
@@ -22,25 +22,103 @@
 </head>
 <body style="padding-bottom: 250px">
 <div class="container">
-    <h1 th:text="${name}+的展示层">小咸鱼的数据展示层</h1>
-
     <div class="jumbotron">
-        <h1>
+        <h1 th:text="${name}+的展示层">
             Hello, world!
         </h1>
         <p>
-            This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
+            从三万多条北美电商数据中提取分析销售成功的占比
         </p>
         <p>
-            <a class="btn btn-primary btn-large" href="#">Learn more</a>
+            <a class="btn btn-primary btn-large" th:href="@{~/}">返回首页</a>
         </p>
+
+        <table style="height: 400px;width: 600px;position: center">
+            <tr>
+                <td>
+                    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                    <div id="chartA" style="width: 450px;height:300px;"></div>
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart = echarts.init(document.getElementById('chartA'), 'light');
+                        var respDataTemp = '[[${resp}]]';
+                        var respData = JSON.parse(respDataTemp.replace(/&quot;/g, "\""));
+                        // 指定图表的配置项和数据
+                        var useDataBar=[];
+                        for(var i=0;i<respData.length;i++){
+                            useDataBar.push(respData[i].brand);
+                        }
+                        var useDataValue=[];
+                        for(var i=0;i<respData.length;i++){
+                            useDataValue.push(respData[i].avgPrice);
+                        }
+                        //以上定义数据源
+                        var option = {
+                            title: {
+                                text: '每个品牌平均价格 柱状图'
+                            },
+                            tooltip: {},
+                            legend: {
+                                data: ['平均价格']
+                            },
+                            xAxis: {
+                                data: useDataBar
+                            },
+                            yAxis: {},
+                            series: [{
+                                name: '销量',
+                                type: 'bar',
+                                data: useDataValue
+                            }]
+                        };
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart.setOption(option);
+                    </script>
+                </td>
+                <td>
+                    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                    <div id="chartB" style="width: 450px;height:300px;"></div>
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart = echarts.init(document.getElementById('chartB'), 'light');
+                        var respDataTemp = '[[${resp}]]';
+                        var respData = JSON.parse(respDataTemp.replace(/&quot;/g, "\""));
+                        // 指定图表的配置项和数据
+                        var useDataBar=[];
+                        for(var i=0;i<respData.length;i++){
+                            useDataBar.push(respData[i].brand);
+                        }
+                        var useDataValue=[];
+                        for(var i=0;i<respData.length;i++){
+                            useDataValue.push(respData[i].avgPrice);
+                        }
+                        //以上定义数据源
+                        var option = {
+                            title: {
+                                text: '平均价格分布 饼图 '
+                            },
+                            tooltip: {},
+                            legend: {
+                                data: ['平均价格']
+                            },
+                            series: [{
+                                name: '价格',
+                                type: 'pie',
+                                data: useDataValue
+                            }]
+                        };
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart.setOption(option);
+                    </script>
+                </td>
+            </tr>
+        </table>
+
+
     </div>
-
 </div>
-
-
 <div class="footer">mysql+python</div>
-<script src="global/js/jquery-3.3.1.min.js"></script>
-<script src="global/js/bootstrap.min.js"></script>
+<script th:src="@{/global/js/jquery-3.3.1.min.js}"></script>
+<script th:src="@{/global/js/bootstrap.min.js}"></script>
 </body>
 </html>

@@ -4,13 +4,13 @@
 <head>
     <title>DataShow</title>
     <meta charset="UTF-8" name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
-    <link href="global/css/bootstrap.min.css" rel="stylesheet" th:href="@{/global/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/global/css/bootstrap.min.css}"/>
     <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
-
-    <link href="table/table.css" rel="stylesheet">
+    <script th:src="@{/global/js/echarts-en.common.js}"></script>
+    <!--<link rel="stylesheet" th:href="@{/table/table.css}">-->
     <style>
         .footer {
-            position:fixed;
+            position: fixed;
             right: 0;
             bottom: 0;
             left: 0;
@@ -22,25 +22,48 @@
 </head>
 <body style="padding-bottom: 250px">
 <div class="container">
-    <h1 th:text="${name}+的展示层">小咸鱼的数据展示层</h1>
-
     <div class="jumbotron">
-        <h1>
+        <h1 th:text="${name}+的展示层">
             Hello, world!
         </h1>
         <p>
-            This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
+            从微博微信数据抽取分析结果：
         </p>
         <p>
-            <a class="btn btn-primary btn-large" href="#">Learn more</a>
+            <a class="btn btn-primary btn-large" th:href="@{~/}">返回首页</a>
         </p>
-    </div>
 
+        <table style="height: 400px;width: 600px;position: center">
+            <tr>
+                <td  rowspan="5"><img class="img-rounded" th:src="@{/img/lolita.jpg}" style="margin-right: 20px"></td>
+                <td><p th:text="裙子ID号：+${dressData.getId()}"></p></td>
+            </tr>
+            <tr>
+                <td rowspan="3"><textarea th:text="裙子推文：+${dressData.getText()}" style="resize: none;width: 100%;height: 100%;padding: 10px;border:0;border-radius:5px;background-color:rgba(241,241,241,.98);"></textarea></td>
+                <!--<textarea style="border:0;border-radius:5px;background-color:rgba(241,241,241,.98);width: 355px;height: 100px;padding: 10px;resize: none;" placeholder="询价备注（尺寸、材质等）"></textarea>-->
+            </tr>
+            <tr>
+                <!--<td></td>-->
+            </tr>
+            <tr>
+                <!--<td></td>-->
+            </tr>
+            <tr>
+                <td style="size: 10px;"class="text-info">
+                    <p th:text="裙子转发数：+${dressData.getReposts()}"></p>
+                    <p th:text="裙子点赞数：+${dressData.getAttitudes()}"></p>
+                    <p th:text="裙子评论数：+${dressData.getComments()}"></p>
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
 </div>
 
 
 <div class="footer">mysql+python</div>
-<script src="global/js/jquery-3.3.1.min.js"></script>
-<script src="global/js/bootstrap.min.js"></script>
+<script th:src="@{/global/js/jquery-3.3.1.min.js}"></script>
+<script th:src="@{/global/js/bootstrap.min.js}"></script>
 </body>
 </html>

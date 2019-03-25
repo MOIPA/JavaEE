@@ -5,19 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97ad4306-f667-43ec-87be-551dd3fa1c66" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3021fda9-9a8f-4d49-baa2-4425e0e601dd.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3021fda9-9a8f-4d49-baa2-4425e0e601dd.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/lolita.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataShow.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DataShow.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tr/controller/DressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tr/controller/DressController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tr/controller/ShoesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tr/controller/ShoesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dress/mostlikeddress.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/dress/mostlikeddress.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dress/nationrank.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/dress/nationrank.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/shoe/brandaverage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/shoe/brandaverage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/shoe/expensivebrand.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/shoe/expensivebrand.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/tr/controller/DressController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tr/controller/DressController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tr/controller/ShoesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tr/controller/ShoesController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/dress/mostlikeddress.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/dress/mostlikeddress.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/dress/nationrank.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/dress/nationrank.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -59,20 +58,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/controller/DressController.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/util/Response.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="29" column="28" lean-forward="true" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+            <state relative-caret-position="38">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/shoe/soldpercentage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+            <state relative-caret-position="-1516">
+              <caret line="75" column="42" selection-start-line="75" selection-start-column="42" selection-end-line="75" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -80,26 +79,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/controller/ShoesController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="902">
-              <caret line="53" column="39" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
+            <state relative-caret-position="198">
+              <caret line="84" column="30" selection-start-line="84" selection-start-column="30" selection-end-line="84" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/shoe/brandaverage.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="104" column="41" selection-start-line="104" selection-start-column="41" selection-end-line="104" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/service/impl/ShoeServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/shoe/expensivebrand.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1518">
-              <caret line="83" column="37" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/vo/SoldPercentageVO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="486">
+              <caret line="96" column="67" selection-start-line="96" selection-start-column="67" selection-end-line="96" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -175,21 +177,21 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tr/service/impl/DressService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/static/table/table.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/dress/mostlikeddress.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/shoe/brandaverage.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/shoe/expensivebrand.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/shoe/soldbrandnumber.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/shoe/soldprice.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/shoe/websitesold.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/tr/service/impl/ShoeServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tr/controller/ShoesController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/shoe/soldpercentage.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tr/controller/DressController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Application.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/index.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/dress/nationrank.html" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/SpringBootStartApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/dress/nationrank.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tr/controller/DressController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/dress/mostlikeddress.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/shoe/expensivebrand.html" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tr/controller/ShoesController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/shoe/brandaverage.html" />
       </list>
     </option>
   </component>
@@ -280,7 +282,45 @@
               <item name="DataShow" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="tr" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DataShow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataShow" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="tr" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DataShow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataShow" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="tr" type="462c0819:PsiDirectoryNode" />
+              <item name="vo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DataShow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataShow" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DataShow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataShow" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DataShow" type="b2602c69:ProjectViewProjectNode" />
@@ -355,7 +395,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553229214751" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553508655929" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -376,14 +416,15 @@
       <recent name="D:\Doc--GitRepo\JAVAEE\DataShow\src\main\resources\templates\global\css" />
       <recent name="D:\Doc--GitRepo\JAVAEE\DataShow\src\main\resources\templates\global\js" />
     </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Doc--GitRepo\javaEE\DataShow\src\main\resources\static\img" />
       <recent name="D:\Doc--GitRepo\JAVAEE\DataShow\src\main\resources\static" />
       <recent name="D:\Doc--GitRepo\JAVAEE\DataShow\src\main\resources\templates\static" />
       <recent name="D:\Doc--GitRepo\JAVAEE\DataShow\src\main\resources\templates\dress" />
       <recent name="D:\Doc--GitRepo\SpringBootDemos\DataShow\src\main\java\com" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com" />
@@ -456,12 +497,12 @@
       <workItem from="1553327312902" duration="4677000" />
       <workItem from="1553340316820" duration="13648000" />
       <workItem from="1553394187014" duration="6193000" />
-      <workItem from="1553475676538" duration="979000" />
+      <workItem from="1553475676538" duration="13922000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62140000" />
+    <option name="totallyTimeSpent" value="75083000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -475,7 +516,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49840257" visible="true" weight="0.18443497" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49840257" visible="true" weight="0.18443497" />
       <window_info id="Structure" order="1" sideWeight="0.5017857" side_tool="true" weight="0.18283582" />
       <window_info id="Persistence" order="2" sideWeight="0.50159746" side_tool="true" weight="0.18283582" />
       <window_info id="Designer" order="3" />
@@ -487,7 +528,7 @@
       <window_info id="Web" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32850242" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32729468" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32725322" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39914164" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -527,9 +568,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.9.RELEASE/spring-webmvc-5.0.9.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class" />
-    <entry file="jar://E:/Tool--jdk/JDK/src.zip!/java/util/function/Function.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/ma/glasnost/orika/orika-core/1.5.4/orika-core-1.5.4.jar!/ma/glasnost/orika/MappingContext.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/ma/glasnost/orika/orika-core/1.5.4/orika-core-1.5.4.jar!/ma/glasnost/orika/metadata/TypeUtil.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/ma/glasnost/orika/orika-core/1.5.4/orika-core-1.5.4.jar!/ma/glasnost/orika/metadata/TypeKey.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/ma/glasnost/orika/orika-core/1.5.4/orika-core-1.5.4.jar!/ma/glasnost/orika/metadata/TypeFactory.class" />
@@ -559,13 +597,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
           <caret line="6" column="19" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/vo/DressVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -641,25 +672,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/table/table.css" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/shoe/expensivebrand.html" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/shoe/soldprice.html" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/shoe/websitesold.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/shoe/soldbrandnumber.html" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/global/js/echarts-en.common.js" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/vo/BrandAveragePrice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/util/Response.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/service/ShoesService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -684,11 +699,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/shoe/brandaverage.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/dress/mostlikeddress.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/shoe/soldpercentage.html" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/dress/nationrank.html" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -699,28 +710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/SpringBootStartApplication.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/controller/DressController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="29" column="28" lean-forward="true" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/controller/ShoesController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="902">
-          <caret line="53" column="39" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/service/impl/ShoeServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1518">
@@ -728,10 +717,127 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/SpringBootStartApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/shoe/soldbrandnumber.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/dress/nationrank.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="486" column="53" lean-forward="true" selection-start-line="486" selection-start-column="53" selection-end-line="486" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/lolita.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/util/ResponseFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/dress/mostlikeddress.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="48" column="32" lean-forward="true" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#4;n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/vo/DressVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/util/ServiceException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/controller/DressController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/util/Response.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="82" column="41" selection-start-line="82" selection-start-column="41" selection-end-line="82" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/shoe/soldpercentage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1516">
+          <caret line="75" column="42" selection-start-line="75" selection-start-column="42" selection-end-line="75" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/vo/SoldPercentageVO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="66">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/vo/BrandAveragePrice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tr/controller/ShoesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="84" column="30" selection-start-line="84" selection-start-column="30" selection-end-line="84" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/shoe/expensivebrand.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="96" column="67" selection-start-line="96" selection-start-column="67" selection-end-line="96" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/shoe/brandaverage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="104" column="41" selection-start-line="104" selection-start-column="41" selection-end-line="104" selection-end-column="41" />
         </state>
       </provider>
     </entry>
