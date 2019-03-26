@@ -6,8 +6,9 @@
     <meta charset="UTF-8" name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
     <link rel="stylesheet" th:href="@{/global/css/bootstrap.css}"/>
     <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
-    <script th:src="@{/global/js/echarts-en.common.js}"></script>
-    <script th:src="@{/global/js/echarts.js}"></script>
+    <!--<script th:src="@{/global/js/echarts.js}"></script>-->
+    <script src="https://www.echartsjs.com/dist/echarts.min.js"></script>
+    <!--<script src="/static/global/js/echarts.js"></script>-->
     <!--<link rel="stylesheet" th:href="@{/table/table.css}">-->
     <style>
         .footer {
@@ -45,12 +46,12 @@
                         var respDataTemp = '[[${resp}]]';
                         var respData = JSON.parse(respDataTemp.replace(/&quot;/g, "\""));
                         // 指定图表的配置项和数据
-                        var useDataBar=[];
-                        for(var i=0;i<respData.length;i++){
+                        var useDataBar = [];
+                        for (var i = 0; i < respData.length; i++) {
                             useDataBar.push(respData[i].brand);
                         }
-                        var useDataValue=[];
-                        for(var i=0;i<respData.length;i++){
+                        var useDataValue = [];
+                        for (var i = 0; i < respData.length; i++) {
                             useDataValue.push(respData[i].avgPrice);
                         }
                         //以上定义数据源
@@ -85,12 +86,12 @@
                         var respDataTemp = '[[${resp}]]';
                         var respData = JSON.parse(respDataTemp.replace(/&quot;/g, "\""));
                         // 指定图表的配置项和数据
-                        var useDataBar=[];
-                        for(var i=0;i<respData.length;i++){
+                        var useDataBar = [];
+                        for (var i = 0; i < respData.length; i++) {
                             useDataBar.push(respData[i].brand);
                         }
-                        var useDataValue=[];
-                        for(var i=0;i<respData.length;i++){
+                        var useDataValue = [];
+                        for (var i = 0; i < respData.length; i++) {
                             useDataValue.push(respData[i].avgPrice);
                         }
                         //以上定义数据源
@@ -123,12 +124,12 @@
                         var respDataTemp = '[[${resp}]]';
                         var respData = JSON.parse(respDataTemp.replace(/&quot;/g, "\""));
                         // 指定图表的配置项和数据
-                        var useDataBar=[];
-                        for(var i=0;i<respData.length;i++){
+                        var useDataBar = [];
+                        for (var i = 10; i < respData.length; i++) {
                             useDataBar.push(respData[i].brand);
                         }
-                        var useDataValue=[];
-                        for(var i=0;i<respData.length;i++){
+                        var useDataValue = [];
+                        for (var i = 10; i < respData.length; i++) {
                             useDataValue.push(respData[i].avgPrice);
                         }
                         //以上定义数据源
@@ -141,7 +142,7 @@
                                 trigger: 'axis'
                             },
                             legend: {
-                                data:['最高价格','最低价格']
+                                data: ['最高价格', '最低价格']
                             },
                             toolbox: {
                                 show: true,
@@ -155,7 +156,7 @@
                                     saveAsImage: {}
                                 }
                             },
-                            xAxis:  {
+                            xAxis: {
                                 type: 'category',
                                 boundaryGap: false,
                                 data: useDataBar
@@ -168,9 +169,9 @@
                             },
                             series: [
                                 {
-                                    name:'最高价',
-                                    type:'line',
-                                    data:useDataValue,
+                                    name: '最高价',
+                                    type: 'line',
+                                    data: useDataValue,
                                     markPoint: {
                                         data: [
                                             {type: 'max', name: '最大值'},
@@ -199,47 +200,50 @@
                         var respDataTemp = '[[${resp}]]';
                         var respData = JSON.parse(respDataTemp.replace(/&quot;/g, "\""));
                         // 指定图表的配置项和数据
-                        var useDataBar=[];
-                        var fakeData=[];
-                        for(var i=0;i<respData.length;i++){
+                        var useDataBar = [];
+                        var fakeData = [];
+                        for (var i = 10; i < 25; i++) {
                             useDataBar.push(respData[i].brand);
                         }
-                        var useDataValue=[];
-                        for(var i=0;i<respData.length;i++){
-                            fakeData.push(respData[i].avgPrice);
-                            fakeData.push(respData[i].avgPrice);
-                            useDataValue.push(fakeData);
+                        var useDataValue = [];
+
+                        //定义随机数
+                        // 纯手打，不谢。
+                        var randoms = [];
+                        while (true) {
+                            var isExists = false;
+                            // 获取一个10–100范围的数
+                            var random = parseInt(10 + (90 - 10) * (Math.random())) * 100
+                            // 判断当前随机数是否已经存在
+                            for (var i = 0; i < randoms.length; i++) {
+                                if (random === randoms[i]) {
+                                    isExists = true;
+                                    break;
+                                }
+                                if (randoms[i] < 50) randoms += 100;
+                            }
+                            // 如果不存在，则添加进去
+                            if (!isExists)
+                                randoms.push(random);
+                            // 如果有10位随机数了，就跳出
+                            if (randoms.length === 40)
+                                break;
+                        }
+                        //存放数据
+
+                        for (var i = 10; i < 25; i++) {
+                            useDataValue.push([randoms[i]%respData[i].avgPrice, respData[i].avgPrice, (randoms[i]%respData[i].avgPrice + respData[i].avgPrice) / 2]);
                         }
                         //以上定义数据源
 
-                        var data = [
-                            [5000, 10000],
-                            [4000, 10000],
-                            [3000, 6500],
-                            [2500, 5600],
-                            [2000, 4000],
-                            [2000, 4000],
-                            [2500, 4000],
-                            [1800, 4000],
-                            [2000, 3500],
-                            [2000, 3000],
-                            [1800, 3000],
-                            [2000, 2700],
-                            [1500, 2800],
-                            [1500, 2300],
-                            [1600, 3500],
-                            [1500, 2600],
-                            [1500, 2417.54],
-                            [1500, 2000],
-                            [1500, 1800]
-                        ];
-                        var cities = ['北京', '上海', '深圳', '广州', '苏州', '杭州', '南京', '福州', '青岛', '济南', '长春', '大连', '温州', '郑州', '武汉', '成都', '东莞', '沈阳', '烟台'];
+                        var data = useDataValue;
+                        console.log(data);
+                        var cities = useDataBar;
                         var barHeight = 50;
 
                         option = {
                             title: {
-                                text: '在中国租个房子有多贵？',
-                                subtext: '市中心一室月租费（数据来源：https://www.numbeo.com）'
+                                text: '堆叠图'
                             },
                             legend: {
                                 show: true,
@@ -259,10 +263,8 @@
                                     return cities[id] + '<br>最低：' + data[id][0] + '<br>最高：' + data[id][1] + '<br>平均：' + data[id][2];
                                 }
                             },
-                            radiusAxis: {
-                            },
-                            polar: {
-                            },
+                            radiusAxis: {},
+                            polar: {},
                             series: [{
                                 type: 'bar',
                                 itemStyle: {

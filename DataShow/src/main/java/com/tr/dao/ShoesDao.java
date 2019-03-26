@@ -23,7 +23,7 @@ public interface ShoesDao extends JpaRepository<Shoe, Integer> {
 
     @Query(value ="SELECT * " +
             "   FROM DataSet" +
-            "   WHERE prices_amount_max>=1000" +
+            "   WHERE prices_amount_max>=700" +
             "   GROUP BY brand" +
             "   ORDER BY prices_amount_max DESC",nativeQuery = true)
     List<Shoe> getExpensiveBrandPrice(Pageable pageable);

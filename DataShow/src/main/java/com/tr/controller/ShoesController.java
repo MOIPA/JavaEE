@@ -36,6 +36,7 @@ public class ShoesController {
 //        return resp;
 //    }
     /**
+     * done
      * 已完成前后端
      */
         public ModelAndView getSoldPercentage() {
@@ -75,7 +76,7 @@ public class ShoesController {
     }
 
     /**
-     * todo
+     * done
      * @return
      */
     @GetMapping("/brandaverage")

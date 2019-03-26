@@ -4,13 +4,15 @@
 <head>
     <title>DataShow</title>
     <meta charset="UTF-8" name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
-    <link href="global/css/bootstrap.min.css" rel="stylesheet" th:href="@{/global/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/global/css/bootstrap.css}"/>
     <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
-
-    <link href="table/table.css" rel="stylesheet">
+    <!--<script th:src="@{/global/js/echarts.js}"></script>-->
+    <script src="https://www.echartsjs.com/dist/echarts.min.js"></script>
+    <!--<script src="/static/global/js/echarts.js"></script>-->
+    <!--<link rel="stylesheet" th:href="@{/table/table.css}">-->
     <style>
         .footer {
-            position:fixed;
+            position: fixed;
             right: 0;
             bottom: 0;
             left: 0;
@@ -22,25 +24,280 @@
 </head>
 <body style="padding-bottom: 250px">
 <div class="container">
-    <h1 th:text="${name}+的展示层">小咸鱼的数据展示层</h1>
-
     <div class="jumbotron">
-        <h1>
+        <h1 th:text="价格分布区间">
             Hello, world!
         </h1>
         <p>
-            This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
+            低于250美金的商品价格分布
         </p>
         <p>
-            <a class="btn btn-primary btn-large" href="#">Learn more</a>
+            <a class="btn btn-primary btn-large" th:href="@{~/}">返回首页</a>
         </p>
+
+        <table style="height: 400px;width: 1200px;position: center">
+            <tr>
+                <td>
+                    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                    <div id="chartA" style="width: 450px;height:300px;"></div>
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart = echarts.init(document.getElementById('chartA'), 'light');
+                        var respDataTemp = '[[${resp}]]';
+                        var respData = JSON.parse(respDataTemp.replace(/&quot;/g, "\""));
+                        console.log(respData);
+                        // 指定图表的配置项和数据
+                        var useDataBar = [];
+                        for (var i = 0; i < respData.length; i++) {
+                            useDataBar.push(respData[i].priceInterver);
+                        }
+                        var useDataValue = [];
+                        for (var i = 0; i < respData.length; i++) {
+                            useDataValue.push(respData[i].number);
+                        }
+                        //以上定义数据源
+                        var option = {
+                            title: {
+                                text: '柱状图'
+                            },
+                            tooltip: {},
+                            legend: {
+                                data: ['平均价格']
+                            },
+                            xAxis: {
+                                data: useDataBar
+                            },
+                            yAxis: {},
+                            series: [{
+                                name: '销售价格',
+                                type: 'bar',
+                                data: useDataValue
+                            }]
+                        };
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart.setOption(option);
+                    </script>
+                </td>
+                <td rowspan="2" width="800px">
+                    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                    <div id="chartB" style="width: 600px;height:100%;margin-top: 50px;"></div>
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart = echarts.init(document.getElementById('chartB'));
+                        var respDataTemp = '[[${resp}]]';
+                        var respData = JSON.parse(respDataTemp.replace(/&quot;/g, "\""));
+                        // 指定图表的配置项和数据a
+                        var useDataBar = [];
+                        var useDataValue = [];
+                        for (var i = 0; i < respData.length; i++) {
+                            useDataBar.push(respData[i].priceInterver);
+                            useDataValue.push(respData[i].number);
+                        }
+                        //以上定义数据源
+
+                        var colors = ['#5793f3', '#d14a61', '#675bba'];
+
+
+
+                        option = {
+                            tooltip: {
+                                trigger: 'item',
+                                formatter: "{a} <br/>{b}: {c} ({d}%)"
+                            },
+                            legend: {
+                                orient: 'vertical',
+                                x: 'left',
+                                data: useDataBar
+                            },
+                            series: [
+                                {
+                                    name: '品牌占比',
+                                    type: 'pie',
+                                    selectedMode: 'single',
+                                    radius: [0, '30%'],
+
+                                    label: {
+                                        normal: {
+                                            position: 'inner'
+                                        }
+                                    },
+                                    labelLine: {
+                                        normal: {
+                                            show: false
+                                        }
+                                    },
+                                    data: [
+                                        {value: useDataValue[0], name: useDataBar[0], selected: true},
+                                        {value: useDataValue[1], name: useDataBar[1]},
+                                        {value: useDataValue[2], name: useDataBar[2]},
+                                        {value: useDataValue[3], name: useDataBar[3]},
+                                        {value: useDataValue[4], name: useDataBar[4]},
+                                        {value: useDataValue[5], name: useDataBar[5]},
+                                    ]
+                                },
+                                {
+                                    name: '品牌占比',
+                                    type: 'pie',
+                                    radius: ['40%', '55%'],
+                                    label: {
+                                        normal: {
+                                            formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
+                                            backgroundColor: '#eee',
+                                            borderColor: '#aaa',
+                                            borderWidth: 1,
+                                            borderRadius: 4,
+                                            // shadowBlur:3,
+                                            // shadowOffsetX: 2,
+                                            // shadowOffsetY: 2,
+                                            // shadowColor: '#999',
+                                            // padding: [0, 7],
+                                            rich: {
+                                                a: {
+                                                    color: '#999',
+                                                    lineHeight: 22,
+                                                    align: 'center'
+                                                },
+                                                // abg: {
+                                                //     backgroundColor: '#333',
+                                                //     width: '100%',
+                                                //     align: 'right',
+                                                //     height: 22,
+                                                //     borderRadius: [4, 4, 0, 0]
+                                                // },
+                                                hr: {
+                                                    borderColor: '#aaa',
+                                                    width: '100%',
+                                                    borderWidth: 0.5,
+                                                    height: 0
+                                                },
+                                                b: {
+                                                    fontSize: 16,
+                                                    lineHeight: 33
+                                                },
+                                                per: {
+                                                    color: '#eee',
+                                                    backgroundColor: '#334455',
+                                                    padding: [2, 4],
+                                                    borderRadius: 2
+                                                }
+                                            }
+                                        }
+                                    },
+                                    data: [
+                                        {value: 1400, name: 'Journee Collection'},
+                                        {value: 870, name: 'Skechers'},
+                                        {value: 796, name: 'Propet'},
+                                        {value: 649, name: 'Nike'},
+                                        {value: 574, name: 'Novica'},
+                                        {value: 487, name: 'Easy Spirit'},
+                                        {value: 409, name: 'Toms'},
+                                        {value: 387, name: 'Drew'},
+                                        {value: 365, name: 'Soft Style'},
+                                        {value: 359, name: 'Rose Petals by Walking Cradles'},
+                                        {value: 356, name: 'Aerosoles'},
+                                        {value: 354, name: 'Naturalizer'},
+                                        {value: 332, name: 'In-Sattva'}
+                                        // {value: 330, name: 'David Tate'},
+                                        // {value: 329, name: 'Nine West'},
+                                        // {value: 317, name: 'SoftWalk'},
+                                        // {value: 301, name: 'Nature Breeze'},
+                                        // {value: 301, name: 'Dyeables'},
+                                        // {value: 287, name: 'Vans'},
+                                        // {value: 277, name: 'Trotters'}
+                                    ]
+                                }
+                            ]
+                        };
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart.setOption(option);
+                    </script>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                    <div id="chartC" style="width: 450px;height:300px;"></div>
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart = echarts.init(document.getElementById('chartC'), 'light');
+                        var respDataTemp = '[[${resp}]]';
+                        var respData = JSON.parse(respDataTemp.replace(/&quot;/g, "\""));
+                        // 指定图表的配置项和数据
+                        var useDataBar = [];
+                        for (var i = 0; i < respData.length; i++) {
+                            useDataBar.push(respData[i].priceInterver);
+                        }
+                        var useDataValue = [];
+                        for (var i = 0; i < respData.length; i++) {
+                            useDataValue.push(respData[i].number);
+                        }
+                        //以上定义数据源
+                        option = {
+                            title: {
+                                text: '中低端品牌价格变化趋势表',
+                                subtext: '价格流量'
+                            },
+                            tooltip: {
+                                trigger: 'axis'
+                            },
+                            legend: {
+                                data: ['最高价格', '最低价格']
+                            },
+                            toolbox: {
+                                show: true,
+                                feature: {
+                                    dataZoom: {
+                                        yAxisIndex: 'none'
+                                    },
+                                    dataView: {readOnly: false},
+                                    magicType: {type: ['line', 'bar']},
+                                    restore: {},
+                                    saveAsImage: {}
+                                }
+                            },
+                            xAxis: {
+                                type: 'category',
+                                boundaryGap: false,
+                                data: useDataBar
+                            },
+                            yAxis: {
+                                type: 'value',
+                                axisLabel: {
+                                    formatter: '{value} $'
+                                }
+                            },
+                            series: [
+                                {
+                                    name: '最高价',
+                                    type: 'line',
+                                    data: useDataValue,
+                                    markPoint: {
+                                        data: [
+                                            {type: 'max', name: '最大值'},
+                                            {type: 'min', name: '最小值'}
+                                        ]
+                                    },
+                                    markLine: {
+                                        data: [
+                                            {type: 'average', name: '平均值'}
+                                        ]
+                                    }
+                                }
+                            ]
+                        };
+
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart.setOption(option);
+                    </script>
+                </td>
+                </tr>
+        </table>
+
+
     </div>
-
 </div>
-
-
 <div class="footer">mysql+python</div>
-<script src="global/js/jquery-3.3.1.min.js"></script>
-<script src="global/js/bootstrap.min.js"></script>
+<script th:src="@{/global/js/jquery-3.3.1.min.js}"></script>
+<script th:src="@{/global/js/bootstrap.min.js}"></script>
 </body>
 </html>
