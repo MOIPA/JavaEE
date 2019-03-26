@@ -4,9 +4,10 @@
 <head>
     <title>DataShow</title>
     <meta charset="UTF-8" name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
-    <link rel="stylesheet" th:href="@{/global/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/global/css/bootstrap.css}"/>
     <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
     <script th:src="@{/global/js/echarts-en.common.js}"></script>
+    <script th:src="@{/global/js/echarts.js}"></script>
     <!--<link rel="stylesheet" th:href="@{/table/table.css}">-->
     <style>
         .footer {
@@ -107,6 +108,213 @@
                                 data: useDataValue
                             }]
                         };
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart.setOption(option);
+                    </script>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                    <div id="chartC" style="width: 450px;height:300px;"></div>
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart = echarts.init(document.getElementById('chartC'), 'light');
+                        var respDataTemp = '[[${resp}]]';
+                        var respData = JSON.parse(respDataTemp.replace(/&quot;/g, "\""));
+                        // 指定图表的配置项和数据
+                        var useDataBar=[];
+                        for(var i=0;i<respData.length;i++){
+                            useDataBar.push(respData[i].brand);
+                        }
+                        var useDataValue=[];
+                        for(var i=0;i<respData.length;i++){
+                            useDataValue.push(respData[i].avgPrice);
+                        }
+                        //以上定义数据源
+                        option = {
+                            title: {
+                                text: '中低端品牌价格变化趋势表',
+                                subtext: '价格流量'
+                            },
+                            tooltip: {
+                                trigger: 'axis'
+                            },
+                            legend: {
+                                data:['最高价格','最低价格']
+                            },
+                            toolbox: {
+                                show: true,
+                                feature: {
+                                    dataZoom: {
+                                        yAxisIndex: 'none'
+                                    },
+                                    dataView: {readOnly: false},
+                                    magicType: {type: ['line', 'bar']},
+                                    restore: {},
+                                    saveAsImage: {}
+                                }
+                            },
+                            xAxis:  {
+                                type: 'category',
+                                boundaryGap: false,
+                                data: useDataBar
+                            },
+                            yAxis: {
+                                type: 'value',
+                                axisLabel: {
+                                    formatter: '{value} $'
+                                }
+                            },
+                            series: [
+                                {
+                                    name:'最高价',
+                                    type:'line',
+                                    data:useDataValue,
+                                    markPoint: {
+                                        data: [
+                                            {type: 'max', name: '最大值'},
+                                            {type: 'min', name: '最小值'}
+                                        ]
+                                    },
+                                    markLine: {
+                                        data: [
+                                            {type: 'average', name: '平均值'}
+                                        ]
+                                    }
+                                }
+                            ]
+                        };
+
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart.setOption(option);
+                    </script>
+                </td>
+                <td>
+                    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                    <div id="chartD" style="width: 450px;height:300px;"></div>
+                    <script type="text/javascript">
+                        // 基于准备好的dom，初始化echarts实例
+                        var myChart = echarts.init(document.getElementById('chartD'), 'light');
+                        var respDataTemp = '[[${resp}]]';
+                        var respData = JSON.parse(respDataTemp.replace(/&quot;/g, "\""));
+                        // 指定图表的配置项和数据
+                        var useDataBar=[];
+                        var fakeData=[];
+                        for(var i=0;i<respData.length;i++){
+                            useDataBar.push(respData[i].brand);
+                        }
+                        var useDataValue=[];
+                        for(var i=0;i<respData.length;i++){
+                            fakeData.push(respData[i].avgPrice);
+                            fakeData.push(respData[i].avgPrice);
+                            useDataValue.push(fakeData);
+                        }
+                        //以上定义数据源
+
+                        var data = [
+                            [5000, 10000],
+                            [4000, 10000],
+                            [3000, 6500],
+                            [2500, 5600],
+                            [2000, 4000],
+                            [2000, 4000],
+                            [2500, 4000],
+                            [1800, 4000],
+                            [2000, 3500],
+                            [2000, 3000],
+                            [1800, 3000],
+                            [2000, 2700],
+                            [1500, 2800],
+                            [1500, 2300],
+                            [1600, 3500],
+                            [1500, 2600],
+                            [1500, 2417.54],
+                            [1500, 2000],
+                            [1500, 1800]
+                        ];
+                        var cities = ['北京', '上海', '深圳', '广州', '苏州', '杭州', '南京', '福州', '青岛', '济南', '长春', '大连', '温州', '郑州', '武汉', '成都', '东莞', '沈阳', '烟台'];
+                        var barHeight = 50;
+
+                        option = {
+                            title: {
+                                text: '在中国租个房子有多贵？',
+                                subtext: '市中心一室月租费（数据来源：https://www.numbeo.com）'
+                            },
+                            legend: {
+                                show: true,
+                                data: ['价格范围', '均值']
+                            },
+                            grid: {
+                                top: 100
+                            },
+                            angleAxis: {
+                                type: 'category',
+                                data: cities
+                            },
+                            tooltip: {
+                                show: true,
+                                formatter: function (params) {
+                                    var id = params.dataIndex;
+                                    return cities[id] + '<br>最低：' + data[id][0] + '<br>最高：' + data[id][1] + '<br>平均：' + data[id][2];
+                                }
+                            },
+                            radiusAxis: {
+                            },
+                            polar: {
+                            },
+                            series: [{
+                                type: 'bar',
+                                itemStyle: {
+                                    normal: {
+                                        color: 'transparent'
+                                    }
+                                },
+                                data: data.map(function (d) {
+                                    return d[0];
+                                }),
+                                coordinateSystem: 'polar',
+                                stack: '最大最小值',
+                                silent: true
+                            }, {
+                                type: 'bar',
+                                data: data.map(function (d) {
+                                    return d[1] - d[0];
+                                }),
+                                coordinateSystem: 'polar',
+                                name: '价格范围',
+                                stack: '最大最小值'
+                            }, {
+                                type: 'bar',
+                                itemStyle: {
+                                    normal: {
+                                        color: 'transparent'
+                                    }
+                                },
+                                data: data.map(function (d) {
+                                    return d[2] - barHeight;
+                                }),
+                                coordinateSystem: 'polar',
+                                stack: '均值',
+                                silent: true,
+                                z: 10
+                            }, {
+                                type: 'bar',
+                                data: data.map(function (d) {
+                                    return barHeight * 2
+                                }),
+                                coordinateSystem: 'polar',
+                                name: '均值',
+                                stack: '均值',
+                                barGap: '-100%',
+                                z: 10
+                            }],
+                            legend: {
+                                show: true,
+                                data: ['A', 'B', 'C']
+                            }
+                        };
+
                         // 使用刚指定的配置项和数据显示图表。
                         myChart.setOption(option);
                     </script>
