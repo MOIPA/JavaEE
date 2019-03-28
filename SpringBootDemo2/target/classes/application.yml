@@ -1,0 +1,16 @@
+my:
+  name: tr
+  age: 18
+  number: ${random.int}
+  greeting: hi,i'am ${my.name}
+
+spring:
+  profiles:
+    active: dev
+server:
+  port: 8090
+management:
+  server:
+    port: 9001
+  endpoints:
+    enabled-by-default: true

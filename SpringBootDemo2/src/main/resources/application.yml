@@ -1,0 +1,37 @@
+my:
+  name: tr
+  age: 18
+  number: ${random.int}
+  greeting: hi,i'am ${my.name}
+
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://39.108.159.175:3306/MyTest?useUnicode=true&characterEncoding=utf8
+    data-username: root
+    data-password: 0800
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  redis:
+    host: 39.108.159.175
+    port: 6379
+    password:
+    database: 1
+    pool:
+
+    jedis:
+      pool:
+        max-idle: 500
+        max-wait: -1
+        max-active: 8
+server:
+  port: 8090
+management:
+  server:
+    port: 9001
+  endpoints:
+    enabled-by-default: true
