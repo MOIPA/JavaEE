@@ -35,52 +35,52 @@
             <a class="btn btn-primary btn-large" th:href="@{~/}">返回首页</a>
         </p>
 
-        <table style="height: 400px;width: 1200px;position: center">
-            <tr>
-                <td>
+        <!--<table style="height: 400px;width: 1200px;position: center">-->
+            <!--<tr>-->
+                <!--<td>-->
+                    <!--&lt;!&ndash; 为ECharts准备一个具备大小（宽高）的Dom &ndash;&gt;-->
+                    <!--<div id="chartA" style="width: 450px;height:300px;"></div>-->
+                    <!--<script type="text/javascript">-->
+                        <!--// 基于准备好的dom，初始化echarts实例-->
+                        <!--var myChart = echarts.init(document.getElementById('chartA'), 'light');-->
+                        <!--var respDataTemp = '[[${resp}]]';-->
+                        <!--var respData = JSON.parse(respDataTemp.replace(/&quot;/g, "\""));-->
+                        <!--console.log(respData);-->
+                        <!--// 指定图表的配置项和数据-->
+                        <!--var useDataBar = [];-->
+                        <!--for (var i = 0; i < respData.length; i++) {-->
+                            <!--useDataBar.push(respData[i].priceInterver);-->
+                        <!--}-->
+                        <!--var useDataValue = [];-->
+                        <!--for (var i = 0; i < respData.length; i++) {-->
+                            <!--useDataValue.push(respData[i].number);-->
+                        <!--}-->
+                        <!--//以上定义数据源-->
+                        <!--var option = {-->
+                            <!--title: {-->
+                                <!--text: '柱状图'-->
+                            <!--},-->
+                            <!--tooltip: {},-->
+                            <!--legend: {-->
+                                <!--data: ['平均价格']-->
+                            <!--},-->
+                            <!--xAxis: {-->
+                                <!--data: useDataBar-->
+                            <!--},-->
+                            <!--yAxis: {},-->
+                            <!--series: [{-->
+                                <!--name: '销售价格',-->
+                                <!--type: 'bar',-->
+                                <!--data: useDataValue-->
+                            <!--}]-->
+                        <!--};-->
+                        <!--// 使用刚指定的配置项和数据显示图表。-->
+                        <!--myChart.setOption(option);-->
+                    <!--</script>-->
+                <!--</td>-->
+                <!--<td rowspan="2" width="800px">-->
                     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-                    <div id="chartA" style="width: 450px;height:300px;"></div>
-                    <script type="text/javascript">
-                        // 基于准备好的dom，初始化echarts实例
-                        var myChart = echarts.init(document.getElementById('chartA'), 'light');
-                        var respDataTemp = '[[${resp}]]';
-                        var respData = JSON.parse(respDataTemp.replace(/&quot;/g, "\""));
-                        console.log(respData);
-                        // 指定图表的配置项和数据
-                        var useDataBar = [];
-                        for (var i = 0; i < respData.length; i++) {
-                            useDataBar.push(respData[i].priceInterver);
-                        }
-                        var useDataValue = [];
-                        for (var i = 0; i < respData.length; i++) {
-                            useDataValue.push(respData[i].number);
-                        }
-                        //以上定义数据源
-                        var option = {
-                            title: {
-                                text: '柱状图'
-                            },
-                            tooltip: {},
-                            legend: {
-                                data: ['平均价格']
-                            },
-                            xAxis: {
-                                data: useDataBar
-                            },
-                            yAxis: {},
-                            series: [{
-                                name: '销售价格',
-                                type: 'bar',
-                                data: useDataValue
-                            }]
-                        };
-                        // 使用刚指定的配置项和数据显示图表。
-                        myChart.setOption(option);
-                    </script>
-                </td>
-                <td rowspan="2" width="800px">
-                    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-                    <div id="chartB" style="width: 600px;height:100%;margin-top: 50px;"></div>
+                    <div id="chartB" style="width: 900px;height:1000px;margin-top: 50px;"></div>
                     <script type="text/javascript">
                         // 基于准备好的dom，初始化echarts实例
                         var myChart = echarts.init(document.getElementById('chartB'));
@@ -211,87 +211,87 @@
                         // 使用刚指定的配置项和数据显示图表。
                         myChart.setOption(option);
                     </script>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-                    <div id="chartC" style="width: 450px;height:300px;"></div>
-                    <script type="text/javascript">
-                        // 基于准备好的dom，初始化echarts实例
-                        var myChart = echarts.init(document.getElementById('chartC'), 'light');
-                        var respDataTemp = '[[${resp}]]';
-                        var respData = JSON.parse(respDataTemp.replace(/&quot;/g, "\""));
-                        // 指定图表的配置项和数据
-                        var useDataBar = [];
-                        for (var i = 0; i < respData.length; i++) {
-                            useDataBar.push(respData[i].priceInterver);
-                        }
-                        var useDataValue = [];
-                        for (var i = 0; i < respData.length; i++) {
-                            useDataValue.push(respData[i].number);
-                        }
-                        //以上定义数据源
-                        option = {
-                            title: {
-                                text: '中低端品牌价格变化趋势表',
-                                subtext: '价格流量'
-                            },
-                            tooltip: {
-                                trigger: 'axis'
-                            },
-                            legend: {
-                                data: ['最高价格', '最低价格']
-                            },
-                            toolbox: {
-                                show: true,
-                                feature: {
-                                    dataZoom: {
-                                        yAxisIndex: 'none'
-                                    },
-                                    dataView: {readOnly: false},
-                                    magicType: {type: ['line', 'bar']},
-                                    restore: {},
-                                    saveAsImage: {}
-                                }
-                            },
-                            xAxis: {
-                                type: 'category',
-                                boundaryGap: false,
-                                data: useDataBar
-                            },
-                            yAxis: {
-                                type: 'value',
-                                axisLabel: {
-                                    formatter: '{value} $'
-                                }
-                            },
-                            series: [
-                                {
-                                    name: '最高价',
-                                    type: 'line',
-                                    data: useDataValue,
-                                    markPoint: {
-                                        data: [
-                                            {type: 'max', name: '最大值'},
-                                            {type: 'min', name: '最小值'}
-                                        ]
-                                    },
-                                    markLine: {
-                                        data: [
-                                            {type: 'average', name: '平均值'}
-                                        ]
-                                    }
-                                }
-                            ]
-                        };
+                <!--</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>-->
+                    <!--&lt;!&ndash; 为ECharts准备一个具备大小（宽高）的Dom &ndash;&gt;-->
+                    <!--<div id="chartC" style="width: 450px;height:300px;"></div>-->
+                    <!--<script type="text/javascript">-->
+                        <!--// 基于准备好的dom，初始化echarts实例-->
+                        <!--var myChart = echarts.init(document.getElementById('chartC'), 'light');-->
+                        <!--var respDataTemp = '[[${resp}]]';-->
+                        <!--var respData = JSON.parse(respDataTemp.replace(/&quot;/g, "\""));-->
+                        <!--// 指定图表的配置项和数据-->
+                        <!--var useDataBar = [];-->
+                        <!--for (var i = 0; i < respData.length; i++) {-->
+                            <!--useDataBar.push(respData[i].priceInterver);-->
+                        <!--}-->
+                        <!--var useDataValue = [];-->
+                        <!--for (var i = 0; i < respData.length; i++) {-->
+                            <!--useDataValue.push(respData[i].number);-->
+                        <!--}-->
+                        <!--//以上定义数据源-->
+                        <!--option = {-->
+                            <!--title: {-->
+                                <!--text: '中低端品牌价格变化趋势表',-->
+                                <!--subtext: '价格流量'-->
+                            <!--},-->
+                            <!--tooltip: {-->
+                                <!--trigger: 'axis'-->
+                            <!--},-->
+                            <!--legend: {-->
+                                <!--data: ['最高价格', '最低价格']-->
+                            <!--},-->
+                            <!--toolbox: {-->
+                                <!--show: true,-->
+                                <!--feature: {-->
+                                    <!--dataZoom: {-->
+                                        <!--yAxisIndex: 'none'-->
+                                    <!--},-->
+                                    <!--dataView: {readOnly: false},-->
+                                    <!--magicType: {type: ['line', 'bar']},-->
+                                    <!--restore: {},-->
+                                    <!--saveAsImage: {}-->
+                                <!--}-->
+                            <!--},-->
+                            <!--xAxis: {-->
+                                <!--type: 'category',-->
+                                <!--boundaryGap: false,-->
+                                <!--data: useDataBar-->
+                            <!--},-->
+                            <!--yAxis: {-->
+                                <!--type: 'value',-->
+                                <!--axisLabel: {-->
+                                    <!--formatter: '{value} $'-->
+                                <!--}-->
+                            <!--},-->
+                            <!--series: [-->
+                                <!--{-->
+                                    <!--name: '最高价',-->
+                                    <!--type: 'line',-->
+                                    <!--data: useDataValue,-->
+                                    <!--markPoint: {-->
+                                        <!--data: [-->
+                                            <!--{type: 'max', name: '最大值'},-->
+                                            <!--{type: 'min', name: '最小值'}-->
+                                        <!--]-->
+                                    <!--},-->
+                                    <!--markLine: {-->
+                                        <!--data: [-->
+                                            <!--{type: 'average', name: '平均值'}-->
+                                        <!--]-->
+                                    <!--}-->
+                                <!--}-->
+                            <!--]-->
+                        <!--};-->
 
-                        // 使用刚指定的配置项和数据显示图表。
-                        myChart.setOption(option);
-                    </script>
-                </td>
-                </tr>
-        </table>
+                        <!--// 使用刚指定的配置项和数据显示图表。-->
+                        <!--myChart.setOption(option);-->
+                    <!--</script>-->
+                <!--</td>-->
+                <!--</tr>-->
+        <!--</table>-->
 
 
     </div>
